@@ -9,8 +9,8 @@
 </h1>
 <ul>
     @foreach($genres_data as $genre_data)
-  <li>($genre_data->genre)</li>
-  @endforeach
+        <li>($genre_data->genre)</li>
+    @endforeach
 </ul>
 <script src="/js/main.js"></script>
 @endsection
