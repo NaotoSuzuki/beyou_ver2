@@ -12,6 +12,7 @@ class indexController extends Controller
         $genres = new Genre();
         $genres_data = $genres->getData();
 
+        // dd($genres_data);
         // return view('pages/index',compact('genres_data'));
         return view('pages.index', ['genres_data' => $genres_data]);
     }
