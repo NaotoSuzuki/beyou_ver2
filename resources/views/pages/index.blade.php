@@ -4,7 +4,7 @@
 
 @section('content')
 <h1>
-  <a href="{{ url('/posts/create') }}" class="header-menu">Beyou</a>
+  <a href="/" class="header-menu">Beyou</a>
   文法を選んでください。
 </h1>
 <ul>
