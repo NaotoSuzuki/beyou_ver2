@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/index', 'indexController@index_indicate')->name('index');
+Route::get('/', 'indexController@index')->name('index');
