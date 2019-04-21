@@ -18,3 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'indexController@index')->name('index');
+
+Route::get('/question/{genre_value}','questionController@show');
