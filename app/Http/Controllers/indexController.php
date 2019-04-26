@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Genre;
 
+
 class indexController extends Controller
 {
     //
@@ -14,6 +15,7 @@ class indexController extends Controller
 
         // dd($genres_data);
         // return view('pages/index',compact('genres_data'));
-        return view('pages.index', ['genres_data' => $genres_data]);
+
+        return view('pages.index')->with('genres_data',$genres_data) ;
     }
 }

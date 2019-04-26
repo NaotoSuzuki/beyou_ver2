@@ -10,9 +10,9 @@
     <div class = "container , text-center">
         <div class="row">
             @foreach($genres_data as $genre_data)
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <p>{{$genre_data->genre}}</p>
-                    
+                    <p><a href ="{{ action('QuestionController@show', $genre_data->genre_value) }}">問題を解く</a></p>
                 </div>
             @endforeach
         </div>
