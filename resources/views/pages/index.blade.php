@@ -12,8 +12,10 @@
             @foreach($genres_data as $genre_data)
                 <div class="col-sm-4">
                     <p>{{$genre_data->genre}}</p>
-                    <p><a href ="{{ action('QuestionController@show', $genre_data->genre_value) }}">問題を解く</a></p>
+                    <p><a href ="{{ action('QuestionController@showQuestions', $genre_data->genre_value) }}">問題を解く</a></p>
+                    <p><a href ="{{ action('QuestionController@showQuestions', $genre_data->genre_value) }}">{{$genre_data->genre}}とは</a></p>
                 </div>
+
             @endforeach
         </div>
     </div>

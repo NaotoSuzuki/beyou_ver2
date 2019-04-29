@@ -10,7 +10,6 @@
     <div class = "container , text-center">
         <div class="row">
             {{$genre}}
-            {{$hoge}}
-        </div>
+         </div>
     </div>
 @endsection

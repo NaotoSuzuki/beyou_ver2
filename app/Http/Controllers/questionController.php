@@ -12,15 +12,10 @@ class QuestionController extends Controller
     logger()->info("111111");
     }
 
-    public function show($genre_value){
+    public function showQuestions($genre_value){
         $genre = Genre::find($genre_value);
-        // Log::info("2222222");
-// logger()->info(var_dump($genre_value));
-logger()->error(var_dump($genre_value));
-throw new \Exception("Error Processing Request", 1);
 
-logger()->info(var_dump($genre));
-        return view('questions.show',['genre'=> $genre_value,'hoge' => 'hogeeeeeeee']);
+        return view('questions.showQuestions',['genre'=> $genre_value]);
 
     }
 }
