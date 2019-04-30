@@ -10,7 +10,7 @@
 {!! nl2br(e($user_name)) !!}"文法"です。
     <div class = "container , text-center">
         <div class="row">
-            {{$genre}}
+            {{$genre_value}}
          </div>
     </div>
 @endsection

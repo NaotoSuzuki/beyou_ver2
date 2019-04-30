@@ -16,9 +16,8 @@ class QuestionController extends Controller
 
 
     public function showQuestions($genre_value){
-        $genre = Genre::find($genre_value);
         $user_data = Auth::user();
         $user_name = $user_data -> name;
-        return view('questions.showQuestions',compact('genre','user_name'));
+        return view('questions.showQuestions',compact('genre_value','user_name'));
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSamllQuestionsTable extends Migration
+class CreateSmallQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSamllQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('samll_questions', function (Blueprint $table) {
+        Schema::create('small_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('genre_value');
             $table->integer('big_question_id');
@@ -31,6 +31,6 @@ class CreateSamllQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('samll_questions');
+        Schema::dropIfExists('small_questions');
     }
 }
