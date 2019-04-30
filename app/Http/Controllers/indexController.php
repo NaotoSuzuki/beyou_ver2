@@ -14,9 +14,9 @@ class IndexController extends Controller
      return view('pages.index')->with('genres_data',$genres_data) ;
     }
 
-    public function explain($genre_value){
+    public function explain($genre){
         //genresはindexクラスのプロパティにすべき
-        $genre = Genre::find($genre_value);
-        return view('pages.explain',['genre'=> $genre_value]);
+        $genre = Genre::find($genre);
+        return view('pages.explain',['genre'=> $genre]);
     }
 }
