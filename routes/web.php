@@ -16,8 +16,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'IndexController@index')->name('index');
+Route::get('/', 'IndexController@home')->name('home');
+// Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/explain/{genre_value}', 'IndexController@explain')->name('explain');
 Route::get('/questions/{genre_value}','QuestionController@showQuestions');
 

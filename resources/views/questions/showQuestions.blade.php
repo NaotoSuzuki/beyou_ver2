@@ -5,8 +5,9 @@
 @section('content')
 <h1>
   <a href="/" class="header-menu">Beyou</a>
-  "文法"です。
+ 
 </h1>
+{!! nl2br(e($user_name)) !!}"文法"です。
     <div class = "container , text-center">
         <div class="row">
             {{$genre}}
