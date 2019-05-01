@@ -24,9 +24,9 @@ class Small_question extends Model
     //     return $small_records;
     //     }
 
-        public function getSmallQuestions()
+        public function genre()
         {
-            return $this->belongsTo('App\Models\Big_question');
+            return $this->belongsTo('App\Models\Genre');
         }
 }
         

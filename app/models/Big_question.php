@@ -13,17 +13,14 @@ class Big_question extends Model
     public $timestamps = false;
 
 
-    //DBから大問題データを全件取得
-    // public function getBigQuestions()
-    // {
-    // $big_records = DB::table($this->table)->get();
-        
-    // return $big_records;
-    // }
-
+   // DBから大問題データを全件取得
     public function getBigQuestions()
     {
-        return $this->hasMany('App\Models\Small_question');
+    $big_records = DB::table($this->table)->get();
+        
+    return $big_records;
     }
+
+   
 
 }
