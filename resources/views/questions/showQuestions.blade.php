@@ -17,7 +17,7 @@
 
     @foreach($small_questions as $small_question)
       <div>
-      {{$small_question->question}}
+         {{$small_question->question}}
       </div>
     @endforeach
   
