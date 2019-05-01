@@ -10,13 +10,20 @@ class Big_question extends Model
 
     protected $table = 'big_questions';
     protected $guarded = array('id');
+    public $timestamps = false;
+
 
     //DBから大問題データを全件取得
-    public function getBigQuestion()
-    {
-    $big_records = DB::table($this->table)->get();
+    // public function getBigQuestions()
+    // {
+    // $big_records = DB::table($this->table)->get();
         
-    return $big_records;
+    // return $big_records;
+    // }
+
+    public function getBigQuestions()
+    {
+        return $this->hasMany('App\Models\Small_question');
     }
 
 }

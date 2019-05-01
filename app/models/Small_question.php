@@ -9,19 +9,27 @@ class Small_question extends Model
 {
     //
     protected $fillable = ['genre_value','big_question_id','question_num','question','answer'];
-    
     protected $table = 'small_questions';
     protected $guarded = array('id');
+    public $timestamps = false;
+
 
    
 
     //DBから小問題データを全件取得
-    public function getSmallQuestion()
-        {
-        $small_records = DB::table($this->table)->get();
+    // public function getSmallQuestions()
+    //     {
+    //     $small_records = DB::table($this->table)->get();
             
-        return $small_records;
+    //     return $small_records;
+    //     }
+
+        public function getSmallQuestions()
+        {
+            return $this->belongsTo('App\Models\Big_question');
         }
+}
+        
 
     // //DBからの問題データを表示用の配列を生成
     // public function formQuestion($small_records){
@@ -39,4 +47,4 @@ class Small_question extends Model
     //     return $questions;
     // }
 
-}
+
