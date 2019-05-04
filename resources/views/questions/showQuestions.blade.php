@@ -9,17 +9,26 @@
     
     <p>{!! nl2br(e($user_name)) !!}"文法"です。</p>
    
-    <div class = "container , text-center">
-        <div class="row">
-            {{$genre_value}}
-         </div>
-    </div>
 
-    @foreach($small_questions as $small_question)
-      <div>
-         {{$small_question->question}}
-      </div>
-    @endforeach
+    <form action = "{{url('/questions/answer/$genre_value')}}" method="post">
+      
+      @foreach($questions as $key => $bigQ_record)
+                <div class="answer">
+                <?php $count = count($bigQ_record["questions"]) ?>
+                <?php $trueCount = $count-1 ?>
+                <?php echo $key.".".$bigQ_record["big_question"] ?><br>
+                    <?php for($i = 0; $i <= $trueCount; $i++) :?>
+                        <?php $num = $i+1 ?>
+                        <?php $user_answer = $num.$bigQ_record["questions"][$i] ?>
+                        <?php echo "(".$num.")".$bigQ_record["questions"][$i] ?><br>
+                      <input type = "text" name = "small_answers[<?php echo $key ?>][<?php echo $num ?>]"></input>
+                      <br>
+                    <?php endfor ?>
+                <br>
+                <br>            
+        @endforeach
+			<input type = "submit" name="" value = "答え合わせをする" />
+		</form>
   
     
 @endsection

@@ -17,9 +17,9 @@ class Genre extends Model
      return $genre_data;
     }
 
-    // public function getGenre(){
-    //     $genres = DB::table($this->table)->get();
-    // return $genres;
-    // }
+    public function small_questions()
+    {
+        return $this->hasMany('App\Models\Small_question');
+    }
 
 }

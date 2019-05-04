@@ -25,7 +25,6 @@ class QuestionController extends Controller
                           ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
                           ->where('small_questions.genre_value','=',$genre_value)
                           ->select('small_questions.*', 'big_questions.big_question')
-                         
                           ->get();
 
         foreach($small_questions_array as $record_value){
@@ -40,12 +39,7 @@ class QuestionController extends Controller
             $questions[$i]["questions"]=$questions2[$i];
         }
                            
-        dd($questions);                   
-         return view('questions.showQuestions',compact('genre_value','user_name','small_questions'));
+         return view('questions.showQuestions',compact('genre_value','user_name','questions'));
     }
 }
-   // // $big_questions = Big_question::all();
-        // // $big_que = $big_questions['question'];
-        // $genre = Genre::where('genre_value',$genre_value)->get();
-        // // $small_questions = $genre->small_questions;
-        // //  dd($small_questions->toArray());
+  
