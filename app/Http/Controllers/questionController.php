@@ -48,7 +48,6 @@ class QuestionController extends Controller
 
 
 
-
     public function correctQuestions(Request $small_answers){
         $user_data = Auth::user();
         $user_id = $user_data -> id;
@@ -67,8 +66,7 @@ class QuestionController extends Controller
         ->where('small_questions.genre_value','=',$genre_value)
         ->select('small_questions.*', 'big_questions.big_question')
         ->get();
-      
-        $questions1 = [];
+
 
          foreach( $small_records  as $record_value){
                     $big_que=$record_value->big_question_id;
@@ -90,7 +88,7 @@ class QuestionController extends Controller
                 }
           
             
-
+         
         return view('questions.correctQuestions',compact('questions','genre_value','small_answers','big_records'));
 
     }

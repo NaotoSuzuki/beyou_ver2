@@ -18,6 +18,7 @@
     <p>{!! nl2br(e($user_name)) !!}"文法"です。</p>
    
     <form action = "" name = "" method = "post">
+    @csrf
             <?php foreach($questions as $key  => $bigQ_record) :?>
                 <div class = "answer">
                     <?php $count  =  count($bigQ_record["questions"]) ?>
