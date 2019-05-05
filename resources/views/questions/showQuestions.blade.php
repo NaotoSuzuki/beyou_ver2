@@ -8,9 +8,8 @@
     </h1>
     
     <p>{!! nl2br(e($user_name)) !!}"文法"です。</p>
-   
-
-    <form action = "{{url('/questions/answer/$genre_value')}}" method="post">
+    {{$genre_value}}
+    <form action = "{{url('/questions/answer')}}" method="post">
     @csrf
       @foreach($questions as $key => $bigQ_record)
                  
@@ -28,8 +27,9 @@
                 <br>
                 <br>            
         @endforeach
+        <input type = "hidden" name = "{{$genre_value}}" value = "{{$genre_value}}">
 			<input type = "submit" name="" value = "答え合わせをする" />
 		</form>
-  
+    
     
 @endsection
