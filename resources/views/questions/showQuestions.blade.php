@@ -11,8 +11,9 @@
    
 
     <form action = "{{url('/questions/answer/$genre_value')}}" method="post">
-      
+    @csrf
       @foreach($questions as $key => $bigQ_record)
+                 
                 <div class="answer">
                 <?php $count = count($bigQ_record["questions"]) ?>
                 <?php $trueCount = $count-1 ?>
