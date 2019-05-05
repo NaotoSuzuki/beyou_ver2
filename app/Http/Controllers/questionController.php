@@ -52,10 +52,12 @@ class QuestionController extends Controller
         $user_data = Auth::user();
         $user_id = $user_data -> id;
 
+        
+
         // $questionsの情報は複数ページで使われているので共通化できる。多分モデルに書く？
         //以下はquestion取得時とことなる。なので、laravel風に書き直すこと
-        $genre_value = $small_answers->beverb;
-
+        $genre_value = $small_answers->genre_value;
+     
         $big_records = DB::table('big_questions')
         ->select('big_questions.*')
         ->get();
@@ -77,8 +79,7 @@ class QuestionController extends Controller
                   
                     $questions2[$big_que][]=$small_q;
                     $answers[$big_que][]=$small_a;
-                    
-                }
+               }
 
                 
                 for($i=1; $i<=3; $i++ ){
