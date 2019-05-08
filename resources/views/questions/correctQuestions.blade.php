@@ -24,8 +24,8 @@
                             <?php echo "答え".$bigQ_record["answers"][$i] ?>
                             <p><?php echo"あなたの答え: ".$small_answers[$key][$num] ?></p>
                             <input type = "hidden" name = "user_answer[<?php echo $key ?>][<?php echo $num ?>]" value = "<?php echo $small_answers[$key][$num] ?>">
-                            <input type = "checkbox" name = "result[<?php echo $key ?>][<?php echo $num ?>]" value = "1">正解した！</input><br>
-                            <input type = "checkbox" name = "result[<?php echo $key?>][<?php echo $num ?>]" value = "0">間違えた！</input><br>
+                            <input type = "checkbox" name = "result[<?php echo $key ?>][<?php echo $num ?>]" value = "1">正解した！<br>
+                            <input type = "checkbox" name = "result[<?php echo $key?>][<?php echo $num ?>]" value = "0">間違えた！<br>
                         <?php endfor ?>
                     <br>
                     <br>
@@ -34,6 +34,7 @@
 
             <input type = "submit" name = "save" value = "結果を保存する(復習の参考にできます！)" />
 			<input type = "hidden" name = "genre_value" value  =  "{{$genre_value}}"/>
+            <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
             <input type = "hidden" name = "small_answers" value = "<?php $roop_answers?>"/>
 
 		</form>

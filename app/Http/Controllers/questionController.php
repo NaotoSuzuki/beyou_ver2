@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Genre;
 use App\Models\Small_question;
 use App\Models\Big_question;
+use App\Models\User_answer;
 use DB;
 
 
@@ -92,16 +93,31 @@ class QuestionController extends Controller
           
             
          
-        return view('questions.correctQuestions',compact('questions','genre_value','small_answers','big_records'));
+        return view('questions.correctQuestions',compact('user_id','questions','genre_value','small_answers','big_records'));
 
     }
 
-    public function saveAnswers(Request $user_answers){
+    public function saveAnswers(Request $request){
         //保存するだけの機能。
+        //$requestの配列をかみ砕いて、createかinsertメソッドにするしかない
+        // 参考url https://kengotakimoto.com/post-2562/#insert https://www.ritolab.com/entry/93#aj_16_1
+        //上記の最初のサイトを見るに、beyouではinsertをforechで回してやっと実現できそう
+        //てかそもそも、postデータに対する以下の処理をしていなかったのでやる
+        // $results = $_POST["result"];
+        // $user_answer_array  =  $_POST["user_answer"];
+        // $answer_datas  =  formUserAnswer($user_id, $genre_param, $results, $user_answer_array, $big_records, $small_records);
+        // putUserAnwser($answer_datas);
+      
+        dd($request->toArray());
 
-        dd($user_answers->toArray());
-        
-        
+        $date = new DateTime();
+        $date->format('Y-m-d H:i:s');
+        // $user_answers->toArray();
+        // $user_answers_array = (array)$user_answers;
+        // ($user_answers_array );
+        // $insert_answers = new User_answer;
+        // $inserted_answers = $insert_answers->create($user_answers_array);
+        // dd( $inserted_answers);
 
          }
 
@@ -109,7 +125,7 @@ class QuestionController extends Controller
          function insertUserAnwser($answer_datas){
             try {
                 $pdo = new PDO("mysql:host=localhost; dbname=beyou; charset=utf8", 'test', 'test');
-                $answer_sql = "INSERT INTO users_answer (
+                $answer_sql = "INSERT INTO users_answers (
                     user_id,
                     genre_value,
                     big_questions_id,
@@ -132,13 +148,13 @@ class QuestionController extends Controller
                     $stmt=$pdo->prepare($answer_sql);
                     $user_id=$answer_data["user_id"];
                     $genre_param=$answer_data["genre_value"];
-                    $big_ID=$answer_data["big_questions_id"];
+                    $big_ID=$answer_data["big_question_id"];
                     $question_num=$answer_data["question_num"];
                     $user_answer=$answer_data["user_answer"];
                     $result=$answer_data["result"];
                     $stmt->bindParam(":user_id", $user_id);
                     $stmt->bindParam(":genre_value", $genre_param);
-                    $stmt->bindParam(":big_questions_id", $big_ID);
+                    $stmt->bindParam(":big_question_id", $big_ID);
                     $stmt->bindParam(":question_num", $question_num);
                     $stmt->bindParam(":user_answer", $user_answer);
                     $stmt->bindParam(":result", $result);
