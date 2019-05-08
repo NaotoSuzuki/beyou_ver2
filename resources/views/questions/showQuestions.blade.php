@@ -20,7 +20,7 @@
                         <?php $num = $i+1 ?>
                         <?php $user_answer = $num.$bigQ_record["questions"][$i] ?>
                         <?php echo "(".$num.")".$bigQ_record["questions"][$i] ?><br>
-                      <input type = "text" name = "small_answers[<?php echo $key ?>][<?php echo $num ?>]"></input>
+                      <input type = "text" name = "small_answers[<?php echo $key ?>][<?php echo $num ?>]">
                       <br>
                     <?php endfor ?>
                 <br>

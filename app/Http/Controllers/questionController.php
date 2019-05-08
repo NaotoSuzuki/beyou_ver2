@@ -48,19 +48,22 @@ class QuestionController extends Controller
 
 
 
-    public function correctQuestions(Request $small_answers){
+    public function correctQuestions(Request $small_datas){
         $user_data = Auth::user();
         $user_id = $user_data -> id;
-
         
 
         // $questionsの情報は複数ページで使われているので共通化できる。多分モデルに書く？
         //以下はquestion取得時とことなる。なので、laravel風に書き直すこと
-        $genre_value = $small_answers->genre_value;
+        $genre_value = $small_datas->genre_value;
+
+        $small_answers = $small_datas->small_answers;
      
         $big_records = DB::table('big_questions')
         ->select('big_questions.*')
         ->get();
+        
+       
 
 
         $small_records = DB::table('small_questions')
@@ -68,7 +71,7 @@ class QuestionController extends Controller
         ->where('small_questions.genre_value','=',$genre_value)
         ->select('small_questions.*', 'big_questions.big_question')
         ->get();
-
+        
 
          foreach( $small_records  as $record_value){
                     $big_que=$record_value->big_question_id;
@@ -80,8 +83,7 @@ class QuestionController extends Controller
                     $questions2[$big_que][]=$small_q;
                     $answers[$big_que][]=$small_a;
                }
-
-                
+               
                 for($i=1; $i<=3; $i++ ){
                     $questions[$i]=$questions1[$i];
                     $questions[$i]["questions"]=$questions2[$i];
@@ -94,25 +96,61 @@ class QuestionController extends Controller
 
     }
 
-    public function saveAnswers($genre_value,Request $small_answers){
+    public function saveAnswers(Request $user_answers){
         //保存するだけの機能。
-            $post = new Post();
 
-        // 以下は原本から取ってきたコード
-        // function formUserAnswer($user_id,$genre_param,$results,$user_answer_array,$big_records,$small_records){
-        //     foreach ($big_records as $big_value){
-        //         foreach($small_records as $small_value){
-        //             if($big_value["id"]==$small_value["big_questions_id"]){
-        //                     $big_num=$big_value["id"] ;
-        //                     $small_num=$small_value["question_num"];
-        //                     $small = $user_answer_array[$big_num][$small_num];
-        //                     $result=$results[$big_num][$small_num];
-        //                     $answer_datas[]=["user_id"=>$user_id, "genre_value"=>$genre_param, "big_questions_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result];
-        //             }
-        //         }
-        //     }
-        //     return $answer_datas;
-        // }
-    }
+        dd($user_answers->toArray());
+        
+        
+
+         }
+
+         //保存用sql
+         function insertUserAnwser($answer_datas){
+            try {
+                $pdo = new PDO("mysql:host=localhost; dbname=beyou; charset=utf8", 'test', 'test');
+                $answer_sql = "INSERT INTO users_answer (
+                    user_id,
+                    genre_value,
+                    big_questions_id,
+                    question_num,
+                    user_answer,
+                    result,
+                    created
+                ) VALUES (
+                    :user_id,
+                    :genre_value,
+                    :big_questions_id,
+                    :question_num,
+                    :user_answer,
+                    :result,
+                    :created
+                )";
+                $date = new DateTime();
+                $date->format('Y-m-d H:i:s');
+                foreach ($answer_datas as $answer_data){
+                    $stmt=$pdo->prepare($answer_sql);
+                    $user_id=$answer_data["user_id"];
+                    $genre_param=$answer_data["genre_value"];
+                    $big_ID=$answer_data["big_questions_id"];
+                    $question_num=$answer_data["question_num"];
+                    $user_answer=$answer_data["user_answer"];
+                    $result=$answer_data["result"];
+                    $stmt->bindParam(":user_id", $user_id);
+                    $stmt->bindParam(":genre_value", $genre_param);
+                    $stmt->bindParam(":big_questions_id", $big_ID);
+                    $stmt->bindParam(":question_num", $question_num);
+                    $stmt->bindParam(":user_answer", $user_answer);
+                    $stmt->bindParam(":result", $result);
+                    $stmt->bindParam(":created", $date);
+                    $stmt->execute();
+                    // $dbh->insertRecord($answer_sql,$answer_bind_array);
+                }
+            }
+             catch(PDOException $e) {
+                echo $e->getMessage();
+                die();
+            }
+        }
 }
   

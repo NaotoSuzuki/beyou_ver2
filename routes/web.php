@@ -18,5 +18,5 @@ Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/explain/{genre_value}', 'IndexController@explain')->name('explain');
 Route::get('/questions/question/{genre_value}','QuestionController@showQuestions');
 Route::POST('/questions/answer','QuestionController@correctQuestions');
-
+Route::POST('/questions/answer/save','QuestionController@saveAnswers');
 
