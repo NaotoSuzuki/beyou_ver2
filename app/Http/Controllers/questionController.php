@@ -22,7 +22,8 @@ class QuestionController extends Controller
     public function showQuestions($genre_value){
         $user_data = Auth::user();
         $user_name = $user_data -> name;
-
+        $user_id = $user_data -> id;
+     
 
         $small_questions_array = DB::table('small_questions')
                           ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
@@ -44,7 +45,7 @@ class QuestionController extends Controller
             $questions[$i]["questions"]=$questions2[$i];
         }
                            
-         return view('questions.showQuestions',compact('genre_value','user_name','questions'));
+         return view('questions.showQuestions',compact('user_id','genre_value','user_name','questions'));
     }
 
 
@@ -98,17 +99,53 @@ class QuestionController extends Controller
     }
 
     public function saveAnswers(Request $request){
-        //保存するだけの機能。
-        //$requestの配列をかみ砕いて、createかinsertメソッドにするしかない
-        // 参考url https://kengotakimoto.com/post-2562/#insert https://www.ritolab.com/entry/93#aj_16_1
-        //上記の最初のサイトを見るに、beyouではinsertをforechで回してやっと実現できそう
-        //てかそもそも、postデータに対する以下の処理をしていなかったのでやる
-        // $results = $_POST["result"];
-        // $user_answer_array  =  $_POST["user_answer"];
-        // $answer_datas  =  formUserAnswer($user_id, $genre_param, $results, $user_answer_array, $big_records, $small_records);
-        // putUserAnwser($answer_datas);
-      
-        dd($request->toArray());
+       //保存に必要なデータ。絶対あかんけどひとまず
+        $user_id = $request->id;
+        $results = $request->result;
+        $user_answer_array= $request->user_answer;
+        $genre_value =  $request->genre_value;
+
+        $big_records= DB::table('big_questions')
+        ->select('big_questions.*')
+        ->get();
+
+        $small_records = DB::table('small_questions')
+        ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
+        ->where('small_questions.genre_value','=',$genre_value)
+        ->select('small_questions.*', 'big_questions.big_question')
+        ->get();
+
+       
+
+        foreach ($big_records as $big_value){
+            foreach($small_records as $small_value){
+                if($big_value->id == $small_value->big_question_id){
+                        $big_num=$big_value->id ;
+                        $small_num=$small_value->question_num;
+                        $small = $user_answer_array[$big_num][$small_num];
+                        $result=$results[$big_num][$small_num];
+                        $answer_datas[]=["user_id"=>$user_id, "genre_value"=>$genre_value, "big_questions_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result];
+                }
+            }
+        }
+     
+        
+        
+        // foreach ($big_records as $big_value){
+        //         foreach($small_records as $small_value){
+        //             if($big_value["id"]==$small_value["big_questions_id"]){
+        //                     $big_num=$big_value["id"] ;
+        //                     $small_num=$small_value["question_num"];
+        //                     $small = $user_answer_array[$big_num][$small_num];
+        //                     $result=$results[$big_num][$small_num];
+        //                     $answer_datas[]=["user_id"=>$user_id, "genre_value"=>$genre_param, "big_questions_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result];
+        //             }
+        //         }
+        //     }
+           
+
+        //上述のデータを保存用の配列に組みこむ。これもあかんけどひとまず
+    
 
         $date = new DateTime();
         $date->format('Y-m-d H:i:s');
