@@ -116,93 +116,29 @@ class QuestionController extends Controller
         ->get();
 
        
-
-        foreach ($big_records as $big_value){
+         //上述のデータを保存用の配列に組みこむ。これもあかんけどひとまず
+        //resultがすべて入力されていないとundefinedoffsetエラー発生（それかキャッシュのせいだったかもしれんが)
+         foreach ($big_records as $big_value){
             foreach($small_records as $small_value){
                 if($big_value->id == $small_value->big_question_id){
                         $big_num=$big_value->id ;
                         $small_num=$small_value->question_num;
                         $small = $user_answer_array[$big_num][$small_num];
                         $result=$results[$big_num][$small_num];
-                        $answer_datas[]=["user_id"=>$user_id, "genre_value"=>$genre_value, "big_question_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result];
+                        // $answer_datas[]=["user_id"=>$user_id, "genre_value"=>$genre_value, "big_question_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result];
+                     
+                        DB::table('user_answers')->insert([
+                            ["user_id"=>$user_id, "genre_value"=>$genre_value, "big_question_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result] 
+                        ]);
                 }
             }
         }
-       
+
         
-        // foreach ($big_records as $big_value){
-        //         foreach($small_records as $small_value){
-        //             if($big_value["id"]==$small_value["big_questions_id"]){
-        //                     $big_num=$big_value["id"] ;
-        //                     $small_num=$small_value["question_num"];
-        //                     $small = $user_answer_array[$big_num][$small_num];
-        //                     $result=$results[$big_num][$small_num];
-        //                     $answer_datas[]=["user_id"=>$user_id, "genre_value"=>$genre_param, "big_questions_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result];
-        //             }
-        //         }
-        //     }
-           
 
-        //上述のデータを保存用の配列に組みこむ。これもあかんけどひとまず
-    
+  
+     }
 
-        $date = new DateTime();
-        $date->format('Y-m-d H:i:s');
-        // $user_answers->toArray();
-        // $user_answers_array = (array)$user_answers;
-        // ($user_answers_array );
-        // $insert_answers = new User_answer;
-        // $inserted_answers = $insert_answers->create($user_answers_array);
-        // dd( $inserted_answers);
-
-         }
-
-         //保存用sql
-         function insertUserAnwser($answer_datas){
-            try {
-                $pdo = new PDO("mysql:host=localhost; dbname=beyou; charset=utf8", 'test', 'test');
-                $answer_sql = "INSERT INTO users_answers (
-                    user_id,
-                    genre_value,
-                    big_questions_id,
-                    question_num,
-                    user_answer,
-                    result,
-                    created
-                ) VALUES (
-                    :user_id,
-                    :genre_value,
-                    :big_questions_id,
-                    :question_num,
-                    :user_answer,
-                    :result,
-                    :created
-                )";
-                $date = new DateTime();
-                $date->format('Y-m-d H:i:s');
-                foreach ($answer_datas as $answer_data){
-                    $stmt=$pdo->prepare($answer_sql);
-                    $user_id=$answer_data["user_id"];
-                    $genre_param=$answer_data["genre_value"];
-                    $big_ID=$answer_data["big_question_id"];
-                    $question_num=$answer_data["question_num"];
-                    $user_answer=$answer_data["user_answer"];
-                    $result=$answer_data["result"];
-                    $stmt->bindParam(":user_id", $user_id);
-                    $stmt->bindParam(":genre_value", $genre_param);
-                    $stmt->bindParam(":big_question_id", $big_ID);
-                    $stmt->bindParam(":question_num", $question_num);
-                    $stmt->bindParam(":user_answer", $user_answer);
-                    $stmt->bindParam(":result", $result);
-                    $stmt->bindParam(":created", $date);
-                    $stmt->execute();
-                    // $dbh->insertRecord($answer_sql,$answer_bind_array);
-                }
-            }
-             catch(PDOException $e) {
-                echo $e->getMessage();
-                die();
-            }
-        }
+       
 }
   
