@@ -100,7 +100,7 @@ class QuestionController extends Controller
 
     public function saveAnswers(Request $request){
        //保存に必要なデータ。絶対あかんけどひとまず
-        $user_id = $request->id;
+        $user_id = $request->user_id;
         $results = $request->result;
         $user_answer_array= $request->user_answer;
         $genre_value =  $request->genre_value;
@@ -124,12 +124,11 @@ class QuestionController extends Controller
                         $small_num=$small_value->question_num;
                         $small = $user_answer_array[$big_num][$small_num];
                         $result=$results[$big_num][$small_num];
-                        $answer_datas[]=["user_id"=>$user_id, "genre_value"=>$genre_value, "big_questions_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result];
+                        $answer_datas[]=["user_id"=>$user_id, "genre_value"=>$genre_value, "big_question_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result];
                 }
             }
         }
-     
-        
+       
         
         // foreach ($big_records as $big_value){
         //         foreach($small_records as $small_value){
