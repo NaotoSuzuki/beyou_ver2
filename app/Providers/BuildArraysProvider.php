@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Helpers\ArrayBuilder;
+use App\Helpers\BuildArrayHelper;
 
 class BuildArraysProvider extends ServiceProvider
 {
@@ -15,8 +15,8 @@ class BuildArraysProvider extends ServiceProvider
     public function register()
     {
         //引数はどうやってメソッドに渡すのかね？そもそも処理の流れがよくわかってないですが
-        $this->app->bind('indicateQuesstionsArray', function(Application $app){
-            return new ArrayBuilder();
+        $this->app->bind('BuildQuestionArray', function(Application $app){
+            return new BuildArray();
           });
     }
 

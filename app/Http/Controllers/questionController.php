@@ -32,6 +32,8 @@ class QuestionController extends Controller
                           ->get();
 
                          
+       $a = indicateQuesstionsArray::buildQuestionArray($small_questions_array );
+       dd($a);
 
         foreach($small_questions_array as $record_value){
             $big_que=$record_value->big_question_id;

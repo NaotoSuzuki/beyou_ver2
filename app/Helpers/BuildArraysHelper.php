@@ -4,9 +4,9 @@ namespace App\Helpers;
 
 
  
-class ArrayBuilder
+class BuildArray
 {
-    public function indicateQuesstionsArray($small_questions_array){
+    public function buildQuestionArray($small_questions_array){
 
         foreach($small_questions_array as $record_value){
             $big_que=$record_value->big_question_id;
