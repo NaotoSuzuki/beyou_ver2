@@ -174,7 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\BuildQuestionArraysProvider::class,
+        App\Providers\BuildQuestionArrayProvider::class,
+        App\Providers\HogeServiceProvider::class,
 
     ],
 
@@ -226,7 +227,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'BuildQuestionArray' => App\Facades\BuildQuestionArrayFacade::class
+        'BuildQuestionArray' => App\Facades\BuildQuestionArray::class,
+        'Hoge' => App\Facades\Hoge::class,
     ],
 
 ];

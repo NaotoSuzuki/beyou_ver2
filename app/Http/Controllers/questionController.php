@@ -8,7 +8,7 @@ use App\Models\Genre;
 use App\Models\Small_question;
 use App\Models\Big_question;
 use App\Models\User_answer;
-use App\Facades\BuildQuesstionArray;
+use App\Facades\BuildQuestionArray;
 use DB;
 
 
@@ -31,11 +31,13 @@ class QuestionController extends Controller
                           ->where('small_questions.genre_value','=',$genre_value)
                           ->select('small_questions.*', 'big_questions.big_question')
                           ->get();
+       $b = Hoge::echoHoge();
+       dd($b);
 
                          
-       $a = BuildQuesstionArray::buildQuestionArray($small_questions_array );
-       dd($a);
-
+       $a = BuildQuestionArray::buildQuestionArray($small_questions_array);
+       
+       
         foreach($small_questions_array as $record_value){
             $big_que=$record_value->big_question_id;
             $big_q=$record_value->big_question;

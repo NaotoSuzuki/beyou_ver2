@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 
  
-class BuildArray
+class BuildQuestionArray
 {
     public function buildQuestionArray($small_questions_array){
 

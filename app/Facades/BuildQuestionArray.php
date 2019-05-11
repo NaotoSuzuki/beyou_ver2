@@ -2,11 +2,11 @@
 namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
  
-class BuildQuestionArrayFacade extends Facade
+class BuildQuestionArray extends Facade
 {
   protected static function getFacadeAccessor()
   {
-    return 'BuildQuestionArray';
+    return 'buildQuestionArray';
   }
 }
 
