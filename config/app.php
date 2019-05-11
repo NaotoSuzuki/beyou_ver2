@@ -174,7 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\BuildArraysProvider::class,
+        App\Providers\BuildQuestionArraysProvider::class,
 
     ],
 
@@ -226,7 +226,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'IndicateQuesstionsArray' => App\Facades\BuildArrayFacade::class
+        'BuildQuestionArray' => App\Facades\BuildQuestionArrayFacade::class
     ],
 
 ];

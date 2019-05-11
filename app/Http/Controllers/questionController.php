@@ -8,6 +8,7 @@ use App\Models\Genre;
 use App\Models\Small_question;
 use App\Models\Big_question;
 use App\Models\User_answer;
+use App\Facades\BuildQuesstionArray;
 use DB;
 
 
@@ -32,7 +33,7 @@ class QuestionController extends Controller
                           ->get();
 
                          
-       $a = indicateQuesstionsArray::buildQuestionArray($small_questions_array );
+       $a = BuildQuesstionArray::buildQuestionArray($small_questions_array );
        dd($a);
 
         foreach($small_questions_array as $record_value){

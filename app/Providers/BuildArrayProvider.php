@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Helpers\BuildArrayHelper;
+use App\Helpers\BuildQuestionArrayHelper;
 
-class BuildArraysProvider extends ServiceProvider
+class BuildQuestionArrayProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -15,9 +15,11 @@ class BuildArraysProvider extends ServiceProvider
     public function register()
     {
         //引数はどうやってメソッドに渡すのかね？そもそも処理の流れがよくわかってないですが
-        $this->app->bind('BuildQuestionArray', function(Application $app){
-            return new BuildArray();
-          });
+        // $this->app->bind('BuildQuestionArray', function(Application $app){
+        //     return new BuildQuestionArrayHelper();
+        //   });
+        //別のサイトのやりかたhttps://www.ritolab.com/entry/88
+        $this->app->bind('BuildQuestionArray', 'BuildQuestionArrayHelper');
     }
 
     /**
