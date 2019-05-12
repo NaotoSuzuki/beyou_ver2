@@ -24,19 +24,14 @@ class QuestionController extends Controller
         $user_data = Auth::user();
         $user_name = $user_data -> name;
         $user_id = $user_data -> id;
-     
+      
 
         $small_questions_array = DB::table('small_questions')
                           ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
                           ->where('small_questions.genre_value','=',$genre_value)
                           ->select('small_questions.*', 'big_questions.big_question')
                           ->get();
-       $b = Hoge::echoHoge();
-       dd($b);
-
-                         
-       $a = BuildQuestionArray::buildQuestionArray($small_questions_array);
-       
+   
        
         foreach($small_questions_array as $record_value){
             $big_que=$record_value->big_question_id;
@@ -138,6 +133,8 @@ class QuestionController extends Controller
                 }
             }
         }
+
+        return view('questions.afterQuestion',compact('genre_value'));
 
         
 
