@@ -18,13 +18,21 @@ class IndexController extends Controller
     {
         $genres = new Genre();
         $genres_data = $genres->getData();
-        return view('pages.home')->with('genres_data',$genres_data) ;
+
+        
+        $user_data = Auth::user();
+        $user_id = $user_data -> id;
+     return view('pages.index',compact('genres_data','user_id')) ;
     }
 
     public function index(){
         $genres = new Genre();
         $genres_data = $genres->getData();
-     return view('pages.index')->with('genres_data',$genres_data) ;
+
+        
+        $user_data = Auth::user();
+        $user_id = $user_data -> id;
+     return view('pages.index',compact('genres_data','user_id')) ;
     }
 
     public function explain($genre_value,$genres){
@@ -33,32 +41,30 @@ class IndexController extends Controller
         return view('pages.explain',['genre'=> $genre]);
     }
 
-    public function hists(){
+    public function showHists($user_id){
         $user_data = Auth::user();
         $user_id = $user_data -> id;
 
-        $hist_array = DB::table('user_answers')
+        $hist_arrays = DB::table('user_answers')
         ->orderBy('created','desc')
-        ->join('genres','users_answers.genre_value','=','genres.genre_value')
+        ->join('genres','user_answers.genre_value','=','genres.genre_value')
         ->join('small_questions','user_answers.genre_value','=','small_questions.genre_value')
-        ->join('big_questions','susers_answer.big_questions_id','=','big_questions.id')
-        ->where('susers_answer.user_id','=', $user_id)
+        ->join('big_questions','user_answers.big_question_id','=','big_questions.id')
+        ->where('user_answers.user_id','=', $user_id)
         ->select(
-                'users_answer.genre_value', 
-                'users_answer.big_questions_id', 
-                'users_answer.question_num', 
-                'users_answer.user_answer', 
-                'users_answer.result', 
-                'users_answer.created', 
+                'user_answers.genre_value', 
+                'user_answers.big_question_id', 
+                'user_answers.question_num', 
+                'user_answers.user_answer', 
+                'user_answers.result', 
+                'user_answers.created', 
                 'genres.genre', 
                 'small_questions.answer', 
-                ' big_questions.question', 
-               
+                'big_questions.big_question'       
         )
         ->get();
-        dd($hist_array);
            
-           return $hist_array;
+           return view('pages.study_hist',compact('hist_arrays'));
     
  
     }
