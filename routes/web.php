@@ -16,6 +16,7 @@ Auth::routes();
 // Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/hists/{user_id}', 'IndexController@showHists');
+Route::get('/hists/detail/{created}', 'IndexController@histDetail');
 Route::get('/explain/{genre_value}', 'IndexController@explain')->name('explain');
 Route::get('/questions/question/{genre_value}','QuestionController@showQuestions');
 Route::POST('/questions/answer','QuestionController@correctQuestions');

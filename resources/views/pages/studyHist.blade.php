@@ -18,12 +18,14 @@
                     <?php foreach($hist_arrays as $hist_array): ?>
                         <?php if($time == 0 || $time !== $hist_array->created) :?>
                             <div class="item">
-                                 <a href = "study_hist_detail.php?name=<?php  echo $hist_array->created ?>">
-                                    <p><?php echo $hist_array->genre."　".$hist_array->created ?></p>
+                            <?php $created = $hist_array->created ?>
+                            <?php $genre_value = $hist_array->genre ?>
+                                <a href =  "{{ action('IndexController@histDetail', $created, $genre_value) }}">
+                                <p><?php echo $genre_value."　".$created ?></p>
                                 </a>
                             </div>
                         <?php endif ?>
-                    <?php $time = $hist_array->created?>
+                    <?php $time =$created?>
                 <?php endforeach?>
          
         </div>
