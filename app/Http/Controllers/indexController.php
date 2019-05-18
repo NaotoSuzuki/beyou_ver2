@@ -70,21 +70,23 @@ class IndexController extends Controller
     }
 
 
-    public function histDetail($created ,$genre_value){
+    public function histDetail(Request $hist_info){
 
+
+
+        
         $user_data = Auth::user();
         $user_id = $user_data -> id;
-
+        $genre_value = $hist_info->genre_value;
+        $created = $hist_info->created;
 
         $hist_indicate_datas = DB::table('user_answers')
         ->orderBy('big_question_id','asc') ->orderBy('question_num','asc')
-        ->join([
-                    ['small_questions','user_answers.genre_value','=','small_questions.genre_value'],
-                    ['small_questions','user_answers.big_question_id','=','small_questions.big_question_id'],
-                    ['small_questions','user_answers.question_num','=','small_questions.question_num'],
-                    ['small_questions',' user_answers.genre_value','=', $genre_value],
-                    ['big_questions',' user_answers.big_question_id','=',' big_questions.id']
-                 ])
+        ->join('small_questions','user_answers.genre_value','=','small_questions.genre_value')
+        ->join('small_questions','user_answers.big_question_id','=','small_questions.big_question_id')
+        ->join('small_questions','user_answers.question_num','=','small_questions.question_num')
+        ->join('small_questions',' user_answers.genre_value','=', $genre_value)
+        ->join('big_questions',' user_answers.big_question_id','=','big_questions.id')
         ->where([
                     ['user_answers.user_id','=', $user_id],
                     ['user_answers.created' ,'=' , $created],
@@ -99,11 +101,41 @@ class IndexController extends Controller
                 'user_answers.result', 
                 'user_answers.created', 
                 'genres.genre', 
-                'small_questions.question'->name('small_question'),
+                'small_questions.question as small_question',
                 'small_questions.answer', 
-                'big_questions.big_question'->name('big_question')  
+                'big_questions.big_question as big_question'
         )
         ->get();
+
+        dd($hist_indicate_datas);
+
+
+        // $hist_indicate_datas = DB::table('user_answers')
+        // ->orderBy('big_question_id','asc') ->orderBy('question_num','asc')
+        // ->join('small_questions','user_answers.genre_value','=','small_questions.genre_value')
+        // ->join('small_questions','user_answers.big_question_id','=','small_questions.big_question_id')
+        // ->join('small_questions','user_answers.question_num','=','small_questions.question_num')
+        // ->join('small_questions',' user_answers.genre_value','=', $genre_value)
+        // ->join('big_questions',' user_answers.big_question_id','=','big_questions.id')
+        // ->where([
+        //             ['user_answers.user_id','=', $user_id],
+        //             ['user_answers.created' ,'=' , $created],
+        //             ['user_answers.genre_value' ,'=', $genre_value],
+        //             ['small_questions.genre_value' ,'=', $genre_value],
+        //         ])
+        // ->select(
+        //         'user_answers.genre_value', 
+        //         'user_answers.big_question_id', 
+        //         'user_answers.question_num', 
+        //         'user_answers.user_answer', 
+        //         'user_answers.result', 
+        //         'user_answers.created', 
+        //         'genres.genre', 
+        //         'small_questions.question as small_question',
+        //         'small_questions.answer', 
+        //         'big_questions.big_question as big_question'
+        // )
+        // ->get();
 
         foreach ($hist_indicate_datas as $hist_indicate_data) {
             $big_que=$hist_indicate_data->big_question_id;
