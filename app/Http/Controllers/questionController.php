@@ -25,14 +25,14 @@ class QuestionController extends Controller
         $user_name = $user_data -> name;
         $user_id = $user_data -> id;
       
-
+        
         $small_questions_array = DB::table('small_questions')
                           ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
                           ->where('small_questions.genre_value','=',$genre_value)
                           ->select('small_questions.*', 'big_questions.big_question')
                           ->get();
    
-       
+                         
         foreach($small_questions_array as $record_value){
             $big_que=$record_value->big_question_id;
             $big_q=$record_value->big_question;
@@ -70,7 +70,7 @@ class QuestionController extends Controller
 
         $small_records = DB::table('small_questions')
         ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
-        ->where('small_questions.genre_value','=',$genre_value)
+        ->where('small_questions.genre_value','=', $genre_value)
         ->select('small_questions.*', 'big_questions.big_question')
         ->get();
         
