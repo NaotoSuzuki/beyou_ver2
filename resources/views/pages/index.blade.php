@@ -27,7 +27,7 @@
   文法を選んでください。
   <br>
   {{$user_id}}
-  <p><a href ="{{ action('IndexController@showHists', $user_id) }}">回答履歴を見る</a></p>
+  <p><a href ="{{ action('IndexController@show_Hists', $user_id) }}">回答履歴を見る</a></p>
 </h1>
     <div class = "container , text-center">
         <div class="row">
