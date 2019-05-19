@@ -77,6 +77,7 @@ class IndexController extends Controller
         
         $user_data = Auth::user();
         $user_id = $user_data -> id;
+        $user_name = $user_data -> name;
         $genre_value = $hist_info->genre_value;
         $created = $hist_info->created;
        
@@ -91,7 +92,7 @@ class IndexController extends Controller
             $join->on('user_answers.genre_value','=','small_questions.genre_value');
             $join->on('user_answers.big_question_id','=','small_questions.big_question_id');
             $join->on('user_answers.question_num','=','small_questions.question_num');
-            // ->orOn('user_answers.genre_value','=', $genre_value);
+            // ->orOn だと、
         })
         ->join('big_questions','user_answers.big_question_id','=','big_questions.id')
         ->where([
@@ -112,34 +113,14 @@ class IndexController extends Controller
                 'big_questions.big_question'
         )
         ->get();
-        
-        dd($hist_indicate_datas);
 
-        // select `user_answers`.`genre_value`,
-        //  `user_answers`.`big_question_id`,
-        //   `user_answers`.`question_num`,
-        //    `user_answers`.`user_answer`, 
-        //    `user_answers`.`result`,
-        //     `user_answers`.`created`,
-        //      `small_questions`.`question`,
-        //       `small_questions`.`answer`,
-        //        `big_questions`.`big_question`
+        // dd($hist_indicate_datas);
         
-        // from `user_answers`
         
-        // inner join `small_questions` on `user_answers`.`genre_value` = `small_questions`.`genre_value`
-        //  or `user_answers`.`big_question_id` = `small_questions`.`big_question_id`
-        //  or `user_answers`.`question_num` = `small_questions`.`question_num` 
-        //  inner join `big_questions` on `user_answers`.`big_question_id` = `big_questions`.`id` 
-
-        //   where (`user_answers`.`user_id` = ? and `user_answers`.`created` = ? and `user_answers`.`genre_value` = ? and `small_questions`.`genre_value` = ?) 
-        //   order by `big_question_id` asc, `question_num` asc
-
-      
         foreach ($hist_indicate_datas as $hist_indicate_data) {
             $big_que=$hist_indicate_data->big_question_id;
             $big_q=$hist_indicate_data->big_question;
-            $small_q = $hist_indicate_data->small_question;
+            $small_q = $hist_indicate_data->question;
             $small_a=$hist_indicate_data->answer;
             $user_a=$hist_indicate_data->user_answer;
             $user_r=$hist_indicate_data->result;
@@ -159,7 +140,7 @@ class IndexController extends Controller
 
 
            
-           return view('pages.studyHistDetail',compact('hist_indicates'));
+           return view('pages.studyHistDetail',compact('hist_indicates','user_name','created'));
     
     }
 }

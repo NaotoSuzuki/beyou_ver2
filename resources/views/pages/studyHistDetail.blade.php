@@ -13,7 +13,7 @@
     <a href="/" class="header-menu">トップページに戻る</a>
 
 
-    <p><?php echo $_SESSION["NAME"]?>さんが<?php echo $created ?>に解いた問題の結果です！</p>
+    <p>{{$created}}に解いた問題の結果です！</p>
         <?php foreach($hist_indicates as $key =>  $hist_indicate) :?>
             <div class = "answer">
             <?php $count = count($hist_indicates) ?>
