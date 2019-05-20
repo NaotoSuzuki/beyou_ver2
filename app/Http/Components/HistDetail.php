@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Components;
 
+use DB;
+
 class HistDetail{
 
     public function histDetail($user_id, $created, $genre_value){
@@ -34,6 +36,7 @@ class HistDetail{
         )
         ->get();
 
+            
 
             foreach ($hist_indicate_datas as $hist_indicate_data) {
                 $big_que=$hist_indicate_data->big_question_id;
@@ -55,6 +58,6 @@ class HistDetail{
                 $hist_indicates[$i]["user_answers"]=$user_answers[$i];
                 $hist_indicates[$i]["user_result"]=$user_results[$i];
             }
-            return $hist_indicate;
+            return $hist_indicates;
     }
 }

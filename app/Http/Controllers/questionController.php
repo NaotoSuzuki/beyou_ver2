@@ -133,7 +133,7 @@ class QuestionController extends Controller
                 }
             }
         }
-
+   
         return view('questions.afterQuestion',compact('genre_value'));
 
         
