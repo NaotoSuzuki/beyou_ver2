@@ -9,6 +9,8 @@ use App\Models\Small_question;
 use App\Models\Big_question;
 use App\Models\User_answer;
 use App\Facades\BuildQuestionArray;
+use App\Http\Components\Question\ShowQuestionsComponent;
+
 use DB;
 
 
@@ -20,31 +22,13 @@ class QuestionController extends Controller
     }
 
 
-    public function showQuestions($genre_value){
+    public function showQuestions($genre_value, ShowQuestionsComponent $indicateQuestions){
         $user_data = Auth::user();
         $user_name = $user_data -> name;
         $user_id = $user_data -> id;
-      
-        
-        $small_questions_array = DB::table('small_questions')
-                          ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
-                          ->where('small_questions.genre_value','=',$genre_value)
-                          ->select('small_questions.*', 'big_questions.big_question')
-                          ->get();
-   
-                         
-        foreach($small_questions_array as $record_value){
-            $big_que=$record_value->big_question_id;
-            $big_q=$record_value->big_question;
-            $small_q=$record_value->question;
-            $questions1[$big_que]=["big_question"=>$big_q];
-            $questions2[$big_que][]=$small_q;
-        }
-        for($i=1; $i<=3; $i++ ){
-            $questions[$i]=$questions1[$i];
-            $questions[$i]["questions"]=$questions2[$i];
-        }
-                           
+
+        $questions = $indicateQuestions->showQuestionsComponent($genre_value);
+        // dd($questions);      
          return view('questions.showQuestions',compact('user_id','genre_value','user_name','questions'));
     }
 
