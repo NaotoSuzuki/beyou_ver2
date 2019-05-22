@@ -20,7 +20,8 @@
             <?php $trueCount = $count-1 ?>
             <?php echo $key.".".$hist_indicate["big_question"] ?><br>
                 <?php for($i = 0; $i <= $trueCount; $i++) :?>
-                    <?php $num = $i ?>
+                    <?php $num = $i+1 ?>
+                    <?php var_dump($i)?>
                   
                     <?php echo "(".$num.")".$hist_indicate["questions"][$i] ?><br>
                     <?php echo "答え".$hist_indicate["answers"][$i] ?>

@@ -57,7 +57,11 @@ class HistDetail{
                 $hist_indicates[$i]["answers"]=$answers[$i];
                 $hist_indicates[$i]["user_answers"]=$user_answers[$i];
                 $hist_indicates[$i]["user_result"]=$user_results[$i];
+              
             }
+
+            // dd($hist_indicates);
+           
             return $hist_indicates;
     }
 }
