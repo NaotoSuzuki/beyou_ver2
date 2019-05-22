@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Components;
+namespace App\Http\Components\Index;
 
 use DB;
 

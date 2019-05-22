@@ -6,8 +6,8 @@ use DB;
 use App\Models\Genre;
 use App\Facades\Hoge;
 use Illuminate\Http\Request;
-use App\Http\Components\ShowHists;
-use App\Http\Components\HistDetail;
+use App\Http\Components\Index\ShowHists;
+use App\Http\Components\Index\HistDetail;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
