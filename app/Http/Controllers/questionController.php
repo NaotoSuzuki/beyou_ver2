@@ -12,6 +12,8 @@ use App\Facades\BuildQuestionArray;
 use App\Http\Components\Question\ShowQuestionsComponent;
 use App\Http\Components\Question\CorrectQuestionsComponent;
 use App\Http\Components\Question\SaveAnswersComponent;
+use App\Http\Components\DataProvider\SmallQuestionProvider;
+use App\Http\Components\DataProvider\BigQuestionProvider;
 
 
 
@@ -20,10 +22,40 @@ use DB;
 
 class QuestionController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
+    //以下のデータはプロパティにすべき
+    // $user_data = Auth::user();
+    // $user_id = $user_data -> id;
+
+    // $big_records= DB::table('big_questions')
+    // ->select('big_questions.*')
+    // ->get();
+
+    // $small_records = DB::table('small_questions')
+    // ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
+    // ->where('small_questions.genre_value','=',$genre_value)
+    // ->select('small_questions.*', 'big_questions.big_question')
+    // ->get();
+
+    private $big_records;
+    
+
+    public function getBig(BigQuestionProvider $big_provide){
+        $big = $big_provide->bigQuestionProvider();
+        return $big;
     }
+
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+
+    //     $this->big_records = $big_provide->bigQuestionProvider();
+    // }
+
+    // public function getBigRecords(){
+
+    //     return   $this->big_records;
+    // }
 
 
     public function showQuestions($genre_value, ShowQuestionsComponent $indicateQuestions){

@@ -5,6 +5,7 @@
     use DB;
     class ShowQuestionsComponent{
         public function showQuestionsComponent($genre_value){
+            
             $small_questions_array = DB::table('small_questions')
                 ->orderBy('big_question_id', 'asc')
                 ->orderBy('question_num', 'asc')
