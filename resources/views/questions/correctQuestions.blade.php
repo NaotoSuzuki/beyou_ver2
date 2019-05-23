@@ -11,7 +11,7 @@
    
     <form action = "{{url('/questions/answer/save')}}" name = "save" method = "post">
     @csrf
-            <?php foreach($questions as $key  => $bigQ_record) :?>
+            <?php foreach($answeredQuestions as $key  => $bigQ_record) :?>
                 <div class = "answer">
                     <?php $count  =  count($bigQ_record["questions"]) ?>
                     <?php $trueCount = $count-1 ?>

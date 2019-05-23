@@ -11,6 +11,8 @@ use App\Models\User_answer;
 use App\Facades\BuildQuestionArray;
 use App\Http\Components\Question\ShowQuestionsComponent;
 use App\Http\Components\Question\CorrectQuestionsComponent;
+use App\Http\Components\Question\SaveAnswersComponent;
+
 
 
 use DB;
@@ -30,7 +32,7 @@ class QuestionController extends Controller
         $user_id = $user_data -> id;
 
         $questions = $indicateQuestions->showQuestionsComponent($genre_value);
-        // dd($questions);      
+      
          return view('questions.showQuestions',compact('user_id','genre_value','user_name','questions'));
     }
 
@@ -47,54 +49,23 @@ class QuestionController extends Controller
         ->select('big_questions.*')
         ->get();
    
-        $questions = $correct-> correctQuestionsComponent($genre_value);
+        $answeredQuestions = $correct-> correctQuestionsComponent($genre_value);
     
-        return view('questions.correctQuestions',compact('user_id','questions','genre_value','small_answers','big_records'));
+        return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records'));
 
     }
 
-    public function saveAnswers(Request $request　){
+    public function saveAnswers(Request $request,  SaveAnswersComponent $save){
        //保存に必要なデータ。絶対あかんけどひとまず
         $user_id = $request->user_id;
         $results = $request->result;
         $user_answer_array= $request->user_answer;
         $genre_value =  $request->genre_value;
 
-        $big_records= DB::table('big_questions')
-        ->select('big_questions.*')
-        ->get();
-
-        $small_records = DB::table('small_questions')
-        ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
-        ->where('small_questions.genre_value','=',$genre_value)
-        ->select('small_questions.*', 'big_questions.big_question')
-        ->get();
-
-       
-         //上述のデータを保存用の配列に組みこむ。これもあかんけどひとまず
-        //resultがすべて入力されていないとundefinedoffsetエラー発生（それかキャッシュのせいだったかもしれんが)
-         foreach ($big_records as $big_value){
-            foreach($small_records as $small_value){
-                if($big_value->id == $small_value->big_question_id){
-                        $big_num=$big_value->id ;
-                        $small_num=$small_value->question_num;
-                        $small = $user_answer_array[$big_num][$small_num];
-                        $result=$results[$big_num][$small_num];
-                        // $answer_datas[]=["user_id"=>$user_id, "genre_value"=>$genre_value, "big_question_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result];
-                     
-                        DB::table('user_answers')->insert([
-                            ["user_id"=>$user_id, "genre_value"=>$genre_value, "big_question_id"=>$big_num,"question_num"=>$small_num, "user_answer"=>$small ,"result"=>$result] 
-                        ]);
-                }
-            }
-        }
+        $save->saveAnswersComponent($genre_value, $user_answer_array, $results, $user_id);
         
         return view('questions.afterQuestion',compact('genre_value'));
-
-        
-
-  
-     }
+    }
 
        
 }
