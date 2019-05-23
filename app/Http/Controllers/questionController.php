@@ -10,6 +10,8 @@ use App\Models\Big_question;
 use App\Models\User_answer;
 use App\Facades\BuildQuestionArray;
 use App\Http\Components\Question\ShowQuestionsComponent;
+use App\Http\Components\Question\CorrectQuestionsComponent;
+
 
 use DB;
 
@@ -34,55 +36,24 @@ class QuestionController extends Controller
 
 
 
-    public function correctQuestions(Request $small_datas){
+    public function correctQuestions(Request $small_datas, CorrectQuestionsComponent $correct){
         $user_data = Auth::user();
         $user_id = $user_data -> id;
-        
-
-        // $questionsの情報は複数ページで使われているので共通化できる。多分モデルに書く？
-        //以下はquestion取得時とことなる。なので、laravel風に書き直すこと
         $genre_value = $small_datas->genre_value;
-
         $small_answers = $small_datas->small_answers;
+
      
         $big_records = DB::table('big_questions')
         ->select('big_questions.*')
         ->get();
-        
-       
-
-
-        $small_records = DB::table('small_questions')
-        ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
-        ->where('small_questions.genre_value','=', $genre_value)
-        ->select('small_questions.*', 'big_questions.big_question')
-        ->get();
-        
-
-         foreach( $small_records  as $record_value){
-                    $big_que=$record_value->big_question_id;
-                    $big_q=$record_value->big_question;
-                    $small_q=$record_value->question;
-                    $small_a=$record_value->answer;
-                    $questions1[$big_que]=["big_question"=>$big_q];
-                  
-                    $questions2[$big_que][]=$small_q;
-                    $answers[$big_que][]=$small_a;
-               }
-               
-                for($i=1; $i<=3; $i++ ){
-                    $questions[$i]=$questions1[$i];
-                    $questions[$i]["questions"]=$questions2[$i];
-                    $questions[$i]["answers"]=$answers[$i];
-                }
-          
-            
-         
+   
+        $questions = $correct-> correctQuestionsComponent($genre_value);
+    
         return view('questions.correctQuestions',compact('user_id','questions','genre_value','small_answers','big_records'));
 
     }
 
-    public function saveAnswers(Request $request){
+    public function saveAnswers(Request $request　){
        //保存に必要なデータ。絶対あかんけどひとまず
         $user_id = $request->user_id;
         $results = $request->result;
