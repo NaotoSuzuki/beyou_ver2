@@ -28,7 +28,7 @@
                 $questions[$i]["questions"]=$questions2[$i];
             }
 
-            return $small_questions_array;
+            return $questions;
     }
     
 }
