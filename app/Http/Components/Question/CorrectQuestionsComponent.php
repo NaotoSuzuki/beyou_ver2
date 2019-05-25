@@ -4,13 +4,8 @@
     use DB;
     
     class CorrectQuestionsComponent{
-        public function correctQuestionsComponent($genre_value){
-           
-        $small_records = DB::table('small_questions')
-        ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
-        ->where('small_questions.genre_value','=', $genre_value)
-        ->select('small_questions.*', 'big_questions.big_question')
-        ->get();
+        public function correctQuestionsComponent($genre_value, $small_records){
+     
         
          foreach( $small_records  as $record_value){
                     $big_que=$record_value->big_question_id;

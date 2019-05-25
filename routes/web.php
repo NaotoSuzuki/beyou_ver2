@@ -10,10 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//↓が認証周りのルーティング
 Auth::routes();
 // Route::get('/', 'IndexController@home')->name('home');
-// Route::get('/home', 'HomeController@home')->name('home');
+// Route::get('/home', 'HomeController@index');
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/hoge', 'IndexController@hogeTest');
 Route::get('/hists/{user_id}', 'IndexController@show_Hists');

@@ -22,40 +22,47 @@ use DB;
 
 class QuestionController extends Controller
 {
-    //以下のデータはプロパティにすべき
-    // $user_data = Auth::user();
-    // $user_id = $user_data -> id;
-
-    // $big_records= DB::table('big_questions')
-    // ->select('big_questions.*')
-    // ->get();
-
-    // $small_records = DB::table('small_questions')
-    // ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
-    // ->where('small_questions.genre_value','=',$genre_value)
-    // ->select('small_questions.*', 'big_questions.big_question')
-    // ->get();
-
-    private $big_records;
     
-
-    public function getBig(BigQuestionProvider $big_provide){
-        $big = $big_provide->bigQuestionProvider();
-        return $big;
+    // private $user_id;
+   
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
 
-    //     $this->big_records = $big_provide->bigQuestionProvider();
-    // }
+    
 
-    // public function getBigRecords(){
+    private static function getBigRecords(){
+        $big_records= DB::table('big_questions')
+            ->select('big_questions.*')
+            ->get();
+    
+            return  $big_records;
+    
+        } 
 
-    //     return   $this->big_records;
-    // }
+
+
+    
+        private static function getSmallRecords($genre_value){
+    
+            $small_records = DB::table('small_questions')
+            ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
+            ->where('small_questions.genre_value','=', $genre_value)
+            ->select('small_questions.*', 'big_questions.big_question')
+            ->get();
+    
+            return $small_records;
+    
+        } 
+
+
+
+
+
+
 
 
     public function showQuestions($genre_value, ShowQuestionsComponent $indicateQuestions){
@@ -70,31 +77,39 @@ class QuestionController extends Controller
 
 
 
+
+
+
+
+
     public function correctQuestions(Request $small_datas, CorrectQuestionsComponent $correct){
         $user_data = Auth::user();
         $user_id = $user_data -> id;
         $genre_value = $small_datas->genre_value;
         $small_answers = $small_datas->small_answers;
-
-     
-        $big_records = DB::table('big_questions')
-        ->select('big_questions.*')
-        ->get();
-   
-        $answeredQuestions = $correct-> correctQuestionsComponent($genre_value);
+        $big_records = QuestionController::getBigRecords();
+        $small_records = QuestionController::getSmallRecords($genre_value);
+        $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records);
     
         return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records'));
 
     }
 
+
+
+
+
+
     public function saveAnswers(Request $request,  SaveAnswersComponent $save){
-       //保存に必要なデータ。絶対あかんけどひとまず
         $user_id = $request->user_id;
         $results = $request->result;
         $user_answer_array= $request->user_answer;
         $genre_value =  $request->genre_value;
+        $big_records = QuestionController::getBigRecords();
+        $small_records = QuestionController::getSmallRecords($genre_value);
 
-        $save->saveAnswersComponent($genre_value, $user_answer_array, $results, $user_id);
+        $save->saveAnswersComponent($genre_value, $user_answer_array, $results, $user_id, $big_records, $small_records);
+        
         
         return view('questions.afterQuestion',compact('genre_value'));
     }

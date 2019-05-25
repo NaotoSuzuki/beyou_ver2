@@ -19,6 +19,8 @@ class IndexController extends Controller
         $this->middleware('auth');
   }
 
+ 
+
     public function home()
     {
         $genres = new Genre();
