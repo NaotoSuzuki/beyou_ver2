@@ -26,7 +26,8 @@
         @endforeach
         <input type = "hidden" name = "genre_value" value = "{{$genre_value}}">
         <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
-			<input type = "submit" name="" value = "答え合わせをする" />
+			<input type = "submit" name="" value = "答え合わせをする" /><br>
+      <a href="/" class="header-menu">トップページに戻る</a>
 		</form>
     
     

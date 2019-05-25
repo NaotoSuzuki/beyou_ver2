@@ -9,11 +9,10 @@ use App\Models\Small_question;
 use App\Models\Big_question;
 use App\Models\User_answer;
 use App\Facades\BuildQuestionArray;
-use App\Http\Components\Question\ShowQuestionsComponent;
-use App\Http\Components\Question\CorrectQuestionsComponent;
-use App\Http\Components\Question\SaveAnswersComponent;
-use App\Http\Components\DataProvider\SmallQuestionProvider;
-use App\Http\Components\DataProvider\BigQuestionProvider;
+use App\Models\Components\Question\ShowQuestionsComponent;
+use App\Models\Components\Question\CorrectQuestionsComponent;
+use App\Models\Components\Question\SaveAnswersComponent;
+
 
 
 
@@ -111,7 +110,7 @@ class QuestionController extends Controller
         $save->saveAnswersComponent($genre_value, $user_answer_array, $results, $user_id, $big_records, $small_records);
         
         
-        return view('questions.afterQuestion',compact('genre_value'));
+        return view('questions.afterQuestion',compact('genre_value','user_id'));
     }
 
        
