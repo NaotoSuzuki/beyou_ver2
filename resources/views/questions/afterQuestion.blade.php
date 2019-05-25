@@ -8,7 +8,7 @@
    
 </h1>
 回答お疲れさまでした！
-
+    <div>
     <a href="/" class="header-menu">トップページに戻る</a>
     <a href="/" class="header-menu">今回の結果を見直す</a>
     <a href="/questions/question/{{$genre_value}}" class="header-menu">同じ問題をやり直す</a>
