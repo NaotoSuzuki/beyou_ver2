@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+        
 
 
     public function __construct()
@@ -21,21 +22,22 @@ class IndexController extends Controller
 
  
 
-    public function home()
-    {
-        $genres = new Genre();
-        $genres_data = $genres->getData();
-        $user_data = Auth::user();
-        $user_id = $user_data -> id;
-     return view('pages.index',compact('genres_data','user_id')) ;
-    }
+    // public function home()
+    // {
+    //     $genres = new Genre();
+    //     $genres_data = $genres->getData();
+    //     $user_data = Auth::user();
+    //     $user_id = $user_data -> id;
+    //  return view('pages.index',compact('genres_data','user_id')) ;
+    // }
 
     public function index(){
         $genres = new Genre();
         $genres_data = $genres->getData();
         $user_data = Auth::user();
         $user_id = $user_data -> id;
-     return view('pages.index',compact('genres_data','user_id')) ;
+        $user_name = $user_data -> name;
+     return view('pages.index',compact('genres_data','user_id','user_name')) ;
     }
 
     public function explain($genre_value,$genres){
@@ -46,10 +48,6 @@ class IndexController extends Controller
     public function show_Hists(ShowHists $hist, $user_id){
             $hist_arrays =  $hist->showHists($user_id);
     return view('pages.studyHist',compact('hist_arrays'));
-    }
-
-    public function hogeTest(){
-        $a = Hoge::echoHoge();
     }
 
 
