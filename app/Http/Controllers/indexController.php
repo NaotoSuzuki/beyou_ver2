@@ -47,7 +47,10 @@ class IndexController extends Controller
 
     public function show_Hists(ShowHists $hist, $user_id){
             $hist_arrays =  $hist->showHists($user_id);
-    return view('pages.studyHist',compact('hist_arrays'));
+            $user_data = Auth::user();
+            $user_name = $user_data -> name;
+            
+    return view('pages.studyHist',compact('hist_arrays','user_id','user_name'));
     }
 
 
@@ -60,7 +63,7 @@ class IndexController extends Controller
         $hist_indicates = $hist_detail->histDetail($user_id, $created, $genre_value);
        
        
-        return view('pages.studytHistDetail',compact('hist_indicates','user_name','created'));
+        return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created'));
     
     }
 }

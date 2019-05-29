@@ -3,14 +3,11 @@
 @section('title', 'Beyou')
 
 @section('content')
-<h1>
-  <a href="/" class="header-menu">Beyou</a>
-   
-</h1>
-
-
-
-    <a href="/" class="header-menu">トップページに戻る</a>
+<ul class="topnav">
+	<li><a class="active" href="/">Beyou</a></li>
+	<li><a href="{{ action('IndexController@show_Hists', $user_id) }}">回答履歴を見る</a></li>
+	<li class="right"><a href="#about">{{$user_name}}</a></li>
+</ul>
 
 
     <p>{{$created}}に解いた問題の結果です！</p>
