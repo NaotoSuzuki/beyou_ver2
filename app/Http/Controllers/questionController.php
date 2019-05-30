@@ -67,9 +67,9 @@ class QuestionController extends Controller
         $user_name = $user_data -> name;
         $user_id = $user_data -> id;
         $questions = $indicateQuestions->showQuestionsComponent($genre_value);
-        $genre = $getGenre -> getGenreComponent($genre_value);
-      
-         return view('questions.showQuestions',compact('user_id','genre_value','user_name','questions','genre'));
+        $genre = $getGenre->getGenreComponent($genre_value);
+       
+         return view('questions.showQuestions',compact('user_id','genre_value','user_name','genre','questions'));
     }
 
 
