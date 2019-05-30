@@ -4,11 +4,9 @@
 
 @section('content')
     <h1>
-      <a href="/" class="header-menu">Beyou</a>
-    </h1>
-    
-    <p>{!! nl2br(e($user_name)) !!}"文法"です。</p>
-    {{$genre_value}}
+      <a href="/" class="header-menu">の問題です！</a>
+    </h1>{{$genre}}
+
     <form action = "{{url('/questions/answer')}}" method="post">
     @csrf
       @foreach($questions as $key => $bigQ_record)

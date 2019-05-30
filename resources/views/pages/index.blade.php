@@ -18,7 +18,7 @@
                         <li><a href="{{action('Auth\LoginController@logout')}}">ログアウト</a></li>
                     </ul>
                 </div>
-            </li>
+            </li>   
         </ul>
     </div>
 

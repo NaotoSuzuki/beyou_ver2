@@ -12,9 +12,7 @@ use App\Facades\BuildQuestionArray;
 use App\Models\Components\Question\ShowQuestionsComponent;
 use App\Models\Components\Question\CorrectQuestionsComponent;
 use App\Models\Components\Question\SaveAnswersComponent;
-
-
-
+use App\Models\Components\Question\GetGenreComponent;
 
 use DB;
 
@@ -44,18 +42,18 @@ class QuestionController extends Controller
 
 
 
-    
-        private static function getSmallRecords($genre_value){
-    
-            $small_records = DB::table('small_questions')
-            ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
-            ->where('small_questions.genre_value','=', $genre_value)
-            ->select('small_questions.*', 'big_questions.big_question')
-            ->get();
-    
-            return $small_records;
-    
-        } 
+
+    private static function getSmallRecords($genre_value){
+
+        $small_records = DB::table('small_questions')
+        ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
+        ->where('small_questions.genre_value','=', $genre_value)
+        ->select('small_questions.*', 'big_questions.big_question')
+        ->get();
+
+        return $small_records;
+
+    } 
 
 
 
@@ -64,14 +62,14 @@ class QuestionController extends Controller
 
 
 
-    public function showQuestions($genre_value, ShowQuestionsComponent $indicateQuestions){
+    public function showQuestions($genre_value,  ShowQuestionsComponent $indicateQuestions, GetGenreComponent $getGenre){
         $user_data = Auth::user();
         $user_name = $user_data -> name;
         $user_id = $user_data -> id;
-
         $questions = $indicateQuestions->showQuestionsComponent($genre_value);
+        $genre = $getGenre -> getGenreComponent($genre_value);
       
-         return view('questions.showQuestions',compact('user_id','genre_value','user_name','questions'));
+         return view('questions.showQuestions',compact('user_id','genre_value','user_name','questions','genre'));
     }
 
 
