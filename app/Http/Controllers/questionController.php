@@ -28,18 +28,13 @@ class QuestionController extends Controller
     }
 
 
-
-    
-
     private static function getBigRecords(){
         $big_records= DB::table('big_questions')
-            ->select('big_questions.*')
-            ->get();
-    
-            return  $big_records;
-    
-        } 
+        ->select('big_questions.*')
+        ->get();
 
+        return  $big_records;
+    } 
 
 
 
@@ -55,17 +50,24 @@ class QuestionController extends Controller
 
     } 
 
+    private static function getUserId(){
+        $user_data = Auth::user();
+        $user_id = $user_data -> id;
+        return $user_id;
+    }
 
 
-
-
+    private static function getUserName(){
+        $user_data = Auth::user();
+        $user_name = $user_data -> name;
+        return $user_name;
+    }
 
 
 
     public function showQuestions($genre_value,  ShowQuestionsComponent $indicateQuestions, GetGenreComponent $getGenre){
-        $user_data = Auth::user();
-        $user_name = $user_data -> name;
-        $user_id = $user_data -> id;
+        $user_id = QuestionController::getUserId();
+        $user_name = QuestionController::getUserName();
         $questions = $indicateQuestions->showQuestionsComponent($genre_value);
         $genre = $getGenre->getGenreComponent($genre_value);
        
@@ -80,10 +82,9 @@ class QuestionController extends Controller
 
 
     public function correctQuestions(Request $small_datas, CorrectQuestionsComponent $correct){
-        $user_data = Auth::user();
-        $user_id = $user_data -> id;
         $genre_value = $small_datas->genre_value;
         $small_answers = $small_datas->small_answers;
+        $user_id = QuestionController::getUserId();
         $big_records = QuestionController::getBigRecords();
         $small_records = QuestionController::getSmallRecords($genre_value);
         $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records);

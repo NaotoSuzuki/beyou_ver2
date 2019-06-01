@@ -12,31 +12,36 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-        
+    private $user_id;
+    private $user_name;
 
-
-    public function __construct()
+   function __construct()
     {
         $this->middleware('auth');
-  }
+    }
 
- 
 
-    // public function home()
-    // {
-    //     $genres = new Genre();
-    //     $genres_data = $genres->getData();
-    //     $user_data = Auth::user();
-    //     $user_id = $user_data -> id;
-    //  return view('pages.index',compact('genres_data','user_id')) ;
-    // }
+    private static function getUserId(){
+        $user_data = Auth::user();
+        $user_id = $user_data -> id;
+        return $user_id;
+    }
+
+
+    private static function getUserName(){
+        $user_data = Auth::user();
+        $user_name = $user_data -> name;
+        return $user_name;
+    }
+
+
 
     public function index(){
         $genres = new Genre();
         $genres_data = $genres->getData();
-        $user_data = Auth::user();
-        $user_id = $user_data -> id;
-        $user_name = $user_data -> name;
+        $user_id = IndexController::getUserId();
+        $user_name = IndexController::getUserName();
+    
      return view('pages.index',compact('genres_data','user_id','user_name')) ;
     }
 
@@ -46,24 +51,20 @@ class IndexController extends Controller
     }
 
     public function show_Hists(ShowHists $hist, $user_id){
-            $hist_arrays =  $hist->showHists($user_id);
-            $user_data = Auth::user();
-            $user_name = $user_data -> name;
+        $hist_arrays =  $hist->showHists($user_id);
+        $user_name = IndexController::getUserName();
             
     return view('pages.studyHist',compact('hist_arrays','user_id','user_name'));
     }
 
 
     public function histDetail(Request $hist_info, HistDetail $hist_detail){
-        $user_data = Auth::user();
-        $user_id = $user_data -> id;
-        $user_name = $user_data -> name;
+        $user_id = IndexController::getUserId();
+        $user_name = IndexController::getUserName();
         $genre_value = $hist_info->genre_value;
         $created = $hist_info->created;
         $hist_indicates = $hist_detail->histDetail($user_id, $created, $genre_value);
-       
-       
-        return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created'));
-    
+  
+    return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created'));
     }
 }

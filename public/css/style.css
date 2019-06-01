@@ -118,3 +118,16 @@
     margin-bottom:40px;
 
   }
+
+/* ページ背景色 */
+
+
+.back-ground {
+	background: #2193b0;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #6dd5ed, #2193b0); 
+}
+
+ /* h1 a{
+	margin:45px 0px;
+} */
