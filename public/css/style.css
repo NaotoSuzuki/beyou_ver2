@@ -1,14 +1,14 @@
 /*  index.blade.php*/
 
 
-/* トップバー */
+	/* トップバー */
 .cp_navi {
 
 	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
-	color: #888888;
+	color: #131212;
     display: block;
     align-content: center;
-    margin-bottom: 5em; 
+    margin-bottom: 1em; 
 	overflow: hidden;
 	width: 100%;
 }
@@ -42,7 +42,7 @@
 	        transition: color 0.1s linear;
 }
 .cp_navi > ul > li > a {
-	color: #aaaaaa;
+	color: #131212;
 	display: block;
 	line-height: 56px;
 	padding: 0 10px;
@@ -80,7 +80,7 @@
 	display: block;
 }
 .cp_navi > ul > li > div ul > li > a {
-	color: #ffffff;
+	color: #131212;
 	display: block;
 	padding: 12px 24px;
 	text-decoration: none;
@@ -89,7 +89,7 @@
 	background-color: rgba( 255, 255, 255, 0.1);
 }
 
-/* トップコピー */
+	/* トップコピー */
 .top_copy{
     margin-bottom: 45px;
 }
@@ -99,7 +99,7 @@
 }
 
 
-/* 問題一覧 */
+	/* 問題一覧 */
 
 .row {
   margin-right: -15px;
@@ -119,15 +119,44 @@
 
   }
 
-/* ページ背景色 */
+
+/* Question周りのスタイル */
+
+h1{
+	text-align: center;
+	margin:45px 0px;
+} 
 
 
-.back-ground {
-	background: #2193b0;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #6dd5ed, #2193b0); 
+	/* 小問題のスタイル */
+.small-question{
+	padding-left:127px;
+	width: 800px;
+	margin: auto;
+
 }
 
- /* h1 a{
-	margin:45px 0px;
-} */
+.small-form{
+	text-align: left;
+	margin: 30px 0px;;
+}
+
+form{
+	background-color: rgba(24, 22, 22, 0.192);
+	box-shadow: 4px 4px 8px;
+	padding:20px;
+
+}
+form h5{
+	text-align: left;
+}
+
+.submit{
+	padding-left:263px;
+	text-align: left;
+}
+
+.back-top{
+
+	text-align: right;
+}
