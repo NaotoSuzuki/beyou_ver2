@@ -81,15 +81,18 @@ class QuestionController extends Controller
 
 
 
-    public function correctQuestions(Request $small_datas, CorrectQuestionsComponent $correct){
+    public function correctQuestions(Request $small_datas, CorrectQuestionsComponent $correct, GetGenreComponent $getGenre){
         $genre_value = $small_datas->genre_value;
         $small_answers = $small_datas->small_answers;
         $user_id = QuestionController::getUserId();
+        $user_name = QuestionController::getUserName();
         $big_records = QuestionController::getBigRecords();
+        $genre = $getGenre->getGenreComponent($genre_value);
+       
         $small_records = QuestionController::getSmallRecords($genre_value);
         $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records);
     
-        return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records'));
+        return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records','user_name','genre'));
 
     }
 
@@ -105,11 +108,12 @@ class QuestionController extends Controller
         $genre_value =  $request->genre_value;
         $big_records = QuestionController::getBigRecords();
         $small_records = QuestionController::getSmallRecords($genre_value);
+        $user_name = QuestionController::getUserName();
 
         $save->saveAnswersComponent($genre_value, $user_answer_array, $results, $user_id, $big_records, $small_records);
         
         
-        return view('questions.afterQuestion',compact('genre_value','user_id'));
+        return view('questions.afterQuestion',compact('genre_value','user_id','user_name'));
     }
 
        

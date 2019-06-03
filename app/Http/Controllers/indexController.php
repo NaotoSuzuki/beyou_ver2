@@ -9,6 +9,7 @@ use App\Models\Components\Index\ShowHists;
 use App\Models\Components\Index\HistDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Components\Question\GetGenreComponent;
 
 class IndexController extends Controller
 {
@@ -58,13 +59,14 @@ class IndexController extends Controller
     }
 
 
-    public function histDetail(Request $hist_info, HistDetail $hist_detail){
+    public function histDetail(Request $hist_info, HistDetail $hist_detail, GetGenreComponent $getGenre){
         $user_id = IndexController::getUserId();
         $user_name = IndexController::getUserName();
         $genre_value = $hist_info->genre_value;
+        $genre = $getGenre->getGenreComponent($genre_value);
         $created = $hist_info->created;
         $hist_indicates = $hist_detail->histDetail($user_id, $created, $genre_value);
   
-    return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created'));
+    return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created','genre'));
     }
 }

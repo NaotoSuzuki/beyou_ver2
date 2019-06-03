@@ -17,38 +17,45 @@
             </li>
         </ul>
     </div>
-
-あなたの回答履歴です！
-
+    
+        <h1>あなたの回答履歴です！</h1>
+    
+    <div class="back-top">
     <a href="/" class="header-menu">トップページに戻る</a>
+    </div>
 
-    <p></p>
     <div class = "container , text-center">
-        <div class="row">
+     
         <?php $time = 0 ?>
-                    <?php foreach($hist_arrays as $hist_array): ?>
-                     <div class="col-sm-12">
-                        <?php if($time == 0 || $time !== $hist_array->created) :?>
-                            <div class="item">
+            <ul class="list-group">
+              
+            
+           
+                             <?php foreach($hist_arrays as $hist_array): ?>
+
+                    
+                   
+                              <?php if($time == 0 || $time !== $hist_array->created) :?>
+
+                            
                                 <?php $created = $hist_array->created ?>
                                 <?php $genre = $hist_array->genre ?>
                                 <?php $genre_value = $hist_array->genre_value ?>
-                               
-                                        <form class=”form-inline” action = "{{url('/hists/hist_detail')}}" method="post">
+                                  
+                                        <form class="form-group" action = "{{url('/hists/hist_detail')}}" method="post">
                                             @csrf
                                             {{$created}}　{{$genre}}  
-                            
+                                
                                             <input type = "hidden" name = "genre_value" value = "{{$genre_value}}">
                                             <input type = "hidden" name = "created" value  =  "{{$created}}"/>
                                             <input type = "submit" name="" value = "詳細" />
                                         </form>   
-                                  
-                            </div>
+                
                         <?php endif ?>
                     <?php $time =$created?>
-</div>
+       
                 <?php endforeach?>
-         
-        </div>
+                </ul>
+      
     </div>
 @endsection

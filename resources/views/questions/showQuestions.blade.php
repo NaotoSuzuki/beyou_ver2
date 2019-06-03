@@ -27,11 +27,13 @@
      
           <!-- formのスタイルはBoostrapで指定されている -->
             <form action = "{{url('/questions/answer')}}" method="post">
-            @csrf
+                @csrf
                 @foreach($questions as $key => $bigQ_record)
+                    <div class = "answer">
                           <?php $count = count($bigQ_record["questions"]) ?>
                           <?php $trueCount = $count-1 ?>
-                          <div class="small-question">  
+                             <div class="small-question">  
+
                                   <h5><?php echo "Q".$key.".".$bigQ_record["big_question"] ?></h5>
                          
                           
@@ -45,22 +47,23 @@
                                   </div>
 
                                   <?php endfor ?>
-                          </div>
-
-                          <br>
-                          <br>
+                             </div>
+                   </div>   
+                    <br>
+                    <br>
                 @endforeach
+
                 <input type = "hidden" name = "genre_value" value = "{{$genre_value}}">
                 <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
+
                 <div class="submit">
                   <input type = "submit" name="" value = "答え合わせをする" />
                 </div>
+
                 <div class="back-top">
                   <a href="/" class="header-menu">トップページに戻る</a>
                 </div>
             </form>
-       
-     </div>
-
-  </div>   
+      </div>    
+  
 @endsection
