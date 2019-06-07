@@ -84,7 +84,7 @@ class QuestionController extends Controller
     public function correctQuestions(Request $small_datas, CorrectQuestionsComponent $correct, GetGenreComponent $getGenre){
         
 
-
+        //バリデートできてるけど、
         $this->validate($small_datas, [
             'small_answers.*.*'  => 'required',
         ],[
