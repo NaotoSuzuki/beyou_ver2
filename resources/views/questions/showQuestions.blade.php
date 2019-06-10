@@ -20,13 +20,29 @@
     </div>
 
 
+    <div class = "top_copy , text-center">
+        <div class = main-copy><h2>{{$genre}}の問題です！</h2></div>
+        <div class = sub-copy><p>力をつけるために、わからなくても回答入力しましょう！</p></div>
+    </div>
+ 
 
-    <h1>{{$genre}}の問題です！</h1>
+    @if ($errors->any())
+        <div class="errors">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
    
+
+     
       <div class = "container , text-center">
      
           <!-- formのスタイルはBoostrapで指定されている -->
             <form action = "{{url('/questions/answer')}}" method="post">
+            
                 @csrf
                 @foreach($questions as $key => $bigQ_record)
                     <div class = "answer">
@@ -43,7 +59,8 @@
 
                                   <div class="small-form">
                                     <p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p>
-                                    <input type = "text" name = "small_answers[<?php echo $key ?>][<?php echo $num ?>]">
+                                     <input type="input" name="small_answers[<?php echo $key ?>][<?php echo $num ?>]"　value="{{old('small_answers[<?php echo $key ?>][<?php echo $num ?>]')}}" required="required">
+                                     
                                   </div>
 
                                   <?php endfor ?>

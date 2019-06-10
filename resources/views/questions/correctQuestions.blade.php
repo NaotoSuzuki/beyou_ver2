@@ -19,7 +19,7 @@
     </div>
 
     <div class = "top_copy , text-center">
-        <div class = main-opy><h2>答え合わせをしましょう</h2></div>
+        <div class = main-copy><h2>答え合わせをしましょう</h2></div>
         <div class = sub-copy><p>ご自身で回答を入力してください！</p></div>
     </div>
     

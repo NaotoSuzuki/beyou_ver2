@@ -14,6 +14,9 @@ use App\Models\Components\Question\CorrectQuestionsComponent;
 use App\Models\Components\Question\SaveAnswersComponent;
 use App\Models\Components\Question\GetGenreComponent;
 
+use App\Http\Requests\ValidRequest;
+use Validator;
+
 use DB;
 
 
@@ -83,16 +86,7 @@ class QuestionController extends Controller
 
     public function correctQuestions(Request $small_datas, CorrectQuestionsComponent $correct, GetGenreComponent $getGenre){
         
-
-        //バリデートできてるけど、
-        $this->validate($small_datas, [
-            'small_answers.*.*'  => 'required',
-        ],[
-            'small_answers.required'=>'全問回答してください！'
-        ]
-            );
-        dd($small_datas->toArray());
-
+       
         $genre_value = $small_datas->genre_value;
         $small_answers = $small_datas->small_answers;
         $user_id = QuestionController::getUserId();
