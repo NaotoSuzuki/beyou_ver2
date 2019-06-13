@@ -25,10 +25,10 @@ Route::get('/hists/detail/{created}', 'IndexController@histDetail');
 Route::get('/explain/{genre_value}', 'IndexController@explain')->name('explain');
 Route::get('/questions/question/{genre_value}','QuestionController@showQuestions');
 
-Route::get('/posts/editor', 'ManageController@edit');
-Route::get('/posts/{genre_value}', 'PostsController@show');
+Route::post('/posts/index', 'PostsController@index');
 Route::get('/posts/create', 'PostsController@create');
-Route::post('/posts', 'PostsController@store');
+Route::get('/posts/{post}', 'PostsController@show');
+Route::post('/posts/sotre', 'PostsController@store');
 Route::get('/posts/{post}/edit', 'PostsController@edit');
 Route::patch('/posts/{post}', 'PostsController@update');
 Route::delete('/posts/{post}', 'PostsController@destroy');
