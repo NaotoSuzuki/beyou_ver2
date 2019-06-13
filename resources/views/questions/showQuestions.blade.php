@@ -59,7 +59,8 @@
 
                                   <div class="small-form">
                                     <p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p>
-                                     <input type="input" name="small_answers[<?php echo $key ?>][<?php echo $num ?>]"　value="{{old('small_answers[<?php echo $key ?>][<?php echo $num ?>]')}}" required="required">
+
+                                     <input type="input" name="small_answers[<?php echo $key ?>][<?php echo $num ?>]"　required="required">
                                      
                                   </div>
 

@@ -20,7 +20,7 @@
 
     <div class = "top_copy , text-center">
         <div class = main-copy><h2>答え合わせをしましょう</h2></div>
-        <div class = sub-copy><p>ご自身で回答を入力してください！</p></div>
+        <div class = sub-copy><p>ご自身で全ての正誤を入力してください！</p></div>
     </div>
     
 
@@ -47,8 +47,8 @@
                                             <?php echo "答え".$bigQ_record["answers"][$i] ?>
                                             <p><?php echo"あなたの答え: ".$small_answers[$key][$num] ?></p>
                                             <input type = "hidden" name = "user_answer[<?php echo $key ?>][<?php echo $num ?>]" value = "<?php echo $small_answers[$key][$num] ?>">
-                                            <input type = "checkbox" name = "result[<?php echo $key ?>][<?php echo $num ?>]" value = "1">正解した！<br>
-                                            <input type = "checkbox" name = "result[<?php echo $key?>][<?php echo $num ?>]" value = "0">間違えた！<br>
+                                            <input type = "checkbox" name = "result[<?php echo $key ?>][<?php echo $num ?>]" value = "1" required="required">正解した！<br>
+                                            <input type = "checkbox" name = "result[<?php echo $key?>][<?php echo $num ?>]" value = "0" equired="required">間違えた！<br>
                                         </div>
                                     <?php endfor ?>
 
