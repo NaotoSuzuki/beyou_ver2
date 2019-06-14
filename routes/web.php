@@ -24,18 +24,15 @@ Route::get('/hists/{user_id}', 'IndexController@show_Hists');
 Route::get('/hists/detail/{created}', 'IndexController@histDetail');
 Route::get('/explain/{genre_value}', 'IndexController@explain')->name('explain');
 Route::get('/questions/question/{genre_value}','QuestionController@showQuestions');
-
-Route::post('/posts/index', 'PostsController@index');
-Route::get('/posts/create', 'PostsController@create');
-Route::get('/posts/{post}', 'PostsController@show');
-Route::post('/posts/sotre', 'PostsController@store');
-Route::get('/posts/{post}/edit', 'PostsController@edit');
-Route::patch('/posts/{post}', 'PostsController@update');
-Route::delete('/posts/{post}', 'PostsController@destroy');
-
-
 Route::POST('/questions/answer','QuestionController@correctQuestions');
 Route::POST('/questions/answer/save','QuestionController@saveAnswers');
 Route::POST('/hists/hist_detail','IndexController@histDetail');
 
+Route::get('/posts/index', 'PostsController@index');
+Route::get('/posts/create', 'PostsController@create');
+Route::POST('/posts', 'PostsController@store');
+Route::get('/posts/{post}', 'PostsController@show');
+Route::get('/posts/{post}/edit', 'PostsController@edit');
+Route::patch('/posts/{post}', 'PostsController@update');
+Route::delete('/posts/{post}', 'PostsController@destroy');
 
