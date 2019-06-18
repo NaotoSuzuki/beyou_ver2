@@ -1,10 +1,8 @@
-@extends('layouts.default')
+@extends('layouts.manage_default')
 
 @section('title', 'Edit Post')
 
 @section('content')
-    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script>tinymce.init({selector:'textarea'});</script>
 
 <h1>
   <a href="{{ url('/posts/index') }}" class="header-menu">Back</a>

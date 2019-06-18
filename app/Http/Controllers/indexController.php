@@ -10,6 +10,7 @@ use App\Models\Components\Index\HistDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Components\Question\GetGenreComponent;
+use App\Post;
 
 class IndexController extends Controller
 {
@@ -46,9 +47,19 @@ class IndexController extends Controller
      return view('pages.index',compact('genres_data','user_id','user_name')) ;
     }
 
-    public function explain($genre_value,$genres){
-         $genre = Genre::find($genre);
-    return view('pages.explain',['genre'=> $genre]);
+    public function explain($genre_value){
+       
+        $posts = Post::where('genre_value',$genre_value)->get();
+       
+        foreach($posts as $post){
+          $title = $post->title;
+          $body = $post->body;
+          $genre = $post->genre;
+          $genre_value = $post->genre_value;
+        }
+        
+     
+      return view('posts.show',compact('title','body','genre','genre_value'));
     }
 
     public function show_Hists(ShowHists $hist, $user_id){

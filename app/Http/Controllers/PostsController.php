@@ -9,13 +9,21 @@ class PostsController extends Controller
 {
     public function index() {
        $posts = Post::latest()->get();
+       
        return view('posts.index')->with('posts', $posts);
       }
 
     public function show(Post $post) {
         // $post = Post::find($id);
-        $post = Post::findOrFail($post);
-        return view('posts.show')->with('post', $post);
+        $posts = Post::findOrFail($post);
+          foreach($posts as $post){
+            $title = $post->title;
+            $body = $post->body;
+            $genre = $post->genre;
+            $genre_value = $post->genre_value;
+          }
+        
+        return view('posts.show',compact('title','body','genre','genre_value'));
       }
 
       public function create() {
@@ -26,8 +34,9 @@ class PostsController extends Controller
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
-  
-        
+        $post->genre = $request->genre;
+        $post->genre_value = $request->genre_value;
+         
         $post->save();
         return redirect('/posts/index');
       }

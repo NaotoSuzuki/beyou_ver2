@@ -96,6 +96,8 @@ class QuestionController extends Controller
        
         $small_records = QuestionController::getSmallRecords($genre_value);
         $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records);
+
+        dd($small_records);
     
         return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records','user_name','genre'));
 
