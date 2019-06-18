@@ -7,9 +7,12 @@
 @section('content')
 
   <h1>
-    <a href="{{ url('/') }}" class="header-menu">Back</a>
-    {{ $title }}
+    {{ $genre }}の解説
+    
   </h1 >
+  <div>
+  <a href="{{ url('/') }}" class="header-menu">Top</a><br>
+  </div>
 
   <p>{!! nl2br(e($body)) !!}</p>
 @endsection
