@@ -97,17 +97,33 @@ class QuestionController extends Controller
         $small_records = QuestionController::getSmallRecords($genre_value);
         $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records);
 
+            // 正当とユーザーの回答のみの配列生成
            foreach($answeredQuestions as $answeredQuestion) {
-              dd($answeredQuestion[answers]);
+                $num = count($answeredQuestion["answers"]);
+                $item_num = $num - 1;
+           
+                for($i=0; $i <= $item_num; $i++){
+                    $correct_answers[] =  $answeredQuestion["answers"][$i];
+                }
              }
-             
+           
+
 
              foreach($small_answers as $small_answer){
-                $answer_user[] =  $small_answer;
+               
+                $num = count($small_answer);
+                
+                for($i=1; $i <= $num; $i++){
+                    
+                    $user_answers[] = $small_answer[$i];
+                    
+                }
+               
             }
-
-            $resutlt = array_diff($small_answer, $answeredQuestion);
-            dd($result);
+            
+            
+            $resutlt = array_diff($user_answers,  $correct_answers);
+            dd($resutlt);
 
 
         return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records','user_name','genre'));
