@@ -79,11 +79,6 @@ class QuestionController extends Controller
 
 
 
-
-
-
-
-
     public function correctQuestions(Request $small_datas, CorrectQuestionsComponent $correct, GetGenreComponent $getGenre){
         
        
@@ -95,43 +90,14 @@ class QuestionController extends Controller
         $genre = $getGenre->getGenreComponent($genre_value);
        
         $small_records = QuestionController::getSmallRecords($genre_value);
-        $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records);
+        $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records, $small_answers );
+  
 
-            // 正当とユーザーの回答のみの配列生成
-           foreach($answeredQuestions as $answeredQuestion) {
-                $num = count($answeredQuestion["answers"]);
-                $item_num = $num - 1;
-           
-                for($i=0; $i <= $item_num; $i++){
-                    $correct_answers[] =  $answeredQuestion["answers"][$i];
-                }
-             }
-           
-
-
-             foreach($small_answers as $small_answer){
-               
-                $num = count($small_answer);
-                
-                for($i=1; $i <= $num; $i++){
-                    
-                    $user_answers[] = $small_answer[$i];
-                    
-                }
-               
-            }
-            
-            
-            $resutlt = array_diff($user_answers,  $correct_answers);
-            dd($resutlt);
 
 
         return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records','user_name','genre'));
 
     }
-
-
-
 
 
 

@@ -15,5 +15,7 @@
   </div>
 
   <p>{!! nl2br(e($body)) !!}</p>
+
+  <p><a href ="{{ action('QuestionController@showQuestions', $genre_value) }}">問題を解く</a></p>
 @endsection
 

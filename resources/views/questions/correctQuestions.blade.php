@@ -28,7 +28,7 @@
     <form action = "{{url('/questions/answer/save')}}" name = "save" method = "post">
     @csrf
             <?php foreach($answeredQuestions as $key  => $bigQ_record) :?>
-
+               
                 <div class = "answer">
 
                     <?php $count  =  count($bigQ_record["questions"]) ?>
@@ -38,17 +38,21 @@
                         <h5> <?php echo "Q".$key.".".$bigQ_record["big_question"] ?> </h5>
 
                                     <?php for($i  =  0; $i<= $trueCount; $i++) :?>
+                                   
                                         <?php $num = $i+1 ?>
                                         <?php $user_answer  =  $num.$bigQ_record["questions"][$i] ?>
                                         <?php $roop_answers[] = ["big_questions_id" => $key, "question_num" => $num,"user_answer" => $user_answer]?>
 
                                         <div class="small-form">
-                                            <?php echo "(".$num.")".$bigQ_record["questions"][$i] ?><br>
-                                            <?php echo "答え".$bigQ_record["answers"][$i] ?>
+
+                                            <p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p>
+                                            <p><?php echo $bigQ_record["checked_result"][$i] ?></p>
+                                            <p><?php echo "答え:".$bigQ_record["answers"][$i] ?></p>
+                                            
                                             <p><?php echo"あなたの答え: ".$small_answers[$key][$num] ?></p>
                                             <input type = "hidden" name = "user_answer[<?php echo $key ?>][<?php echo $num ?>]" value = "<?php echo $small_answers[$key][$num] ?>">
-                                            <input type = "checkbox" name = "result[<?php echo $key ?>][<?php echo $num ?>]" value = "1" >正解した！<br>
-                                            <input type = "checkbox" name = "result[<?php echo $key?>][<?php echo $num ?>]" value = "0" >間違えた！<br>
+                                            <input type = "hidden" name = "result[<?php echo $key ?>][<?php echo $num ?>]" value = "<?php echo $bigQ_record["checked_value"][$i] ?>" >
+                                           
                                         </div>
                                     <?php endfor ?>
 

@@ -22,7 +22,10 @@
 
     <div class = "top_copy , text-center">
         <div class = main-copy><h2>{{$genre}}の問題です！</h2></div>
-        <div class = sub-copy><p>力をつけるために、わからなくても回答入力しましょう！</p></div>
+        <div class = sub-copy>
+          <p>力をつけるために、わからなくても回答入力しましょう！</p>
+          <p>(文末にピリオドやクエスチョンマークをお忘れなく)</p>
+        </div>
     </div>
  
 
@@ -49,22 +52,15 @@
                           <?php $count = count($bigQ_record["questions"]) ?>
                           <?php $trueCount = $count-1 ?>
                              <div class="small-question">  
-
                                   <h5><?php echo "Q".$key.".".$bigQ_record["big_question"] ?></h5>
-                         
-                          
-                                  <?php for($i = 0; $i <= $trueCount; $i++) :?>
-                                  <?php $num = $i+1 ?>
-                                  <?php $user_answer = $num.$bigQ_record["questions"][$i] ?>
-
-                                  <div class="small-form">
-                                    <p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p>
-
-                                     <input type="input" name="small_answers[<?php echo $key ?>][<?php echo $num ?>]">
-                                     
-                                  </div>
-
-                                  <?php endfor ?>
+                                    <?php for($i = 0; $i <= $trueCount; $i++) :?>
+                                    <?php $num = $i+1 ?>
+                                    <?php $user_answer = $num.$bigQ_record["questions"][$i] ?>
+                                      <div class="small-form">
+                                        <p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p>
+                                        <input type="input" name="small_answers[<?php echo $key ?>][<?php echo $num ?>]" required  >
+                                      </div>
+                                    <?php endfor ?>
                              </div>
                    </div>   
                     <br>
@@ -73,7 +69,6 @@
 
                 <input type = "hidden" name = "genre_value" value = "{{$genre_value}}">
                 <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
-
                 <div class="submit">
                   <input type = "submit" name="" value = "答え合わせをする" />
                 </div>
