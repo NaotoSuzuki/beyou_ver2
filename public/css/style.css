@@ -1,9 +1,17 @@
 /*  index.blade.php*/
+body {
+	background-color: #F9FBFE;
+  }
 
+
+
+  .basic_color{
+	color: #2B546A;
+  }
 
 	/* トップバー */
 .cp_navi {
-
+	background-color: #FFFFFF;
 	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
 	color: #131212;
     display: block;
@@ -30,7 +38,7 @@
 }
 
 .cp_navi > ul > li > a > .caret {
-	border-top: 4px solid #aaaaaa;
+	border-top: 4px solid background-color: #FFFFFF;
 	border-right: 4px solid transparent;
 	border-left: 4px solid transparent;
 	content: '';
@@ -41,6 +49,7 @@
 	-webkit-transition: color 0.1s linear;
 	        transition: color 0.1s linear;
 }
+
 .cp_navi > ul > li > a {
 	color: #131212;
 	display: block;
@@ -113,12 +122,17 @@
 }
 
 .box {
-    border: 1px solid #dedede;
+	border: 1px solid #dedede;
+	background-color: #FFFFFF;
+	box-shadow: 0 4px 4px -1px rgba(0, 0, 0, 0.055);
     border-radius: 2px;
     padding:140px 24px;
     margin-bottom:40px;
 
   }
+
+
+
 
 
 /* Question周りのスタイル */
@@ -143,7 +157,7 @@ h1{
 }
 
 form{
-	background-color: rgba(24, 22, 22, 0.192);
+	background-color: #FFFFFF;
 	box-shadow: 4px 4px 8px;
 	padding:20px;
 
@@ -160,6 +174,7 @@ form h5{
 .back-top{
 
 	text-align: right;
+	margin-right: 1%;
 }
 
 /* error */

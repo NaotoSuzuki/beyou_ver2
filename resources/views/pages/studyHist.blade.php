@@ -18,16 +18,16 @@
         </ul>
     </div>
     
-        <h1>あなたの回答履歴です！</h1>
+        <h1 class ="basic_color">あなたの回答履歴です！</h1>
     
     <div class="back-top">
-    <a href="/" class="header-menu">トップページに戻る</a>
+    <a href="/" class="header-menu,  basic_color">トップページに戻る</a>
     </div>
 
-    <div class = "container , text-center">
+    <div class = "container , text-center,  basic_color">
      
         <?php $time = 0 ?>
-            <ul class="list-group">
+            <ul class="list-group ">
               
             
            

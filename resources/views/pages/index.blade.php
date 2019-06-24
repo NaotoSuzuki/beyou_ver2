@@ -23,11 +23,11 @@
     </div>
 
     <div class = "top_copy , text-center">
-        <div class = main-opy><h2>学べる文法一覧</h2></div>
-        <div class = sub-copy><p>気にしている文法からやってみましょう！</p></div>
+        <div class = "main-copy ,basic_color"><h2>学べる文法一覧</h2></div>
+        <div class = "sub-copy, basic_color"><p>気にしている文法からやってみましょう！</p></div>
     </div>
 
-    <div class = "container , text-center">
+    <div class = "container , text-center , basic_color">
         <div class="row">
          @foreach($genres_data as $genre_data)
                 <div class="col-sm-4">
