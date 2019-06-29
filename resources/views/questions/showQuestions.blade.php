@@ -43,8 +43,7 @@
      
       <div class = "container , text-center">
      
-          <!-- formのスタイルはBoostrapで指定されている -->
-            <form action = "{{url('/questions/answer')}}" method="post">
+            <form action = "{{url('/questions/answer')}}" method="post" autocomplete="off">
             
                 @csrf
                 @foreach($questions as $key => $bigQ_record)
@@ -57,8 +56,9 @@
                                     <?php $num = $i+1 ?>
                                     <?php $user_answer = $num.$bigQ_record["questions"][$i] ?>
                                       <div class="small-form">
-                                        <p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p>
-                                        <input type="input" name="small_answers[<?php echo $key ?>][<?php echo $num ?>]" required  >
+                                       <b><p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p></b>
+                                       
+                                        <input type="text" name="small_answers[<?php echo $key ?>][<?php echo $num ?>]" style="top: -100px; left: -100px;　position: fixed;" >
                                       </div>
                                     <?php endfor ?>
                              </div>
@@ -70,7 +70,7 @@
                 <input type = "hidden" name = "genre_value" value = "{{$genre_value}}">
                 <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
                 <div class="submit">
-                  <input type = "submit" name="" value = "答え合わせをする" />
+                <input type="button" onclick="submit();"  value = "答え合わせをする">
                 </div>
 
                 <div class="back-top">

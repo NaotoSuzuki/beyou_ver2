@@ -116,10 +116,7 @@ body {
   margin-left: -15px;
 }
 
-.col-sm-4{
-  
- 
-}
+
 
 .box {
 	border: 1px solid #dedede;
@@ -176,6 +173,19 @@ form h5{
 	text-align: right;
 	margin-right: 1%;
 }
+
+.small-question strong{
+	color : red;
+
+}
+
+.marker{
+	background: linear-gradient(transparent 0%,#f0f0f0 0%);
+	font-weight: bold; 
+}
+
+
+
 
 /* error */
 

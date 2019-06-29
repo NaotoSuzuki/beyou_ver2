@@ -38,26 +38,31 @@
                         <?php $num = $i+1 ?>
                     
                         <div class="small-form">
-                            <?php echo "(".$num.")".$hist_indicate["questions"][$i] ?><br>
-                            <?php echo "答え".$hist_indicate["answers"][$i] ?>
-                            <?php if($hist_indicate["user_answers"][$i] !=  ""):?>
-                                <p><?php echo"あなたの答え: ".$hist_indicate["user_answers"][$i] ?></p>
-                            <?php else :?>
-                                <p>回答が未入力でした</p>
-                            <?php endif ?>
-                            <?php if($hist_indicate["user_result"][$i] == "1"):?>
-                                <p>正解</p>
-                            <?php elseif($hist_indicate["user_result"][$i] == "0") :?>
-                                <p>間違い</p>
-                            <?php else :?>
-                                <p>結果が未入力でした</p>
-                            <?php endif ?>
+                            <b><p><?php echo "(".$num.")".$hist_indicate["questions"][$i] ?></p>
+                            <p>答え : <strong><?php echo $hist_indicate["answers"][$i] ?></strong></p>
+
+                                <?php if($hist_indicate["user_answers"][$i] !=  ""):?>
+                                   <p>あなたの答え : <strong class = "marker"><?php echo $hist_indicate["user_answers"][$i] ?></p></strong>
+                                <?php else :?>
+                                   <strong><p>回答が未入力でした</p></strong>
+                                <?php endif ?>
+
+                                <?php if($hist_indicate["user_result"][$i] == "1"):?>
+                                  <strong><p>正解</p></strong>
+                                <?php elseif($hist_indicate["user_result"][$i] == "0") :?>
+                                   <strong><p>間違い</p></strong>
+                                <?php else :?>
+                                    <strong><p>結果が未入力でした</p></strong>
+                                <?php endif ?>
+
                         </div>
                     <?php endfor ?>
-
-                
-            </div>
+             </div>
         <?php endforeach ?>
+        <div class="back-top">
+            <p><a href ="{{ action('QuestionController@showQuestions', $genre_value) }}">問題を解きなおす</a></p>
+            <a href="/" class="header-menu">トップページに戻る</a>
+        </div>
     </form>
     </div>
     

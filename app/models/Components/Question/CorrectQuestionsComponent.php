@@ -24,10 +24,10 @@
                     if(isset($small_answers)){
                             
                         if($answers[$big_que][$check_num] == $small_answers[$big_que][$q_num]){
-                            $checked_result[$big_que][] = "正解です！";
+                            $checked_result[$big_que][] = "◎";
                             $checked_value[$big_que][] = "1";
                         } else{
-                            $checked_result[$big_que][] = "間違えです！";
+                            $checked_result[$big_que][] = "✖";
                             $checked_value[$big_que][] = "0";
                         }
                   }else{

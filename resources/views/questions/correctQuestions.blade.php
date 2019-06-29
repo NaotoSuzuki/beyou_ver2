@@ -20,7 +20,7 @@
 
     <div class = "top_copy , text-center">
         <div class = main-copy><h2>答え合わせをしましょう</h2></div>
-        <div class = sub-copy><p>ご自身で全ての正誤を入力してください！</p></div>
+        <div class = sub-copy><p>満点を取れるまでトライしてくださいね！</p></div>
     </div>
     
 
@@ -45,15 +45,15 @@
 
                                         <div class="small-form">
 
-                                            <p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p>
-                                            <p><?php echo $bigQ_record["checked_result"][$i] ?></p>
-                                            <p><?php echo "答え:".$bigQ_record["answers"][$i] ?></p>
-                                            
-                                            <p><?php echo"あなたの答え: ".$small_answers[$key][$num] ?></p>
+                                            <b><p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p></b>
+                                            <p>あなたの答え : <strong class = "marker"><?php echo $small_answers[$key][$num] ?></strong></p>
+                                            <p><strong><?php echo $bigQ_record["checked_result"][$i] ?></strong></p>
+                                            <p>答え : <strong><?php echo $bigQ_record["answers"][$i] ?></strong></p>
+
                                             <input type = "hidden" name = "user_answer[<?php echo $key ?>][<?php echo $num ?>]" value = "<?php echo $small_answers[$key][$num] ?>">
                                             <input type = "hidden" name = "result[<?php echo $key ?>][<?php echo $num ?>]" value = "<?php echo $bigQ_record["checked_value"][$i] ?>" >
-                                           
-                                        </div>
+                                                                    
+                                       </div>
                                     <?php endfor ?>
 
                         </div>        
@@ -68,6 +68,11 @@
 			<input type = "hidden" name = "genre_value" value  =  "{{$genre_value}}"/>
             <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
             <input type = "hidden" name = "small_answers" value = "<?php $roop_answers?>"/>
+            
+            <div class="back-top">
+                 <p><a href ="{{ action('QuestionController@showQuestions', $genre_value) }}">問題を解きなおす</a></p>
+                  <a href="/" class="header-menu">トップページに戻る</a>
+            </div>
 
 		</form>
     </div>
