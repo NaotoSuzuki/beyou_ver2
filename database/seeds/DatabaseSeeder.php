@@ -15,5 +15,14 @@ class DatabaseSeeder extends Seeder
         $this->call([
             small_questions::class,
             ]);
+
+        $this->call([
+            big_questions::class,
+            ]);
+        
+        $this->call([
+            genres::class,
+            ]);
+                
     }
 }
