@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Models\Genre;
-use App\Facades\Hoge;
 use App\Models\Components\Index\ShowHists;
 use App\Models\Components\Index\HistDetail;
 use Illuminate\Support\Facades\Auth;
