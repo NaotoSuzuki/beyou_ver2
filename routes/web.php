@@ -14,7 +14,6 @@
 Auth::routes();
 
 
-
 Route::get('/home', 'IndexController@index')->name('home');
 Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/explain/{genre_value}', 'IndexController@explain');
