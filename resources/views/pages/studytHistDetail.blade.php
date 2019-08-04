@@ -23,17 +23,16 @@
     <div class = "container , text-center, basic_color">
 
     <form class="basic_color">
-
+           <div class = "answer">
         <?php foreach($hist_indicates as $key =>  $hist_indicate) :?>
         
-        <div class = "answer">
 
             <?php $count = count($hist_indicates) ?>
             <?php $trueCount = $count-1 ?>
 
                 <div class="small-question">  
                     <h5><?php echo $key.".".$hist_indicate["big_question"] ?></h5>
-
+ 
                     <?php for($i = 0; $i <= $trueCount; $i++) :?>
                         <?php $num = $i+1 ?>
                     
@@ -54,9 +53,9 @@
                                 <?php else :?>
                                     <strong><p>結果が未入力でした</p></strong>
                                 <?php endif ?>
-
+ 
                         </div>
-                    <?php endfor ?>
+                  <?php endfor ?>
              </div>
         <?php endforeach ?>
         <div class="back-top">
@@ -65,5 +64,5 @@
         </div>
     </form>
     </div>
-    
+    </div>
 @endsection
