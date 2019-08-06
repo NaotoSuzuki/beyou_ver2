@@ -22,6 +22,7 @@ class small_questions extends Seeder
             ['genre_value'=>'beverb','big_question_id'=>'3','question_num'=>'1','question'=>'私は日本人です。','answer'=>'I am Japanese.',],
             ['genre_value'=>'beverb','big_question_id'=>'3','question_num'=>'2','question'=>'これは本です。','answer'=>'This is a book.',],
             ['genre_value'=>'beverb','big_question_id'=>'3','question_num'=>'3','question'=>'あなたは学生ですか？','answer'=>'Are you a student?',],
+
             ['genre_value'=>'verb','big_question_id'=>'1','question_num'=>'1','question'=>'私は毎日泳ぎます(swim I every day)','answer'=>'I swim every day.',],
             ['genre_value'=>'verb','big_question_id'=>'1','question_num'=>'2','question'=>'私はテレビを見ます（watch I Tv）','answer'=>'I watch Tv.',],
             ['genre_value'=>'verb','big_question_id'=>'1','question_num'=>'3','question'=>'私はギターを弾きます(play the I guitar)','answer'=>'I play the guitar.',],
@@ -32,6 +33,7 @@ class small_questions extends Seeder
             ['genre_value'=>'verb','big_question_id'=>'3','question_num'=>'2','question'=>'私は剣道をする','answer'=>'I do Kendo.',],
             ['genre_value'=>'verb','big_question_id'=>'3','question_num'=>'3','question'=>'私は毎晩テレビを見る','answer'=>'I watch Tv every night.',],
             ['genre_value'=>'verb','big_question_id'=>'3','question_num'=>'4','question'=>'私は毎日働く','answer'=>'I work every day.',],
+
             ['genre_value'=>'beverb_verb','big_question_id'=>'1','question_num'=>'1','question'=>'あなたはダンスしますか？(dance do you ?)','answer'=>'Do you dance?',],
             ['genre_value'=>'beverb_verb','big_question_id'=>'1','question_num'=>'2','question'=>'あなたはどうかしてるんですか？（are crazy you）','answer'=>'Are you crazy?',],
             ['genre_value'=>'beverb_verb','big_question_id'=>'1','question_num'=>'3','question'=>'私は先生ではありません。（am I a not teacher）','answer'=>'I am not a teacher.',],
@@ -43,18 +45,40 @@ class small_questions extends Seeder
             ['genre_value'=>'beverb_verb','big_question_id'=>'3','question_num'=>'1','question'=>'私は運転しません','answer'=>'I do not drive.',],
             ['genre_value'=>'beverb_verb','big_question_id'=>'3','question_num'=>'2','question'=>'あなたは歌いますか？','answer'=>'Do you sing?',],
             ['genre_value'=>'beverb_verb','big_question_id'=>'3','question_num'=>'3','question'=>'私は飲まない。','answer'=>'I do not drink.',],
+
+            ['genre_value'=>'thirdperson','big_question_id'=>'1','question_num'=>'2','question'=>'この猫は上手に飛ぶ。cat flies this well)','answer'=>'This cat flies well.',],
+            ['genre_value'=>'thirdperson','big_question_id'=>'1','question_num'=>'3','question'=>'彼女は毎日働く。（works every day she）','answer'=>'She works every day.',],
+            ['genre_value'=>'thirdperson','big_question_id'=>'2','question_num'=>'1','question'=>'僕の父親が遊ぶ。（play）','answer'=>'My father plays.',],
+            ['genre_value'=>'thirdperson','big_question_id'=>'2','question_num'=>'2','question'=>'あのロボットは寝る。(sleep)','answer'=>'That robot sleeps.',],
+            ['genre_value'=>'thirdperson','big_question_id'=>'2','question_num'=>'3','question'=>'私の姉は掃除する。（clean）','answer'=>'My sister cleans.',],
+            ['genre_value'=>'thirdperson','big_question_id'=>'3','question_num'=>'1','question'=>'このギターは話す。','answer'=>'This guitar speaks.',],
+            ['genre_value'=>'thirdperson','big_question_id'=>'3','question_num'=>'2','question'=>'僕の犬は車を運転する。','answer'=>'My dog drives cars.',],
+            ['genre_value'=>'thirdperson','big_question_id'=>'3','question_num'=>'3','question'=>'僕の姉は上手に踊る。','answer'=>'My sister dances well.',],
+
+            ['genre_value'=>'can','big_question_id'=>'1','question_num'=>'1','question'=>'このステーキ食べていい？(I eat stake can this)','answer'=>'Can I eat this steak?',],
+            ['genre_value'=>'can','big_question_id'=>'1','question_num'=>'2','question'=>'走れるかい？(you run can)','answer'=>'Can you run?',],
+            ['genre_value'=>'can','big_question_id'=>'1','question_num'=>'3','question'=>'ボリューム下げてくれない？(down volume can the turn you)','answer'=>'Can you turn down the volume?',],
+            ['genre_value'=>'can','big_question_id'=>'2','question_num'=>'1','question'=>'これ食べていい？(this)','answer'=>'Can I eat this?',],
+            ['genre_value'=>'can','big_question_id'=>'2','question_num'=>'2','question'=>'あれらの犬は泳げますか?(those)','answer'=>'Can those dogs swim?',],
+            ['genre_value'=>'can','big_question_id'=>'2','question_num'=>'3','question'=>'彼は逃げられない。（escape)','answer'=>'He can’t escape.',],
+            ['genre_value'=>'can','big_question_id'=>'3','question_num'=>'1','question'=>'僕は歌えない。','answer'=>'I can’t sing.',],
+            ['genre_value'=>'can','big_question_id'=>'3','question_num'=>'2','question'=>'あの鳥は歌える。','answer'=>'That bird can sing.',],
+            ['genre_value'=>'can','big_question_id'=>'3','question_num'=>'3','question'=>'彼女は日本語を話せない。','answer'=>'She can’t speak Japanese.',],
+            ['genre_value'=>'can','big_question_id'=>'3','question_num'=>'4','question'=>'この本読んでいい？','answer'=>'Can I read this book？',],
+
+            ['genre_value'=>'presentgoing','big_question_id'=>'1','question_num'=>'1','question'=>'いま晩ご飯を食べてるところだよ。（now eating dinner am I ）','answer'=>'I am eating dinner now.',],
+            ['genre_value'=>'presentgoing','big_question_id'=>'1','question_num'=>'2','question'=>'彼は宿題をしている。(is homework doing he)','answer'=>'He is doing homework.',],
+            ['genre_value'=>'presentgoing','big_question_id'=>'1','question_num'=>'3','question'=>'彼女泳いでる？(she swimming is)','answer'=>'Is she swimming?',],
+            ['genre_value'=>'presentgoing','big_question_id'=>'2','question_num'=>'1','question'=>'何しているの？(what)','answer'=>'What are you doing?',],
+            ['genre_value'=>'presentgoing','big_question_id'=>'2','question_num'=>'2','question'=>'彼らは本を読んでるよ。（books）','answer'=>'They are reading books.',],
+            ['genre_value'=>'presentgoing','big_question_id'=>'2','question_num'=>'3','question'=>'この猫は死にかけている。（dying）','answer'=>'This cat is dying.',],
+            ['genre_value'=>'presentgoing','big_question_id'=>'3','question_num'=>'1','question'=>'君のお父さんは料理を作ってるよ。','answer'=>'Your father is cooking foods.',],
+            ['genre_value'=>'presentgoing','big_question_id'=>'3','question_num'=>'2','question'=>'彼女らは喋ってる。','answer'=>'They are speaking.',],
+            ['genre_value'=>'presentgoing','big_question_id'=>'3','question_num'=>'3','question'=>'彼らは眠ってる。','answer'=>'They are sleeping.',],
+            ['genre_value'=>'presentgoing','big_question_id'=>'3','question_num'=>'4','question'=>'(君は)踊ってる？','answer'=>'Are you dancing?',],
         ]);    
 
-        DB::table('genres')->insert([
-            ['genre'=>'Be動詞','genre_value'=>'beverb',],
-            ['genre'=>'一般動詞','genre_value'=>'verb',],
-            ['genre'=>'3人称単数','genre_value'=>'thirdperson',],
-            ['genre'=>'代名詞','genre_value'=>'pronoun',],
-            ['genre'=>'助動詞Can','genre_value'=>'can',],
-            ['genre'=>'現在進行形','genre_value'=>'presentgoing',],
-            ['genre'=>'Be動詞と一般動詞の使い分け','genre_value'=>'beverb_verb',],
-        ]); 
-
+       
      
     }
 }

@@ -76,7 +76,6 @@ class IndexController extends Controller
         $genre = $getGenre->getGenreComponent($genre_value);
         $created = $hist_info->created;
         $hist_indicates = $hist_detail->histDetail($user_id, $created, $genre_value);
-  
         return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created','genre', 'genre_value'));
     }
 }
