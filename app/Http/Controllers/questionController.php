@@ -22,9 +22,9 @@ use DB;
 
 class QuestionController extends Controller
 {
-    
+
     // private $user_id;
-   
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -37,7 +37,7 @@ class QuestionController extends Controller
         ->get();
 
         return  $big_records;
-    } 
+    }
 
 
 
@@ -46,12 +46,12 @@ class QuestionController extends Controller
         $small_records = DB::table('small_questions')
         ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
         ->where('small_questions.genre_value','=', $genre_value)
-        ->select('small_questions.*', 'big_questions.big_question')
+        ->select('small_questions.*', 'big_questions.question')
         ->get();
 
         return $small_records;
 
-    } 
+    }
 
     private static function getUserId(){
         $user_data = Auth::user();
@@ -73,25 +73,25 @@ class QuestionController extends Controller
         $user_name = QuestionController::getUserName();
         $questions = $indicateQuestions->showQuestionsComponent($genre_value);
         $genre = $getGenre->getGenreComponent($genre_value);
-       
+
          return view('questions.showQuestions',compact('user_id','genre_value','user_name','genre','questions'));
     }
 
 
 
     public function correctQuestions(Request $small_datas, CorrectQuestionsComponent $correct, GetGenreComponent $getGenre){
-        
-       
+
+
         $genre_value = $small_datas->genre_value;
         $small_answers = $small_datas->small_answers;
         $user_id = QuestionController::getUserId();
         $user_name = QuestionController::getUserName();
         $big_records = QuestionController::getBigRecords();
         $genre = $getGenre->getGenreComponent($genre_value);
-       
+
         $small_records = QuestionController::getSmallRecords($genre_value);
         $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records, $small_answers );
-  
+
 
 
 
@@ -111,11 +111,10 @@ class QuestionController extends Controller
         $user_name = QuestionController::getUserName();
 
         $save->saveAnswersComponent($genre_value, $user_answer_array, $results, $user_id, $big_records, $small_records);
-        
-        
+
+
         return view('questions.afterQuestion',compact('genre_value','user_id','user_name'));
     }
 
-       
+
 }
-  
