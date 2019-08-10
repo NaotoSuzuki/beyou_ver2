@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         return view('pages.index');
+=======
+        return view('home');
+>>>>>>> master
     }
 }

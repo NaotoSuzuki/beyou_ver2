@@ -42,6 +42,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
+<<<<<<< HEAD
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'forge'),
@@ -50,10 +51,24 @@ return [
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
+=======
+            'host' => env('DB_HOST', 'beyou-db1.cmjdviuoxsxl.ap-northeast-1.rds.amazonaws.com'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'beyou'),
+            'username' => env('DB_USERNAME', 'naoto'),
+            'password' => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+>>>>>>> master
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
+<<<<<<< HEAD
+=======
+            'unix_socket' => '/tmp/mysql.sock',
+>>>>>>> master
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],

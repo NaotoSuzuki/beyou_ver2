@@ -15,6 +15,7 @@ class ShowHists
     ->join('big_questions','user_answers.big_question_id','=','big_questions.id')
     ->where('user_answers.user_id','=', $user_id)
     ->select(
+<<<<<<< HEAD
             'user_answers.genre_value',
             'user_answers.big_question_id',
             'user_answers.question_num',
@@ -24,10 +25,25 @@ class ShowHists
             'genres.genre',
             'small_questions.answer',
             'big_questions.big_question'
+=======
+            'user_answers.genre_value', 
+            'user_answers.big_question_id', 
+            'user_answers.question_num', 
+            'user_answers.user_answer', 
+            'user_answers.result', 
+            'user_answers.created', 
+            'genres.genre', 
+            'small_questions.answer', 
+            'big_questions.big_question'       
+>>>>>>> master
     )
     ->get();
 
     return $hist_arrays;
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

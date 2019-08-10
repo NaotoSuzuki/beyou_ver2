@@ -67,7 +67,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'timezone' => 'UTC',
+=======
+    'timezone' => 'Asia/Tokyo',
+>>>>>>> master
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +84,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'locale' => 'en',
+=======
+    'locale' => 'jp',
+>>>>>>> master
 
     /*
     |--------------------------------------------------------------------------
@@ -174,7 +182,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+<<<<<<< HEAD
         App\Providers\BuildQuestionArraysProvider::class,
+=======
+        App\Providers\BuildQuestionArrayProvider::class,
+        App\Providers\HogeServiceProvider::class,
+>>>>>>> master
 
     ],
 
@@ -226,7 +239,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
         'BuildQuestionArray' => App\Facades\BuildQuestionArrayFacade::class
+=======
+        'BuildQuestionArray' => App\Facades\BuildQuestionArray::class,
+        'Hoge' => App\Facades\Hoge::class,
+>>>>>>> master
     ],
 
 ];

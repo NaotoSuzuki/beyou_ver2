@@ -1,6 +1,215 @@
 /*  index.blade.php*/
+<<<<<<< HEAD
 .col-sm-4{
 
     margin-bottom:10px;
     border: solid;
 }
+=======
+body {
+	background-color: #F9FBFE;
+  }
+
+
+
+  .basic_color{
+	color: #2B546A;
+  }
+
+	/* トップバー */
+.cp_navi {
+	background-color: #FFFFFF;
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	color: #131212;
+    display: block;
+    align-content: center;
+    margin-bottom: 1em; 
+	overflow: hidden;
+	width: 100%;
+}
+
+.cp_navi ul {
+	margin: 0;
+	padding: 0;
+}
+
+.cp_navi ul li {
+	display: inline-block;
+	list-style-type: none;
+	-webkit-transition: all 0.2s;
+	        transition: all 0.2s;
+}
+
+.cp_navi ul li.right {
+	float: right;
+}
+
+.cp_navi > ul > li > a > .caret {
+	border-top: 4px solid background-color: #FFFFFF;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+	content: '';
+	display: inline-block;
+	height: 0;
+	width: 0;
+	vertical-align: middle;
+	-webkit-transition: color 0.1s linear;
+	        transition: color 0.1s linear;
+}
+
+.cp_navi > ul > li > a {
+	color: #131212;
+	display: block;
+	line-height: 56px;
+	padding: 0 10px;
+	text-decoration: none;
+}
+.cp_navi > ul > li:hover {
+	background-color: rgb(7, 61, 209);
+}
+.cp_navi > ul > li:hover > a {
+	color: rgb( 255, 255, 255 );
+}
+.cp_navi > ul > li:hover > a > .caret {
+	border-top-color: rgb( 255, 255, 255 );
+}
+.cp_navi > ul > li > div {
+	background-color: rgb(7, 61, 209);;
+	border-top: 0;
+	
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	display: none;
+	margin: 0;
+	opacity: 0;
+	position: absolute;
+	width: 165px;
+	visibility: hidden;
+	-webkit-transiton: opacity 0.2s;
+	       transition: opacity 0.2s;
+}
+.cp_navi > ul > li:hover > div {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+}
+.cp_navi > ul > li > div ul > li {
+	display: block;
+}
+.cp_navi > ul > li > div ul > li > a {
+	color: #f7f1f1;
+	display: block;
+	padding: 12px 24px;
+	text-decoration: none;
+}
+
+.cp_navi > ul > li > div ul > li:hover > a {
+	background-color: rgba( 255, 255, 255, 0.1);
+}
+
+	/* トップコピー */
+.top_copy{
+    margin-bottom: 45px;
+}
+
+.top_copy h2{
+    margin-bottom: 25px;
+}
+
+
+	/* 問題一覧 */
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+
+
+.box {
+	border: 1px solid #dedede;
+	background-color: #FFFFFF;
+	box-shadow: 0 4px 4px -1px rgba(0, 0, 0, 0.055);
+    border-radius: 2px;
+    padding:140px 24px;
+    margin-bottom:40px;
+
+  }
+
+
+
+
+
+/* Question周りのスタイル */
+
+h1{
+	text-align: center;
+	margin:45px 0px;
+} 
+
+
+	/* 小問題のスタイル */
+.small-question{
+	padding-left:127px;
+	width: 800px;
+	margin: auto;
+
+}
+
+.small-form{
+	text-align: left;
+	margin: 30px 0px;;
+}
+
+form{
+	background-color: #FFFFFF;
+	box-shadow: 4px 4px 8px;
+	padding:20px;
+
+}
+form h5{
+	text-align: left;
+}
+
+.submit{
+	padding-left:263px;
+	text-align: left;
+}
+
+.back-top{
+
+	text-align: right;
+	margin-right: 1%;
+}
+
+.small-question strong{
+	color : red;
+
+}
+
+.marker{
+	background: linear-gradient(transparent 0%,#f0f0f0 0%);
+	font-weight: bold; 
+}
+
+
+
+
+/* error */
+
+.errors {
+	margin:auto;
+	width: 300px;
+	font-size: 12px;
+	color: #e95353;
+	border: 1px solid #e95353;
+	background-color: #f2dede;
+}
+.complete {
+	padding-left: 10px;
+	width: 290px;
+	font-size: 12px;
+	color: #2a88bd;
+	border: 1px solid #2a88bd;
+	background-color: #a6e1ec;
+}
+>>>>>>> master

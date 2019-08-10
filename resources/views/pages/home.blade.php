@@ -20,6 +20,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 <h1>
   <!-- <a href="/" class="header-menu"></a> -->
   文法を選んでください。
@@ -36,4 +37,6 @@
             @endforeach
         </div>
     </div>
+=======
+>>>>>>> master
 @endsection
