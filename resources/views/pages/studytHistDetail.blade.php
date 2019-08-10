@@ -23,83 +23,53 @@
 <div class = "container , text-center, basic_color">
 
     <form class="basic_color">
-           <div class = "answer">
-        <?php foreach($hist_indicates as $key =>  $hist_indicate) :?>
-<<<<<<< HEAD
-=======
-        
->>>>>>> 46a3148a8a18ba95379fa97f9ee238263c43ebb5
 
-            <div class = "answer">
+            <?php foreach($hist_indicates as $key =>  $hist_indicate) :?>
+                <div class = "answer">
 
-                <?php $count = count($hist_indicates) ?>
-                <?php $trueCount = $count-1 ?>
+                    <?php $count = count($hist_indicates) ?>
+                    <?php $trueCount = $count-1 ?>
 
-                <div class="small-question">
-                    <h5><?php echo $key.".".$hist_indicate["big_question"] ?></h5>
-<<<<<<< HEAD
+                    <div class="small-question">
+                        <h5><?php echo $key.".".$hist_indicate["big_question"] ?></h5>
+
 
                         <?php for($i = 0; $i <= $trueCount; $i++) :?>
                             <?php $num = $i+1 ?>
-=======
- 
-                    <?php for($i = 0; $i <= $trueCount; $i++) :?>
-                        <?php $num = $i+1 ?>
-                    
-                        <div class="small-form">
-                            <b><p><?php echo "(".$num.")".$hist_indicate["questions"][$i] ?></p>
-                            <p>答え : <strong><?php echo $hist_indicate["answers"][$i] ?></strong></p>
->>>>>>> 46a3148a8a18ba95379fa97f9ee238263c43ebb5
 
-                            <div class="small-form"><b>
-                                    <p><?php echo "(".$num.")".$hist_indicate["questions"][$i] ?></p>
-                                    <p>答え : <strong><?php echo $hist_indicate["answers"][$i] ?></strong></p>
+                                        <div class="small-form"><b>
+                                            <p><?php echo "(".$num.")".$hist_indicate["questions"][$i] ?></p>
+                                            <p>答え : <strong><?php echo $hist_indicate["answers"][$i] ?></strong></p>
 
-<<<<<<< HEAD
-                                    <?php if($hist_indicate["user_answers"][$i] !=  ""):?>
-                                        <p>あなたの答え : <strong class = "marker"><?php echo $hist_indicate["user_answers"][$i] ?></p></strong>
-                                    <?php else :?>
-                                        <strong><p>回答が未入力でした</p></strong>
-                                    <?php endif ?>
 
-                                    <?php if($hist_indicate["user_result"][$i] == "1"):?>
-                                        <strong><p>正解</p></strong>
-                                    <?php elseif($hist_indicate["user_result"][$i] == "0") :?>
-                                        <strong><p>間違い</p></strong>
-                                    <?php else :?>
-                                        <strong><p>結果が未入力でした</p></strong>
-                                    <?php endif ?>
+                                            <?php if($hist_indicate["user_answers"][$i] !=  ""):?>
+                                                <p>あなたの答え : <strong class = "marker"><?php echo $hist_indicate["user_answers"][$i] ?></p></strong>
+                                            <?php else :?>
+                                                <strong><p>回答が未入力でした</p></strong>
+                                            <?php endif ?>
+
+                                            <?php if($hist_indicate["user_result"][$i] == "1"):?>
+                                                <strong><p>正解</p></strong>
+                                            <?php elseif($hist_indicate["user_result"][$i] == "0") :?>
+                                                <strong><p>間違い</p></strong>
+                                            <?php else :?>
+                                                <strong><p>結果が未入力でした</p></strong>
+                                            <?php endif ?>
+
+                                    </div>
+                            <?php endfor ?>
                             </div>
-                        <?php endfor ?>
-                </div>
+
+
             <?php endforeach ?>
 
-                <div class="back-top">
-                    <p><a href ="{{ action('QuestionController@showQuestions', $genre_value) }}">問題を解きなおす</a></p>
-                    <a href="/" class="header-menu">トップページに戻る</a>
-                </div>
-            </form>
-        </div>
-   </div>
-=======
-                                <?php if($hist_indicate["user_result"][$i] == "1"):?>
-                                  <strong><p>正解</p></strong>
-                                <?php elseif($hist_indicate["user_result"][$i] == "0") :?>
-                                   <strong><p>間違い</p></strong>
-                                <?php else :?>
-                                    <strong><p>結果が未入力でした</p></strong>
-                                <?php endif ?>
- 
-                        </div>
-                  <?php endfor ?>
-             </div>
-        <?php endforeach ?>
-        <div class="back-top">
-            <p><a href ="{{ action('QuestionController@showQuestions', $genre_value) }}">問題を解きなおす</a></p>
-            <a href="/" class="header-menu">トップページに戻る</a>
-        </div>
-    </form>
-    </div>
-    </div>
->>>>>>> 46a3148a8a18ba95379fa97f9ee238263c43ebb5
-@endsection
+                            <div class="back-top">
+                                <p><a href ="{{ action('QuestionController@showQuestions', $genre_value) }}">問題を解きなおす</a></p>
+                                <a href="/" class="header-menu">トップページに戻る</a>
+                            </div>
+
+                </form>
+            </div>
+
+
+                @endsection

@@ -15,6 +15,7 @@ class small_questions extends Seeder
         DB::table('small_questions')->insert([
             ['genre_value'=>'beverb','big_question_id'=>'1','question_num'=>'1','question'=>'私は鳥です。(bird a I am)','answer'=>'I am a bird.',],
             ['genre_value'=>'beverb','big_question_id'=>'1','question_num'=>'2','question'=>'あなたは先生ではありません。 (teacher not are you a)','answer'=>'You are not a teacher.',],
+            ['genre_value'=>'beverb','big_question_id'=>'1','question_num'=>'3','question'=>'これらはりんごですか？ (apples are these)','answer'=>'Are these apples?',],
             ['genre_value'=>'beverb','big_question_id'=>'2','question_num'=>'1','question'=>'私は人間ですか？（human）','answer'=>'Am I a human?',],
             ['genre_value'=>'beverb','big_question_id'=>'2','question_num'=>'2','question'=>'これはキリンですか？(giraffe)','answer'=>'Is this a giraffe?',],
             ['genre_value'=>'beverb','big_question_id'=>'2','question_num'=>'3','question'=>'これらはバナナです。(these)','answer'=>'These are bananas.',],
@@ -76,10 +77,9 @@ class small_questions extends Seeder
             ['genre_value'=>'presentgoing','big_question_id'=>'3','question_num'=>'2','question'=>'彼女らは喋ってる。','answer'=>'They are speaking.',],
             ['genre_value'=>'presentgoing','big_question_id'=>'3','question_num'=>'3','question'=>'彼らは眠ってる。','answer'=>'They are sleeping.',],
             ['genre_value'=>'presentgoing','big_question_id'=>'3','question_num'=>'4','question'=>'(君は)踊ってる？','answer'=>'Are you dancing?',],
-        ]);    
+        ]);
 
-       
-     
+
+
     }
 }
-
