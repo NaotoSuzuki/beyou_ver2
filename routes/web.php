@@ -13,6 +13,10 @@
 
 Auth::routes();
 
+//↓vueテスト用
+// Route::get('/{any?}', function () {
+//     return view('vuetest');
+// })->where('any', '.+');
 
 Route::get('/home', 'IndexController@index')->name('home');
 Route::get('/index', 'IndexController@index')->name('index');
@@ -34,4 +38,3 @@ Route::get('/posts/{post}', 'PostsController@show');
 Route::get('/posts/{post}/edit', 'PostsController@edit');
 Route::patch('/posts/{post}', 'PostsController@update');
 Route::delete('/posts/{post}', 'PostsController@destroy');
-

@@ -1,3 +1,8 @@
+@php
+$user = $user_name;
+$user_id;
+@endphp
+
 @extends('layouts.default')
 
 @section('title', 'Beyou')
@@ -7,23 +12,8 @@
 
 
 
-    <div class="cp_navi">
-        <ul>
-            <li><a class="active" href="/">Beyou</a></li>
-            <li><a href="{{ action('IndexController@show_Hists', $user_id) }}">回答履歴を見る</a></li>
-            <li class="right">
-                <a href="">{{$user_name}} <span class="caret"></span></a>
-                <div>
-                    <ul>
-                        <li><a href="{{action('Auth\LoginController@logout')}}">ログアウト</a></li>
-                    </ul>
-                </div>
-            </li>   
-        </ul>
-    </div>
-
     <div class = "top_copy , text-center">
-        <div class = "main-copy ,basic_color"><h2>学べる文法一覧</h2></div>
+        <div class = "basic_color"><h2>学べる文法一覧</h2></div>
         <div class = "sub-copy, basic_color"><p>気にしている文法からやってみましょう！</p></div>
     </div>
 

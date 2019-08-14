@@ -1,3 +1,8 @@
+@php
+$user = $user_name;
+$user_id;
+@endphp
+
 @extends('layouts.default')
 
 @section('title', 'Beyou')

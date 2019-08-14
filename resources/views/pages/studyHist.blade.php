@@ -1,22 +1,14 @@
+@php
+$user = $user_name;
+$user_id;
+@endphp
+
 @extends('layouts.default')
 
 @section('title', 'Beyou')
 
 @section('content')
-<div class="cp_navi">
-    <ul>
-        <li><a class="active" href="/">Beyou</a></li>
-        <li><a href="{{ action('IndexController@show_Hists', $user_id) }}">回答履歴を見る</a></li>
-        <li class="right">
-            <a href="">{{$user_name}} <span class="caret"></span></a>
-            <div>
-                <ul>
-                    <li><a href="{{action('Auth\LoginController@logout')}}">ログアウト</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div>
+
 
 <h1 class ="basic_color">あなたの回答履歴です！</h1>
 
