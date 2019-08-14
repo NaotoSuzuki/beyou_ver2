@@ -13,10 +13,7 @@
 
 Auth::routes();
 
-//↓vueテスト用
-// Route::get('/{any?}', function () {
-//     return view('vuetest');
-// })->where('any', '.+');
+
 
 Route::get('/home', 'IndexController@index')->name('home');
 Route::get('/index', 'IndexController@index')->name('index');
