@@ -79,9 +79,11 @@ $user_id;
             </form>
 
             <div class="back-top">
+                a href="/" class="header-menu">
               <button type="button" class="btn btn-primary">
-                  <a href="/" class="header-menu">トップページに戻る</a>
+                  <トップページに戻る
               </button>
+              </a>
             </div>
 
 @endsection
