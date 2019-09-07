@@ -68,14 +68,16 @@ class QuestionController extends Controller
 
 
 
-    public function showQuestions($genre_value,  ShowQuestionsComponent $indicateQuestions, GetGenreComponent $getGenre){
+
+    public function showQuestions($genre_value,  ShowQuestionsComponent $indicateQuestions, GetGenreComponent $getGenre){//option_num option.bladeから渡ってくる
         $user_id = QuestionController::getUserId();
         $user_name = QuestionController::getUserName();
         $questions = $indicateQuestions->showQuestionsComponent($genre_value);
         $genre = $getGenre->getGenreComponent($genre_value);
-
+        //option_numは$questionsの配列の中に入っている。取り出し方は？今のDBOのロジックのくくりにoption_numを入れるだけ
          return view('questions.showQuestions',compact('user_id','genre_value','user_name','genre','questions'));
     }
+
 
 
 
@@ -89,19 +91,20 @@ class QuestionController extends Controller
         $big_records = QuestionController::getBigRecords();
         $genre = $getGenre->getGenreComponent($genre_value);
 
-        $small_records = QuestionController::getSmallRecords($genre_value);
+        $small_records = QuestionController::getSmallRecords($genre_value);//$option_numを引数に追加
         $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records, $small_answers );
-
+        //"saveAnswers"実行時にoption_numをuser_anaswersに格納するために、このクラスのパラメータとしてoption_numを持つ必要がある。
 
 
 
         return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records','user_name','genre'));
+        //パラメータとしてoption_numを入れる。saveAnswersに渡すため
 
     }
 
 
 
-    public function saveAnswers(Request $request,  SaveAnswersComponent $save){
+    public function saveAnswers(Request $request,  SaveAnswersComponent $save){//パラメータとして$option_num
         $user_id = $request->user_id;
         $results = $request->result;
         $user_answer_array= $request->user_answer;
@@ -110,7 +113,7 @@ class QuestionController extends Controller
         $small_records = QuestionController::getSmallRecords($genre_value);
         $user_name = QuestionController::getUserName();
 
-        $save->saveAnswersComponent($genre_value, $user_answer_array, $results, $user_id, $big_records, $small_records);
+        $save->saveAnswersComponent($genre_value, $user_answer_array, $results, $user_id, $big_records, $small_records);//option_num
 
 
         return view('questions.afterQuestion',compact('genre_value','user_id','user_name'));

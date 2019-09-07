@@ -42,29 +42,43 @@ class IndexController extends Controller
         $genres_data = $genres->getData();
         $user_id = IndexController::getUserId();
         $user_name = IndexController::getUserName();
-    
+
          return view('pages.index',compact('genres_data','user_id','user_name')) ;
+
+    }
+
+
+    public function options($genre_value, GetGenreComponent $getGenre){
+
+        $genre = $getGenre->getGenreComponent($genre_value);
+        //$option_num; option_num取得用にメソッドを作る必要あり。コンポーネントにする。option_num = 問題の数
+        //$option_describe//
+        //$option_details; //配列にしてviewに渡す。これもコンポーネント作る。
+        $user_id = IndexController::getUserId();
+        $user_name = IndexController::getUserName();
+
+         return view('pages.options',compact('genre_value','genre','option_num','user_id','user_name', '$option_describe','option_detail')) ;
     }
 
     public function explain($genre_value){
-       
+
         $posts = Post::where('genre_value',$genre_value)->get();
-       
+
         foreach($posts as $post){
           $title = $post->title;
           $body = $post->body;
           $genre = $post->genre;
           $genre_value = $post->genre_value;
         }
-        
-     
+
+
         return view('posts.show',compact('title','body','genre','genre_value'));
     }
 
     public function show_Hists(ShowHists $hist, $user_id){
         $hist_arrays =  $hist->showHists($user_id);
         $user_name = IndexController::getUserName();
-            
+
         return view('pages.studyHist',compact('hist_arrays','user_id','user_name'));
     }
 

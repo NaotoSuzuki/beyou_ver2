@@ -44,10 +44,10 @@ $user_id;
 
 
 
-                                <div class="col-sm-12, col-md-12">
+                            <div class="col-sm-12, col-md-12">
 
-                                    <div class="centering-block">
-                                        <div class="centering-block-inner">
+                                <div class="centering-block">
+                                    <div class="centering-block-inner">
 
                                     <h5><?php echo "Q".$key.".".$bigQ_record["big_question"] ?></h5>
                                     <?php for($i = 0; $i <= $trueCount; $i++) :?>
@@ -69,8 +69,9 @@ $user_id;
                 @endforeach
                 </div>
 
-                <input type = "hidden" name = "genre_value" value = "{{$genre_value}}">
+                <input type = "hidden" name = "genre_value" value = "{{$genre_value}}"/>
                 <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
+                <!-- <input type = "hidden" name = "option_num" value  =  "{{$option_num}}"/> -->
 
                 <div class="submit">
                 <input type="button" onclick="submit();"  value = "答え合わせをする">
@@ -79,9 +80,9 @@ $user_id;
             </form>
 
             <div class="back-top">
-                a href="/" class="header-menu">
+                <a href="/" class="header-menu">
               <button type="button" class="btn btn-primary">
-                  <トップページに戻る
+                  トップページに戻る
               </button>
               </a>
             </div>
