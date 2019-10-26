@@ -24,8 +24,8 @@ $user_id;
                     <div class = "box">
                         <p>{{$genre_data->genre}}</p>
 
-                        <p><a href ="{{ action('QuestionController@showQuestions', $genre_data->genre_value) }}">問題を解く</a></p>
-                        <!-- <p><a href ="{{ action('IndexController@options', $genre_data->genre_value) }}">問題を解く</a></p> -->
+                        <!-- <p><a href ="{{ action('QuestionController@showQuestions', $genre_data->genre_value) }}">問題を解く</a></p>-->
+                        <p><a href ="{{ action('IndexController@options', $genre_data->genre_value) }}">問題を解く</a></p>
                         <p><a href ="{{ action('IndexController@explain', $genre_data->genre_value) }}">解説を読む</a></p>
                     </div>
                 </div>

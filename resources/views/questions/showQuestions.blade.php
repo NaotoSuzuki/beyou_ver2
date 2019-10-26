@@ -38,7 +38,7 @@ $user_id;
                 @csrf
                 @foreach($questions as $key => $bigQ_record)
                     <div class="row">
-
+                        <?php $option_num = $bigQ_record["option_num"] ?>
                         <?php $count = count($bigQ_record["questions"]) ?>
                         <?php $trueCount = $count-1 ?>
 
@@ -52,7 +52,8 @@ $user_id;
                                     <h5><?php echo "Q".$key.".".$bigQ_record["big_question"] ?></h5>
                                     <?php for($i = 0; $i <= $trueCount; $i++) :?>
                                     <?php $num = $i+1 ?>
-                                    <?php $user_answer = $num.$bigQ_record["questions"][$i] ?>
+
+
                                       <!-- <div class="small-form"> -->
                                     <b><p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p></b>
 
@@ -71,7 +72,8 @@ $user_id;
 
                 <input type = "hidden" name = "genre_value" value = "{{$genre_value}}"/>
                 <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
-                <!-- <input type = "hidden" name = "option_num" value  =  "{{$option_num}}"/> -->
+                <input type = "hidden" name = "option_num" value  =  "{{$option_num}}"/>
+
 
                 <div class="submit">
                 <input type="button" onclick="submit();"  value = "答え合わせをする">

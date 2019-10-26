@@ -22,7 +22,7 @@ $user_id;
             <?php foreach($answeredQuestions as $key  => $bigQ_record) :?>
 
                 <div class="row">
-
+                    <?php $option_num = $bigQ_record["option_num"] ?>
                     <?php $count  =  count($bigQ_record["questions"]) ?>
                     <?php $trueCount = $count-1 ?>
 
@@ -58,9 +58,10 @@ $user_id;
             <div class="submit">
                 <input type = "submit" name = "save" value = "結果を保存する(復習の参考にできます！)" />
             </div>
-
+    
 			<input type = "hidden" name = "genre_value" value  =  "{{$genre_value}}"/>
             <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
+            <input type = "hidden" name = "option_num" value  =  "{{$option_num}}"/>
             <input type = "hidden" name = "small_answers" value = "<?php $roop_answers?>"/>
 
 
