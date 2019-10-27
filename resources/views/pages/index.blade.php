@@ -17,6 +17,10 @@ $user_id;
         <div class = "sub-copy, basic_color"><p>気にしている文法からやってみましょう！</p></div>
     </div>
 
+
+    <example-component></example-component>
+
+
     <div class = "container , text-center , basic_color">
         <div class="row">
          @foreach($genres_data as $genre_data)

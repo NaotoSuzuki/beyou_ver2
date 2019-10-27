@@ -15,7 +15,7 @@ Auth::routes();
 
 
 
-Route::get('/home', 'IndexController@index')->name('home');
+// Route::get('/home', 'IndexController@index')->name('home');
 Route::get('/index', 'IndexController@index')->name('index');
 //問題一覧サブページ
 Route::get('/index/genre_value/options/{genre_value}', 'IndexController@options');
