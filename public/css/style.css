@@ -23,7 +23,7 @@ body {
 
 .text { display: inline-block; }
 
-
+/* ヘッド右端のドロップダウンメニュー */
 
 .gnav {
     display: flex;
@@ -40,7 +40,7 @@ body {
     position: relative;
 }
 .gnav li a {
-    background: #001b34;
+    background: #355B71;
     border-right: 1px solid #eee;
     color: #fff;
     display: block;
@@ -75,25 +75,25 @@ body {
 }
 /*aの背景色を指定*/
 .gnav li:hover a {/*親階層*/
-    background: #00305c;
+    background: #30C8D6;
 }
 .gnav li li a {/*子階層*/
-    background: #00305c;
+    background: #30C8D6;
 }
 .gnav li li:hover a {
-    background: #004789;
+    background: #355B71;
 }
 .gnav li ul li ul li a {/*孫階層*/
-    background: #004789;
+    background: #355B71;
 }
 .gnav li ul li ul li:hover a {
-    background: #0065c1;
+    background: #355B71;
 }
 .gnav li ul li ul li ul li a {/*ひ孫階層*/
-    background: #0065c1;
+    background: #355B71;
 }
 .gnav li ul li ul li ul li:hover a {
-    background: #1e7dd4;
+    background: #355B71;
 }
 /*リストに「▶︎」を付ける*/
 .gnav > li > ul:before{/*子階層*/

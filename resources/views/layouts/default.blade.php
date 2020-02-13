@@ -44,26 +44,23 @@
             </li>
           </ul>
 
-          <ul class="navbar-nav ,gnav">
+          <!-- <ul class="navbar-nav ,gnav">
             <li class="nav-item dropdown">
              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                @isset($user){{ $user }} @endisset
              </a>
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                <a class="dropdown-item" href="{{action('Auth\LoginController@logout')}}">ログアウト</a>
-
-
-
              </div>
             </li>
-          </ul>
+          </ul> -->
 
-          <ul class="gnav">
+          <ul class="gnav" style="margin-right: -730px;">
               <li>
-                  <a href="">Menu1</a>
+                  <a href="">メニュー</a>
                   <ul>
                       <li>
-                          <a href="">Child1</a>
+                          <a href="{{action('Auth\LoginController@logout')}}">ログアウト</a>
                       </li>
                   </ul>
               </li>
