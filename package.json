@@ -40,5 +40,8 @@
     "bugs": {
         "url": "https://github.com/NaotoSuzuki/beyou_ver2/issues"
     },
-    "homepage": "https://github.com/NaotoSuzuki/beyou_ver2#readme"
+    "homepage": "https://github.com/NaotoSuzuki/beyou_ver2#readme",
+    "dependencies": {
+        "vue-chartjs": "^3.4.2"
+    }
 }

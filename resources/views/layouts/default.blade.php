@@ -7,19 +7,24 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
+
+
     <meta src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     <meta src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
     <meta src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+    <!-- vue_chartとか -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
 
-
-
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-     <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
 
@@ -34,13 +39,12 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
           <ul class="navbar-nav mr-auto">
-
             <li class="nav-item">
               <a class="nav-link" href="{{ action('IndexController@show_Hists', $user_id  ) }}">回答履歴を見る</a>
             </li>
           </ul>
 
-          <ul class="navbar-nav">
+          <ul class="navbar-nav ,gnav">
             <li class="nav-item dropdown">
              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                @isset($user){{ $user }} @endisset
@@ -49,8 +53,20 @@
                <a class="dropdown-item" href="{{action('Auth\LoginController@logout')}}">ログアウト</a>
 
 
+
              </div>
             </li>
+          </ul>
+
+          <ul class="gnav">
+              <li>
+                  <a href="">Menu1</a>
+                  <ul>
+                      <li>
+                          <a href="">Child1</a>
+                      </li>
+                  </ul>
+              </li>
           </ul>
 
 

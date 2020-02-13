@@ -29,6 +29,7 @@
                         if($answers[$big_que][$check_num] == $small_answers[$big_que][$q_num]){
                             $checked_result[$big_que][] = "◎";
                             $checked_value[$big_que][] = "1";
+                    
                         }
 
                         elseif ($answers2[$big_que][$check_num] == $small_answers[$big_que][$q_num]) {

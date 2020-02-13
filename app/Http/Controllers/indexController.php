@@ -49,6 +49,12 @@ class IndexController extends Controller
 
     }
 
+    public function mypage(){
+        $user_id = IndexController::getUserId();
+        $user_name = IndexController::getUserName();
+         return view('pages.mypage',compact('user_id','user_name')) ;
+
+    }
 
     public function options($genre_value, GetGenreComponent $getGenre, GetGenreDescribeComponent $getGenreDescribe, GetOptionDetailComponent $getOptionDetail){
         $genre = $getGenre->getGenreComponent($genre_value);

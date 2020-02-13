@@ -106,6 +106,13 @@ class QuestionController extends Controller
 
     }
 
+    //問題の答えを返す
+    public function showAnswers() {
+
+       return view('questions.showQuestions');
+
+   }
+
 
     public function saveAnswers(Request $request,  SaveAnswersComponent $save){//パラメータとして$option_num
         $user_id = $request->user_id;

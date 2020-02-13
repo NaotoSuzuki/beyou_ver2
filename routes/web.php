@@ -15,10 +15,14 @@ Auth::routes();
 
 
 
-// Route::get('/home', 'IndexController@index')->name('home');
+Route::get('/home', 'IndexController@index')->name('home');
 Route::get('/index', 'IndexController@index')->name('index');
+Route::get('/mypage', 'IndexController@mypage')->name('mypage');
 //問題一覧サブページ
 Route::get('/index/genre_value/options/{genre_value}', 'IndexController@options');
+
+//jason取得 app/Http/Controllers/Ajax/AnswersCOntroller.php
+Route::get('ajax/answers', 'Ajax\AnswersController@index')->name('mypage');
 
 Route::get('/explain/{genre_value}', 'IndexController@explain');
 // Route::get('/', 'IndexController@index')->name('index');
@@ -41,7 +45,3 @@ Route::get('/posts/{post}', 'PostsController@show');
 Route::get('/posts/{post}/edit', 'PostsController@edit');
 Route::patch('/posts/{post}', 'PostsController@update');
 Route::delete('/posts/{post}', 'PostsController@destroy');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

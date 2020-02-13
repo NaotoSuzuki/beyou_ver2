@@ -18,8 +18,6 @@ $user_id;
     </div>
 
 
-    <example-component></example-component>
-
 
     <div class = "container , text-center , basic_color">
         <div class="row">
