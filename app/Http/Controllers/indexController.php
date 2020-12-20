@@ -7,6 +7,7 @@ use App\Models\Genre;
 use App\Models\Components\Index\ShowHists;
 use App\Models\Components\Index\HistDetail;
 use App\Models\Components\Index\GetOptionDetailComponent;
+use App\Models\Components\Index\GetOptionNumComponent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Components\Question\GetGenreComponent;
@@ -56,9 +57,10 @@ class IndexController extends Controller
 
     }
 
-    public function options($genre_value, GetGenreComponent $getGenre, GetGenreDescribeComponent $getGenreDescribe, GetOptionDetailComponent $getOptionDetail){
+    public function options($genre_value, GetGenreComponent $getGenre, GetGenreDescribeComponent $getGenreDescribe, GetOptionDetailComponent $getOptionDetail, GetOptionNumComponent $getOptionNum){
         $genre = $getGenre->getGenreComponent($genre_value);
         $genre_describe = $getGenreDescribe->getGenreDescribeComponent($genre_value);
+        $option_num = $getOptionNum->getOptionNumComponent($genre_value);
         $option_details = $getOptionDetail->getOptionDetailComponent($genre_value);
         $user_id = IndexController::getUserId();
         $user_name = IndexController::getUserName();
