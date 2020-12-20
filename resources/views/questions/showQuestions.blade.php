@@ -21,7 +21,7 @@ $user_id;
 
 
 
-<!--
+<!--Vueを使おうとした痕跡
     <div id="app">
             <table></table>
         </div>
@@ -66,7 +66,7 @@ $user_id;
 
 
 
-
+            <!-- 回答入力フォーム -->
             <form class="q_container" action = "{{url('/questions/answer')}}" method="post" autocomplete="off">
                 <div class = "container, q_container">
                 @csrf
@@ -93,11 +93,7 @@ $user_id;
 
                                     <input type="text" name="small_answers[<?php echo $key ?>][<?php echo $num ?>]" style="top: -100px; left: -100px;　position: fixed;" >
                                       <!-- </div> -->
-
-
-
-
-                                    <?php endfor ?>
+                                  <?php endfor ?>
                                     <br>
                                     <br>
 
@@ -118,14 +114,14 @@ $user_id;
                 </div>
 
                 <!-- vueでデータ表示 参考 https://blog.capilano-fw.com/?p=432 -->
-                <div id="app">
-                    <table>
+                <!-- <div id="app">
+                    <table> -->
                         <!-- 要素 in 配列 という書き方 phpのforeachとは逆 -->
-                        <tr v-for="answer in answers">
+                        <!-- <tr v-for="answer in answers">
                             <td v-text="answer.answer"></td>
                         </tr>
                     </table>
-                </div>
+                </div> -->
                 <!-- ↑まで来たので、次にやりたいこと
                 ・問題ごとの答えを問題ごとに表示。
                 ・「答え合わせ」ボタンをイベントにする -->

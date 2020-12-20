@@ -20,21 +20,18 @@ Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/mypage', 'IndexController@mypage')->name('mypage');
 //問題一覧サブページ
 Route::get('/index/genre_value/options/{genre_value}', 'IndexController@options');
-
-//jason取得 app/Http/Controllers/Ajax/AnswersCOntroller.php
 Route::get('ajax/answers', 'Ajax\AnswersController@index')->name('mypage');
-
 Route::get('/explain/{genre_value}', 'IndexController@explain');
-// Route::get('/', 'IndexController@index')->name('index');
+
 
 Route::get('/hists/{user_id}', 'IndexController@show_Hists');
 Route::get('/hists/detail/{created}', 'IndexController@histDetail');
 Route::get('/explain/{genre_value}', 'IndexController@explain')->name('explain');
 Route::POST('/questions/question','QuestionController@showQuestions');
-//optionが実装された場合の問題表示url↓
-//Route::get('questions/question/{genre_value}','QuestionController@showQuestions');
 
+//回答入力フォームの送信先
 Route::POST('/questions/answer','QuestionController@correctQuestions');
+
 Route::POST('/questions/answer/save','QuestionController@saveAnswers');
 Route::POST('/hists/hist_detail','IndexController@histDetail');
 
