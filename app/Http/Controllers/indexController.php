@@ -71,7 +71,7 @@ class IndexController extends Controller
     public function explain($genre_value){
 
         $posts = Post::where('genre_value',$genre_value)->get();
-
+        dd($posts);
         foreach($posts as $post){
           $title = $post->title;
           $body = $post->body;

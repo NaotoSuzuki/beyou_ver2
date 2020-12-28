@@ -45,8 +45,8 @@ class QuestionController extends Controller
     private static function getSmallRecords($genre_value, $option_num){
 
         $small_records = DB::table('small_questions')
-        ->join('big_questions','small_questions.big_question_id','=','big_questions.id')
-        ->join('answers',"small_questions.big_question_id",'=','answers.big_question_id')
+        ->leftjoin('big_questions','small_questions.big_question_id','=','big_questions.id')
+        ->leftjoin('answers',"small_questions.big_question_id",'=','answers.big_question_id')
         ->where('small_questions.genre_value','=', $genre_value)
         ->where('small_questions.option_num','=', $option_num)
         ->select('small_questions.*', 'big_questions.big_question')
@@ -99,7 +99,7 @@ class QuestionController extends Controller
         $genre = $getGenre->getGenreComponent($genre_value);
 
         $small_records = QuestionController::getSmallRecords($genre_value, $option_num);
-        dd($small_records);
+        //dd($small_records);
         $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records, $small_answers, $option_num);
         //"saveAnswers"実行時にoption_numをuser_anaswersに格納するために、このクラスのパラメータとしてoption_numを持つ必要がある。
         return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records','user_name','genre'));
