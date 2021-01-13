@@ -1,0 +1,276 @@
+/*  index.blade.php*/
+body {
+	-webkit-text-size-adjust: 100%;
+	background-color: #F9FBFE;
+  }
+
+
+/* ナビゲーションバーのドロップリスト */
+  .basic_color{
+	color: #2B546A;
+  }
+
+
+	/* トップコピー */
+.top_copy{
+	margin-top: 30px;
+    margin-bottom: 45px;
+}
+
+.top_copy h2{
+    margin-bottom: 25px;
+}
+
+.text { display: inline-block; }
+
+/* ヘッド右端のドロップダウンメニュー */
+
+.gnav {
+    display: flex;
+    height: 2rem;
+    margin: 0 auto;
+    width: 1000px;
+}
+.gnav > li {/*親階層のみ幅を25%にする*/
+    width: 25%;
+}
+/*全てのリスト・リンク共通*/
+.gnav li {
+    list-style: none;
+    position: relative;
+}
+.gnav li a {
+    background: #45CEDB;
+    border-right: 1px solid #eee;
+    color: #fff;
+    display: block;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+/*子階層以降共通*/
+.gnav li li {
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+.gnav li li a {
+    border-top: 1px solid #eee;
+}
+.gnav li:hover > ul > li {
+    height: 2rem;
+    overflow: visible;
+}
+.gnav li ul li ul {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+/*一番右のメニュー*/
+.gnav > li:nth-child(5) ul li ul {
+    left: -100%;
+}
+/*aの背景色を指定*/
+.gnav li:hover a {/*親階層*/
+    background: #007bff;
+}
+.gnav li li a {/*子階層*/
+    background: #007bff;
+}
+.gnav li li:hover a {
+    background: #007bff;
+}
+.gnav li ul li ul li a {/*孫階層*/
+    background: #007bff;
+}
+.gnav li ul li ul li:hover a {
+    background: #007bff;
+}
+.gnav li ul li ul li ul li a {/*ひ孫階層*/
+    background: #007bff;
+}
+.gnav li ul li ul li ul li:hover a {
+    background: #007bff;
+}
+/*リストに「▶︎」を付ける*/
+.gnav > li > ul:before{/*子階層*/
+    border: 5px solid transparent;
+    border-top: 5px solid #fff;
+    content: "";
+    right: 1rem;
+    position: absolute;
+    top: 1rem;
+    transform: translateY(-40%);
+}
+.gnav li ul li ul:before {/*孫階層*/
+    border: 5px solid transparent;
+    border-left: 5px solid #fff;
+    content: "";
+    left: -20px;
+    position: absolute;
+    top: 1em;
+    transform: translateY(-50%);
+}
+.gnav li:nth-child(5) ul li ul:before {/*一番右のメニューの孫階層*/
+    border: 5px solid transparent;
+    border-right: 5px solid #fff;
+    left: auto;
+    right: -20px;
+}
+
+
+/* mypage */
+
+#header {
+height:150px;
+background-color:#009b9f;
+}
+#main {
+width:250px;
+min-height:500px;
+height:auto ;
+background-color:#009b9f;
+float:right;
+margin-top:10px;
+}
+#right {
+width:720px;
+min-height:500px;
+height:auto;
+background-color:#009b9f;
+margin-top:10px;
+}
+#footer {
+height:100px;
+background-color:#009b9f;
+margin-top:10px;
+}
+
+
+
+/* 問題一覧 */
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+
+
+.box {
+	border: 1px solid #dedede;
+	background-color: #FFFFFF;
+	box-shadow: 0 4px 4px -1px rgba(0, 0, 0, 0.055);
+    border-radius: 2px;
+    padding:140px 24px;
+    margin-bottom:40px;
+
+  }
+
+
+
+
+
+/* Question周りのスタイル */
+
+h1{
+	text-align: center;
+	margin:45px 0px;
+}
+
+.q_container{
+	margin:45px;
+}
+
+
+	/* 小問題のスタイル */
+
+.centering-block {
+	text-align: center;
+	}
+
+.centering-block .centering-block-inner {
+	text-align: left;
+	display: inline-block;
+	min-width: 50%;
+	}
+
+
+.small-question{
+	padding-left:127px;
+	width: 800px;
+	margin: auto;
+	word-wrap: break-word;
+}
+
+.small-form{
+	text-align: left;
+	margin: 30px 0px;;
+}
+
+form{
+	background-color: #FFFFFF;
+	box-shadow: 4px 4px 8px;
+	padding:20px;
+
+}
+/* form h5{
+	text-align: left;
+	 word-wrap:break-all;
+} */
+
+.submit{
+	text-align: right;
+	margin-right: 1%;
+}
+
+.back-top{
+
+	text-align: right;
+	margin-right: 1%;
+}
+
+.back-top a{
+	color:black;
+}
+
+.btn-primary {
+    background: #45CEDB;
+	border-color: #45CEDB;
+    color: black;
+}
+
+.small-question strong{
+	color : red;
+
+}
+
+.marker{
+	background: linear-gradient(transparent 0%,#f0f0f0 0%);
+	font-weight: bold;
+}
+
+
+
+
+/* error */
+
+.errors {
+	margin:auto;
+	width: 300px;
+	font-size: 12px;
+	color: #e95353;
+	border: 1px solid #e95353;
+	background-color: #f2dede;
+}
+.complete {
+	padding-left: 10px;
+	width: 290px;
+	font-size: 12px;
+	color: #2a88bd;
+	border: 1px solid #2a88bd;
+	background-color: #a6e1ec;
+}
