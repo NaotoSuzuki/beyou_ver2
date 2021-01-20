@@ -129,7 +129,7 @@ $user_id;
             </form>
 
             <div class="back-top">
-                <a href="/index" class="header-menu">
+                <a href="/" class="header-menu">
               <button type="button" class="btn btn-primary">
                   トップページに戻る
               </button>

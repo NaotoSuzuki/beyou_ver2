@@ -13,7 +13,7 @@ $user_id;
 <h1 class ="basic_color">あなたの回答履歴です！</h1>
 
 <div class="back-top">
-    <a href="/index" class="header-menu,  basic_color">トップページに戻る</a>
+    <a href="/" class="header-menu,  basic_color">トップページに戻る</a>
 </div>
 
 <div class = "container , text-center,  basic_color">

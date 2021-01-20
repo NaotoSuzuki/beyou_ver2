@@ -40,7 +40,14 @@ $user_id;
 
         @endforeach
 
-
-
     </div>
+
+    <div class="back-top">
+        <a href="/" class="header-menu">
+      <button type="button" class="btn btn-primary">
+          トップページに戻る
+      </button>
+      </a>
+    </div>
+
 @endsection

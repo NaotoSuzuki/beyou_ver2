@@ -41,12 +41,14 @@ class IndexController extends Controller
 
 
     public function index(){
+
+
         $genres = new Genre();
         $genres_data = $genres->getData();
         $user_id = IndexController::getUserId();
         $user_name = IndexController::getUserName();
 
-         return view('pages.index',compact('genres_data','user_id','user_name')) ;
+        return view('pages.index',compact('genres_data','user_id','user_name')) ;
 
     }
 

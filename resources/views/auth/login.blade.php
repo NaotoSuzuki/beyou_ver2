@@ -5,9 +5,21 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ isset($authgroup) ? ucwords($authgroup) : ""}}{{ __('Login') }}</div>
 
                 <div class="card-body">
+
+                    <!-- 管理者用 -->
+                    @if(isset($authgroup))
+                    <form method="POST" action="{{ url("login/$authgroup") }}">
+                    @else
+                    <form method="POST" action="{{ route('login') }}">
+                    @endif
+                        @csrf
+
+                    <!-- ...管理者用 -->
+
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -27,7 +39,7 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                                
+
                             </div>
                         </div>
 
@@ -62,4 +74,6 @@
         </div>
     </div>
 </div>
+
+<!-- ....管理者用 -->
 @endsection

@@ -46,6 +46,11 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        //管理者用
+        'admin' => [
+           'driver' => 'session',
+           'provider' => 'admins',
+       ],
     ],
 
     /*
@@ -70,6 +75,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        //管理者用
+        'admins' => [
+           'driver' => 'eloquent',
+           'model' => App\Models\Admin::class,
+       ],
 
         // 'users' => [
         //     'driver' => 'database',
