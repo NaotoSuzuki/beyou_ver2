@@ -42,6 +42,7 @@
     },
     "homepage": "https://github.com/NaotoSuzuki/beyou_ver2#readme",
     "dependencies": {
+        "swiper": "^6.4.5",
         "vue-chartjs": "^3.4.2"
     }
 }

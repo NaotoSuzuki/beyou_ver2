@@ -5,6 +5,9 @@
  */
 
 require('./bootstrap');
+require('./slideshow');
+require('./modal');
+require('./iziModal');
 
 window.Vue = require('vue');
 
