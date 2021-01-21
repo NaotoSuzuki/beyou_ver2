@@ -69,7 +69,12 @@
                   <a href="">メニュー</a>
                   <ul>
                       <li>
-                          <a href="{{action('Auth\LoginController@logout')}}">ログアウト</a>
+                          <a href={{ route('logout') }} onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            ログアウト
+                            </a>
+                            <form id='logout-form' action={{ route('logout')}} method="POST" style="display: none;">
+                            @csrf
                       </li>
                   </ul>
               </li>

@@ -15,10 +15,8 @@ Auth::routes();
 
 
 //メインページ
-// Route::get('/home', 'IndexController@index')->name('home');
 Route::get('/', 'IndexController@index')->name('index');
-// Route::get('/index', 'IndexController@index')->name('index');
-Route::get('/mypage', 'IndexController@mypage')->name('mypage');
+// Route::get('/mypage', 'IndexController@mypage')->name('mypage');
 
 //問題一覧サブページ
 Route::get('/index/genre_value/options/{genre_value}', 'IndexController@options');
