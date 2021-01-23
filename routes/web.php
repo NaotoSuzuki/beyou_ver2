@@ -15,7 +15,7 @@ Auth::routes();
 
 
 //メインページ
-Route::get('/', 'IndexController@index')->name('index');
+Route::get('/index', 'IndexController@index')->name('index');
 // Route::get('/mypage', 'IndexController@mypage')->name('mypage');
 
 //問題一覧サブページ
@@ -48,8 +48,6 @@ Route::delete('/posts/{post}', 'PostsController@destroy');
 // 管理者ログイン用
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
-
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('admin-register');
-
-Route::view('/admin', '/pages/admin')->middleware('auth:admin')->name('admin-home');
+Route::view('/admin', '/manage/admin')->middleware('auth:admin')->name('admin-home');

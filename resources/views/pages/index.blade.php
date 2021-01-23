@@ -20,23 +20,37 @@ $user_id;
     <div class="content">
     <a class="js-modal-open" href="">クリックでモーダルを表示</a>
 </div>
+<div class="modal js-modal">
+    <div class="modal__bg js-modal-close"></div>
+    <div class="modal__content">
+        <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
+        <p style="font-weight: bold;">ちゃんと表示できますか？</p><br>
+        <p>こういう文章でも</p>
+        <p>いいんですか</p>
+        <a class="js-modal-close" href="">閉じる</a>
+    </div><!--modal__inner-->
+</div><!--modal-->
 
-        <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">ひらくよ</a>
-        <div class="modal fade" id="myModal">
-        	<div class="modal-dialog">
-        		<div class="modal-content">
-        			<div class="modal-header">
-                        <p style="font-weight: bold;">ちゃんと表示できますか？</p>
-        			</div>
-        			<div class="modal-body">
-                        <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
-                        <p style="font-weight: bold;">ちゃんと表示できますか？</p><br>
-                        <p>こういう文章でも</p>
-                        <p>いいんですか</p>
-        			</div>
-        		</div>
-        	</div>
-        </div>
+
+
+<!-- モーダルウィンドウの中
+モーダルウィンドウを開くボタン -->
+<a class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">ひらくよ</a>
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+
+			</div>
+			<div class="modal-body">
+                <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
+                <p style="font-weight: bold;">ちゃんと表示できますか？</p><br>
+                <p>こういう文章でも</p>
+                <p>いいんですか</p>
+			</div>
+		</div>
+	</div>
+</div>
 
 
     <div class = "container , text-center , basic_color">

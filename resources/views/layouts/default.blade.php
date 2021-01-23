@@ -27,8 +27,13 @@
      <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
      <!-- iziModal パス変えてみたけど動くか不明-->
-     <link rel="public/css/iziModal.min.css" href="iziModal.min.css">
+     <link rel="stylesheet" href="public/css/iziModal.min.css">
      <script src="resources/js/iziModal.js" type="text/javascript"></script>
+     <script type="text/javascript">
+  $(function() {
+    $(".iziModal").iziModal();
+  })
+</script>
 
     <!-- Swiper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
@@ -41,7 +46,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FFFFFF; margin:bottom: -10px;">
-        <a class="navbar-brand " href="/">Beyou</a>
+        <a class="navbar-brand " href="/index">Beyou</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -73,7 +78,7 @@
                             document.getElementById('logout-form').submit();">
                             ログアウト
                             </a>
-                            <form id='logout-form' action={{ route('logout')}} method="POST" style="display: none;">
+                            <form id='logout-form' action={{ route('logout')}} method="POST" style="display: none;"></form>
                             @csrf
                       </li>
                   </ul>

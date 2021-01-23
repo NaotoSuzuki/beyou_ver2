@@ -43,7 +43,7 @@ $user_id;
     </div>
 
     <div class="back-top">
-        <a href="/" class="header-menu">
+        <a href="/index" class="header-menu">
       <button type="button" class="btn btn-primary">
           トップページに戻る
       </button>
