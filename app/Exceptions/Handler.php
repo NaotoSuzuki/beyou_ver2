@@ -7,6 +7,8 @@ use Throwable;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Session\TokenMismatchException;
+use Illuminate\Support\Facades\Auth;
 
 class Handler extends ExceptionHandler
 {
@@ -51,6 +53,30 @@ class Handler extends ExceptionHandler
         }
 
         return redirect()->guest($exception->redirectTo() ?? route('login'));
+
     }
-    //....管理者のリダイレクト先
+
+    /**セッションの有効期限が切れたらログアウト
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $exception
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Throwable
+     */
+        public function render($request, Throwable $exception)
+        {
+            // TokenMismatchException 例外発生時
+            if($exception instanceof \Illuminate\Session\TokenMismatchException) {
+                // ログアウトリクエスト時は、強制的にログアウト
+                if($request->is('logout')) {
+                    Auth::logout();
+                }
+            }
+
+            return parent::render($request, $exception);
+        }
+
+
 }

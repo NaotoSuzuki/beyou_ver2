@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                 </div>
             </div>
         </div>

@@ -41,7 +41,7 @@
 
 </head>
 <body>
-
+    @csrf
     <title>@yield('title')</title>
 
 
@@ -76,10 +76,9 @@
                       <li>
                           <a href={{ route('logout') }} onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                            ログアウト
+                            {{ __('ログアウト') }}
                             </a>
-                            <form id='logout-form' action={{ route('logout')}} method="POST" style="display: none;"></form>
-                            @csrf
+                            <form id='logout-form' action={{ route('logout')}} method="POST" style="display: none;">@csrf</form>
                       </li>
                   </ul>
               </li>

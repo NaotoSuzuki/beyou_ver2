@@ -30,7 +30,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+
+    protected $redirectTo = '/index';
 
     /**
      * Create a new controller instance.
@@ -43,13 +44,20 @@ class LoginController extends Controller
         $this->middleware('guest:admin')->except('logout');
     }
 
+    public function showLoginForm()
+   {
 
-    // 管理ログイン用
+       return view('auth.login');
+   }
+
+
+    //管理者ログインフォーム表示
     public function showAdminLoginForm()
    {
        return view('auth.login', ['authgroup' => 'admin']);
    }
 
+   //管理者ログイン
    public function adminLogin(Request $request)
    {
 
@@ -70,6 +78,7 @@ class LoginController extends Controller
 
    public function logout(Request $request)
     {
+
         Auth::logout();
 
         $request->session()->invalidate();
