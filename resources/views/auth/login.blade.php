@@ -11,11 +11,11 @@
 
                     <!-- 管理者用 -->
                     @if(isset($authgroup))
-                    <form method="POST" action="{{ url("login/$authgroup") }}">
+                        <form method="POST" action="{{ url("login/$authgroup") }}">
                     @else
-                    <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login') }}">
                     @endif
-                        @csrf
+                    @csrf
 
                     <!-- ...管理者用 -->
 

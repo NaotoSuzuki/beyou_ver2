@@ -46,7 +46,6 @@ class LoginController extends Controller
 
     public function showLoginForm()
    {
-
        return view('auth.login');
    }
 
@@ -74,16 +73,15 @@ class LoginController extends Controller
 
        return back()->withInput($request->only('email', 'remember'));
    }
-   // ...管理ログイン用
+   // ...管理ログイン
 
    public function logout(Request $request)
     {
 
         Auth::logout();
-
         $request->session()->invalidate();
+        // $request->session()->regenerateToken();
 
-        $request->session()->regenerateToken();
 
         return redirect('/');
     }
