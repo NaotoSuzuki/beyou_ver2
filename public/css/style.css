@@ -319,3 +319,14 @@ form{
     transform: translate(-50%,-50%);
     width: 60%;
 }
+
+/* 問題投稿画面 */
+input[type="text"], textarea {
+  box-sizing: border-box;
+  width: 400px;
+  padding: 5px;
+}
+
+textarea {
+  height: 120px;
+}

@@ -67,7 +67,5 @@ Route::view('/admin', '/admin/admin')->middleware('auth:admin')->name('admin-hom
 // 解説編集画面
 Route::get('/admin/index_explanation', 'Admin\ExplanationController@index');
 Route::get('/admin/index_explanation/show/{genre}', [ExplanationController::class, 'show'])->name('admin.explanation.show');
-
 // Route::get('/admin/index_explanation/show/{genre}', 'Admin\ExplanationController@show');
-
-// Route::get('/admin/index_explanation/show/{genre}', [ExplanationController::class, 'show']);
+Route::get('/admin/index_explanation/create', 'Admin\ExplanationController@create');

@@ -20,18 +20,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request, $guard = null)
+    public function index()
     {
-        // $data = $request->session()->all();
-        // dd($data);
-        // 
-        // if (Auth::guard('admin')){
-        //     $admin = Auth::guard($guard);
-        //     $cookie = Cookie::get('key');
-        //     // dd($cookie);
-        //     return redirect('/admin');
-        // }
-
         return view('home');
     }
 }
