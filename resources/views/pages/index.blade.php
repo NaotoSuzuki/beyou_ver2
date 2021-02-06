@@ -18,18 +18,19 @@ $user_id;
     </div>
 
     <div class="content">
-    <a class="js-modal-open" href="">クリックでモーダルを表示</a>
-</div>
-<div class="modal js-modal">
-    <div class="modal__bg js-modal-close"></div>
-    <div class="modal__content">
-        <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
-        <p style="font-weight: bold;">ちゃんと表示できますか？</p><br>
-        <p>こういう文章でも</p>
-        <p>いいんですか</p>
-        <a class="js-modal-close" href="">閉じる</a>
-    </div><!--modal__inner-->
-</div><!--modal-->
+        <a class="js-modal-open" href="">クリックでモーダルを表示</a>
+    </div>
+
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+            <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。</p>
+            <p style="font-weight: bold;">ちゃんと表示できますか？</p><br>
+            <p>こういう文章でも</p>
+            <p>いいんですか</p>
+            <a class="js-modal-close" href="">閉じる</a>
+        </div><!--modal__inner-->
+    </div><!--modal-->
 
 
 
@@ -63,6 +64,7 @@ $user_id;
                         <!-- <p><a href ="{{ action('QuestionController@showQuestions', $genre_data->genre_value) }}">問題を解く</a></p>-->
                         <p><a href ="{{ action('IndexController@options', $genre_data->genre_value) }}">問題を解く</a></p>
                         <p><a href ="{{ action('IndexController@explain', $genre_data->genre_value) }}">解説を読む</a></p>
+                        
                     </div>
                 </div>
          @endforeach

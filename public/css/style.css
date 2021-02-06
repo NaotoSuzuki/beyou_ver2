@@ -1,8 +1,13 @@
-/*  index.blade.php*/
+/*全般*/
 body {
 	-webkit-text-size-adjust: 100%;
 	background-color: #F9FBFE;
   }
+
+  ul {
+  list-style: none;
+}
+
 
 
 /* ナビゲーションバーのドロップリスト */

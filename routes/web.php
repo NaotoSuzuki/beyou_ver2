@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Admin\ExplanationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,4 +62,12 @@ Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('admin-register');
-Route::view('/admin', '/manage/admin')->middleware('auth:admin')->name('admin-home');
+Route::view('/admin', '/admin/admin')->middleware('auth:admin')->name('admin-home');
+
+// 解説編集画面
+Route::get('/admin/index_explanation', 'Admin\ExplanationController@index');
+Route::get('/admin/index_explanation/show/{genre}', [ExplanationController::class, 'show'])->name('admin.explanation.show');
+
+// Route::get('/admin/index_explanation/show/{genre}', 'Admin\ExplanationController@show');
+
+// Route::get('/admin/index_explanation/show/{genre}', [ExplanationController::class, 'show']);

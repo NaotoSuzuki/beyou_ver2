@@ -18,6 +18,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
 
+        //ログインしようとしたときにすでにログイン済みだった場合
         if (Auth::guard($guard)->check()) {
             return redirect('/index');
         }
