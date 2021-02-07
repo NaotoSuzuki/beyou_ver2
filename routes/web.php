@@ -65,7 +65,11 @@ Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('adm
 Route::view('/admin', '/admin/admin')->middleware('auth:admin')->name('admin-home');
 
 // 解説編集画面
-Route::get('/admin/index_explanation', 'Admin\ExplanationController@index');
-Route::get('/admin/index_explanation/show/{genre}', [ExplanationController::class, 'show'])->name('admin.explanation.show');
+Route::get('/admin/index_explanation', 'Admin\ExplanationController@index')->name('admin.index');
+Route::get('/admin/index_explanation/show/{id}', [ExplanationController::class, 'show'])->name('admin.explanation.show');
 // Route::get('/admin/index_explanation/show/{genre}', 'Admin\ExplanationController@show');
 Route::get('/admin/index_explanation/create', 'Admin\ExplanationController@create');
+Route::post('/admin/index_explanation/posts', 'Admin\ExplanationController@store');
+Route::get('/admin/index_explanation/{id}/edit', [ExplanationController::class, 'edit'])->name('admin.explanation.edit');
+Route::patch('/admin/index_explanation/posts/{post}', 'Admin\ExplanationController@update');
+Route::post('/admin/index_explanation/posts/{id}', 'Admin\ExplanationController@destroy');

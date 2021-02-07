@@ -222,10 +222,23 @@ form{
 	padding:20px;
 
 }
-/* form h5{
-	text-align: left;
-	 word-wrap:break-all;
-} */
+ul li form {
+	text-align: right;
+	margin: 0px;
+    padding: 0px;
+	display: inline-block;
+	box-shadow:none;
+	background-color: #F9FBFE;
+}
+
+ul li .form_flex{
+	display: flex;
+}
+
+ul li .form_flex a{
+	margin: auto;
+	padding: auto;
+}
 
 .submit{
 	text-align: right;
@@ -320,7 +333,7 @@ form{
     width: 60%;
 }
 
-/* 問題投稿画面 */
+/* 問題投稿機能周り */
 input[type="text"], textarea {
   box-sizing: border-box;
   width: 400px;
@@ -329,4 +342,13 @@ input[type="text"], textarea {
 
 textarea {
   height: 120px;
+}
+
+
+.edit {
+  font-size: 12px;
+}
+
+.del {
+  font-size: 12px;
 }

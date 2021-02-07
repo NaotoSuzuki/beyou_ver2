@@ -61883,6 +61883,8 @@ __webpack_require__(/*! ./modal */ "./resources/js/modal.js");
 
 __webpack_require__(/*! ./iziModal */ "./resources/js/iziModal.js");
 
+__webpack_require__(/*! ./main */ "./resources/js/main.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -63396,6 +63398,25 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   };
   $.fn[PLUGIN_NAME].Constructor = iziModal;
   return $.fn.iziModal;
+});
+
+/***/ }),
+
+/***/ "./resources/js/main.js":
+/*!******************************!*\
+  !*** ./resources/js/main.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(function () {
+  $(".btn-dell").click(function () {
+    if (confirm("本当に削除しますか？")) {//そのままsubmit（削除）
+    } else {
+      //cancel
+      return false;
+    }
+  });
 });
 
 /***/ }),
