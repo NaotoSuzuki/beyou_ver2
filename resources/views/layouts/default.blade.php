@@ -27,12 +27,7 @@
      <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
      <!-- iziModal パス変えてみたけど動くか不明-->
-     <link rel="stylesheet" href="public/css/iziModal.min.css">
-     <script src="resources/js/iziModal.js" type="text/javascript"></script>
      <script type="text/javascript">
-  $(function() {
-    $(".iziModal").iziModal();
-  })
 </script>
 
     <!-- Swiper -->

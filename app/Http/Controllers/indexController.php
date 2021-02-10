@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\Components\Question\GetGenreComponent;
 use App\Models\Components\Question\GetGenreDescribeComponent;
 use App\Post;
+use App\models\Admin\Explanation;
 
 class IndexController extends Controller
 {
@@ -41,11 +42,17 @@ class IndexController extends Controller
 
 
     public function index(){
+        // 以下のデータの持って方を変える必要がある。
+
         $genres = new Genre();
-        $genres_data = $genres->getData();
+        $genres_posts = $genres->getGenreAndPostsComponent();
+        // dd($genre_posts->toArray());
+        // $genres_data = $genres->getData();
         $user_id = IndexController::getUserId();
         $user_name = IndexController::getUserName();
-        return view('pages.index',compact('genres_data','user_id','user_name')) ;
+        $posts = Explanation::get();
+
+        return view('pages.index',compact('genres_posts','user_id','user_name','posts')) ;
     }
 
     public function mypage(){

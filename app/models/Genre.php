@@ -14,8 +14,20 @@ class Genre extends Model
 
     public function getData(){
         $genre_data = DB::table($this->table)->get();
-     return $genre_data;
+        return $genre_data;
     }
+
+
+    public function getGenreAndPostsComponent(){
+
+        $genreArrayAndPosts = DB::table('genres as genres_data')
+         ->leftjoin('explanations','genres_data.genre_value','=','explanations.genre_code')
+         ->get();
+         // dd($genreArrayAndPosts->toArray());
+         return $genreArrayAndPosts;
+    }
+
+
 
     public function small_questions()
     {

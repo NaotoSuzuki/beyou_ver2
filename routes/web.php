@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\ExplanationController;
 // Auth::routes();
 Route::get('/', 'HomeController@index')->name('/');
 
+Route::view('/modaltest', 'modal_test');
+
 
 // ログイン周り
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');

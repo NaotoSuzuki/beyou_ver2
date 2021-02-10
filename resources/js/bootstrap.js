@@ -39,3 +39,25 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+//index.bladeの解説表示モーダル用
+$('#myModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var title_data = button.data('title');
+    var content_data = button.data('content');
+
+    var modal = $(this);
+    modal.find('.modal-title').text(title_data);
+    modal.find('.modal-body').text(content_data);
+  })
+
+
+  $('#exampleModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) //モーダルを呼び出すときに使われたボタンを取得
+    var recipient = button.data('whatever') //data-whatever の値を取得
+  console.log(recipient);
+    //Ajaxの処理はここに
+
+    var modal = $(this)  //モーダルを取得
+    modal.find('.modal-title').text('New message to ' + recipient) //モーダルのタイトルに値を表示
+    modal.find('.modal-body input#recipient-name').val(recipient) //inputタグにも表示
+  })

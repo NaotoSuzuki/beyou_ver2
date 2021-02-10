@@ -7,8 +7,9 @@
 require('./bootstrap');
 require('./slideshow');
 require('./modal');
-require('./iziModal');
 require('./main');
+
+
 
 window.Vue = require('vue');
 
@@ -37,20 +38,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  // });
 
 
-const app = new Vue({
-    el: '#app',
-    data: {
-      answers: {}
-    },
-    mounted() {
-        var self = this;
-        var url = '/ajax/answers';
-        axios.get(url).then(function(response){
-            self.answers= response.data;
-        });
-        // ここで各文法毎に仕分けしたりなど、viewにわたすデータ構造を操作する？
-    }
 
-    // このクラス内に"el:"#〇〇",と増やしていけばいいのか
 
-});
+// const app = new Vue({
+//     el: '#app',
+//     data: {
+//       answers: {}
+//     },
+//     mounted() {
+//         var self = this;
+//         var url = '/ajax/answers';
+//         axios.get(url).then(function(response){
+//             self.answers= response.data;
+//         });
+//         // ここで各文法毎に仕分けしたりなど、viewにわたすデータ構造を操作する？
+//     }
+//
+//     // このクラス内に"el:"#〇〇",と増やしていけばいいのか
+//
+// });
