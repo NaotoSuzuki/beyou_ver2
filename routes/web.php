@@ -73,5 +73,5 @@ Route::get('/admin/index_explanation/show/{id}', [ExplanationController::class, 
 Route::get('/admin/index_explanation/create', 'Admin\ExplanationController@create');
 Route::post('/admin/index_explanation/posts', 'Admin\ExplanationController@store');
 Route::get('/admin/index_explanation/{id}/edit', [ExplanationController::class, 'edit'])->name('admin.explanation.edit');
-Route::patch('/admin/index_explanation/posts/{post}', 'Admin\ExplanationController@update');
-Route::post('/admin/index_explanation/posts/{id}', 'Admin\ExplanationController@destroy');
+Route::patch('/admin/index_explanation/posts/update/{id}', 'Admin\ExplanationController@update');
+Route::delete('/admin/index_explanation/posts/{id}', 'Admin\ExplanationController@destroy');

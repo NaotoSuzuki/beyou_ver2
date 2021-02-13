@@ -5,9 +5,9 @@
  */
 
 require('./bootstrap');
-require('./slideshow');
 require('./modal');
 require('./main');
+
 
 
 

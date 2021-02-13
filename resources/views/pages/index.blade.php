@@ -45,6 +45,7 @@ $user_id;
 
 
                         <!-- モーダルの定義はbootstrap.jsに記載 -->
+
                             <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">ひらくよ</a>
                             <div class="modal fade" id="myModal">
                             	<div class="modal-dialog">
@@ -61,6 +62,7 @@ $user_id;
                             		</div>
                             	</div>
                             </div>
+
                     </div>
                 </div>
          @endforeach
