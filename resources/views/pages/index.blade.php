@@ -9,7 +9,6 @@ $user_id;
 
 @section('content')
 
-
     <div class = "top_copy , text-center">
         <div class = "basic_color"><h2>問題一覧</h2></div>
         <div class = "sub-copy, basic_color"><p>気にしている文法からやってみましょう！</p></div>
@@ -26,16 +25,10 @@ $user_id;
          @foreach($genres_posts as $genre_post)
 
 
-
-
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class = "box">
                         <p>{{$genre_post->genre}}</p>
-
-                        <!-- <p><a href ="{{ action('QuestionController@showQuestions', $genre_post->genre_value) }}">問題を解く</a></p>-->
                         <p><a href ="{{ action('IndexController@options', $genre_post->genre_value) }}">問題を解く</a></p>
-                        <p><a href ="{{ action('IndexController@explain', $genre_post->genre_value) }}">解説を読む</a></p>
-
 
 
                         @php
@@ -46,7 +39,7 @@ $user_id;
 
                         <!-- モーダルの定義はbootstrap.jsに記載 -->
 
-                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">ひらくよ</a>
+                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">説明を読む</a>
                             <div class="modal fade" id="myModal">
                             	<div class="modal-dialog">
                             		<div class="modal-content">

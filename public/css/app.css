@@ -75,6 +75,7 @@ body {
   background-color: #f8fafc;
 }
 
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
@@ -4550,6 +4551,11 @@ input[type=button].btn-block {
     display: flex !important;
     flex-basis: auto;
   }
+
+  .navbar-expand-lg .navbar-collapse ul{
+    margin-right: auto;
+  }
+
 
   .navbar-expand-lg .navbar-toggler {
     display: none;
@@ -10643,4 +10649,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-

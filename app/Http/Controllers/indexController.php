@@ -51,7 +51,7 @@ class IndexController extends Controller
         $user_id = IndexController::getUserId();
         $user_name = IndexController::getUserName();
         $posts = Explanation::get();
-
+        // dd($genres_posts);
         return view('pages.index',compact('genres_posts','user_id','user_name','posts')) ;
     }
 

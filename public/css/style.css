@@ -1,13 +1,18 @@
 /*全般*/
-body {
+  body {
 	-webkit-text-size-adjust: 100%;
 	background-color: #F9FBFE;
   }
 
+
+  head{
+	  display:none;
+  }
+
+
   ul {
   list-style: none;
 }
-
 
 
 /* ナビゲーションバーのドロップリスト */
@@ -34,7 +39,6 @@ body {
     display: flex;
     height: 2rem;
     margin: 0 auto;
-    width: 1000px;
 }
 .gnav > li {/*親階層のみ幅を25%にする*/
     width: 25%;
@@ -42,7 +46,7 @@ body {
 /*全てのリスト・リンク共通*/
 .gnav li {
     list-style: none;
-    position: relative;
+	width: 100px
 }
 .gnav li a {
     background: #45CEDB;
