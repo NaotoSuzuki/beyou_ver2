@@ -37,8 +37,8 @@ $user_id;
                                     <?php $user_answer  =  $num.$bigQ_record["questions"][$i] ?>
                                     <?php $roop_answers[] = ["big_questions_id" => $key, "question_num" => $num,"user_answer" => $user_answer]?>
                                     <b><p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p></b>
-                                    <p>あなたの答え : <strong class = "marker"><?php echo $small_answers[$key][$num] ?></strong></p>
-                                    <p><strong><?php echo $bigQ_record["checked_result"][$i] ?></strong></p>
+                                    <strong><?php echo $bigQ_record["checked_result"][$i] ?></strong>
+                                    あなたの答え : <strong class = "marker"><?php echo $small_answers[$key][$num] ?></strong>
                                     <p>答え : <strong><?php echo $bigQ_record["answers"][$i] ?></strong></p>
 
                                     <input type = "hidden" name = "user_answer[<?php echo $key ?>][<?php echo $num ?>]" value = "<?php echo $small_answers[$key][$num] ?>">
@@ -58,7 +58,7 @@ $user_id;
             <div class="submit">
                 <input type = "submit" name = "save" value = "結果を保存する(復習の参考にできます！)" />
             </div>
-    
+
 			<input type = "hidden" name = "genre_value" value  =  "{{$genre_value}}"/>
             <input type = "hidden" name = "user_id" value  =  "{{$user_id}}"/>
             <input type = "hidden" name = "option_num" value  =  "{{$option_num}}"/>
@@ -68,8 +68,8 @@ $user_id;
 		</form>
 
     <div class="back-top">
-         <button type="button" class="btn btn-primary">
-         <a href ="{{ action('QuestionController@showQuestions', $genre_value) }}">問題を解きなおす</a>
+         <button type="button" class="btn btn-primary" onclick="history.back()">
+         問題を解きなおす
          </button>
          <button type="button" class="btn btn-primary">
          <a href="/" class="header-menu">トップページに戻る</a>

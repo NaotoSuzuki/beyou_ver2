@@ -6,7 +6,8 @@
 
     use DB;
     class ShowQuestionsComponent{
-        public function showQuestionsComponent($genre_value, $option_num){ //引数にoption_num
+        public function showQuestionsComponent($genre_value, $option_num){
+            // dd($option_num);
 
             $small_questions_array = DB::table('small_questions')
                 ->orderBy('option_num', 'asc')

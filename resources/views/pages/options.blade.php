@@ -20,14 +20,13 @@ $user_id;
 
     <div class = "container , text-center , basic_color">
         @foreach ($option_details as $key => $option_detail)
-         <form action = "{{url('/questions/question')}}" method="post">
+         <form class='option_container' action = "{{url('/questions/question')}}" method="post">
             {{ csrf_field() }}
             <div class="row">
                <!-- progateを参考にしたボックス -->
                <?php $option_num = $key + 1;  ?>
                <?php  echo $genre.$option_num ?>
                <?php echo $option_detail ?>
-
 
             <!-- <a href ="{{ action('QuestionController@showQuestions', $option_num) }}">問題を解く</a> -->
             <input type = "hidden" name = "option_num" value = "{{$option_num}}"/>

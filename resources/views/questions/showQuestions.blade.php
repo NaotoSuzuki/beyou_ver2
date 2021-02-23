@@ -20,40 +20,6 @@ $user_id;
     </div>
 
 
-
-<!--Vueを使おうとした痕跡
-    <div id="app">
-            <table></table>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> -->
-
-
-
-
-        <!-- <script>
-
-            new Vue({
-                el: '#app',
-                mounted() {
-                    var url = '/ajax/answers';
-                    axios.get(url).then(function(response){
-                        var answers = response.data;
-                        console.log(answers);
-                        self.answers= response.data;
-                    });
-                }
-            });
-
-        </script>
-
-        <div id="app">
-            <h1>答え</h1>
-            @{{ answers }}
-            <table></table>
-        </div>
- -->
-
     @if ($errors->any())
         <div class="errors">
           <ul>
@@ -112,19 +78,6 @@ $user_id;
                 <div class="submit">
                 <input type="button" onclick="submit();"  value = "答え合わせをする">
                 </div>
-
-                <!-- vueでデータ表示 参考 https://blog.capilano-fw.com/?p=432 -->
-                <!-- <div id="app">
-                    <table> -->
-                        <!-- 要素 in 配列 という書き方 phpのforeachとは逆 -->
-                        <!-- <tr v-for="answer in answers">
-                            <td v-text="answer.answer"></td>
-                        </tr>
-                    </table>
-                </div> -->
-                <!-- ↑まで来たので、次にやりたいこと
-                ・問題ごとの答えを問題ごとに表示。
-                ・「答え合わせ」ボタンをイベントにする -->
 
             </form>
 
