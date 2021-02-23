@@ -46,7 +46,6 @@ Route::get('/explain/{genre_value}', 'IndexController@explain')->name('explain')
 
 //問題表示
 Route::POST('/questions/question','QuestionController@showQuestions');
-Route::GET('/questions/question','QuestionController@showQuestions');
 
 //回答入力フォームの送信先
 Route::POST('/questions/answer','QuestionController@correctQuestions');

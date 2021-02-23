@@ -37,7 +37,26 @@ $user_id;
                                     <?php $user_answer  =  $num.$bigQ_record["questions"][$i] ?>
                                     <?php $roop_answers[] = ["big_questions_id" => $key, "question_num" => $num,"user_answer" => $user_answer]?>
                                     <b><p><?php echo "(".$num.")".$bigQ_record["questions"][$i] ?></p></b>
-                                    <strong><?php echo $bigQ_record["checked_result"][$i] ?></strong>
+
+
+                                    <strong><?php
+                                    if ($bigQ_record["checked_result"][$i]=="◎") {
+                                        $color = 'red';
+                                    }elseif($bigQ_record["checked_result"][$i]=="✖") {
+                                        $color = 'blue';
+                                    }else{
+                                        $color = 'orange';
+                                    }
+                                    ?>
+                                    <span style="color: <?php echo $color; ?>"><?php echo $bigQ_record["checked_result"][$i]; ?></span>
+
+                                    </strong>
+
+
+
+
+
+
                                     あなたの答え : <strong class = "marker"><?php echo $small_answers[$key][$num] ?></strong>
                                     <p>答え : <strong><?php echo $bigQ_record["answers"][$i] ?></strong></p>
 
@@ -69,7 +88,7 @@ $user_id;
 
     <div class="back-top">
          <button type="button" class="btn btn-primary" onclick="history.back()">
-         問題を解きなおす
+         <a>問題を解きなおす</a>
          </button>
          <button type="button" class="btn btn-primary">
          <a href="/" class="header-menu">トップページに戻る</a>
