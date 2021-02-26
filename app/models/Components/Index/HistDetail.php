@@ -14,7 +14,6 @@ class HistDetail{
             $join->on('user_answers.genre_value','=','small_questions.genre_value');
             $join->on('user_answers.big_question_id','=','small_questions.big_question_id');
             $join->on('user_answers.question_num','=','small_questions.question_num');
-            // ->orOn だと、
         })
         ->join('big_questions','user_answers.big_question_id','=','big_questions.id')
         ->where([

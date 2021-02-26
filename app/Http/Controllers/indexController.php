@@ -89,7 +89,7 @@ class IndexController extends Controller
     }
 
     public function show_Hists(ShowHists $hist, $user_id){
-        // dd($hist);
+        // dd($user_id);
         $hist_arrays =  $hist->showHists($user_id);
         // dd($hist_arrays);
         $user_name = IndexController::getUserName();
@@ -99,7 +99,6 @@ class IndexController extends Controller
 
 
     public function histDetail(Request $hist_info, HistDetail $hist_detail, GetGenreComponent $getGenre){
-        dd($hist_info);
         $user_id = IndexController::getUserId();
         $user_name = IndexController::getUserName();
         $genre_value = $hist_info->genre_value;
