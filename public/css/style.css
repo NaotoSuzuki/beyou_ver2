@@ -158,6 +158,12 @@ background-color:#009b9f;
 margin-top:10px;
 }
 
+/* index */
+html .genre_name {
+    /* ルート要素の文字サイズを変更する */
+    font-size: 20px;
+}
+
 
 
 /* 問題一覧 */
@@ -197,7 +203,6 @@ h1{
 .option_container{
     margin:10px;
 }
-
 
 	/* 小問題のスタイル */
 
@@ -309,11 +314,6 @@ ul li .form_flex a{
 
 /* モーダルテスト用 */
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 .content{
     margin: 0 auto;
     padding: 40px;

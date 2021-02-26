@@ -10,7 +10,7 @@ $user_id;
 @section('content')
 
 
-<h1 class ="basic_color">"{{$created}}"に解いた"{{$genre}}"の問題の結果です！</h1>
+<h1 class ="basic_color">"{{$created_date}}"に解いた"{{$genre}}"の問題の結果です！</h1>
 
 
     <form class="container, q_container">
@@ -62,12 +62,15 @@ $user_id;
             </form>
 
                 <div class="back-top">
-                     <!-- <button type="button" class="btn btn-primary">
-                     <a href ="{{ action('QuestionController@showQuestions', $genre_value) }}">問題を解きなおす</a>
-                     </button> -->
-                     <button type="button" class="btn btn-primary">
-                     <a href="/index" class="header-menu">トップページに戻る</a>
+                    <button type="button" class="btn btn-primary" onclick="history.back()">
+                    <a>履歴一覧に戻る</a>
                     </button>
+
+                    <a href="/index" class="header-menu">
+                    <button type="button" class="btn btn-primary">
+                        トップページに戻る
+                    </button>
+                    </a>
                 </div>
 
 

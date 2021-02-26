@@ -26,35 +26,32 @@ $user_id;
 
 
                 <div class="col-sm-3">
-                    <div class = "box">
-                        <p>{{$genre_post->genre}}</p>
-                        <p><a href ="{{ action('IndexController@options', $genre_post->genre_value) }}">問題を解く</a></p>
+                    <div class="box">
+                    <div class="genre_name"><p>{{$genre_post->genre}}</p></div>
 
+                    @php
+                        $modal_title = $genre_post->title;
+                        $modal_content = $genre_post->content;
+                    @endphp
+                    <!-- モーダルの定義はbootstrap.jsに記載 -->
+                    <button type="button" class="btn btn-link mt-1">
+                    <a  sytle="font-color:white" data-toggle="modal" data-target="#myModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">
+                        説明を読む
+                    </a></button>
 
-                        @php
-                            $modal_title = $genre_post->title;
-                            $modal_content = $genre_post->content;
-                        @endphp
-
-
-                        <!-- モーダルの定義はbootstrap.jsに記載 -->
-
-                            <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">説明を読む</a>
-                            <div class="modal fade" id="myModal">
-                            	<div class="modal-dialog">
-                            		<div class="modal-content">
-
-                            			<div class="modal-header">
-                                             <div class="modal-title">
-                                            </div>
-                            			</div>
-
-                            			<div class="modal-body">
-                            			</div>
-
-                            		</div>
-                            	</div>
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                     <div class="modal-title"></div>
+                                </div>
+                                <div class="modal-body"></div>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <p><a href ="{{ action('IndexController@options', $genre_post->genre_value) }}">問題を解く</a></p>
+
 
                     </div>
                 </div>

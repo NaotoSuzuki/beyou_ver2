@@ -82,7 +82,10 @@ $user_id;
             </form>
 
             <div class="back-top">
-                <a href="/" class="header-menu">
+              <button type="button" class="btn btn-primary" onclick="history.back()">
+                  <a>問題一覧に戻る</a>
+              </button>
+              <a href="/" class="header-menu">
               <button type="button" class="btn btn-primary">
                   トップページに戻る
               </button>

@@ -12,8 +12,13 @@ $user_id;
 
 <h1 class ="basic_color">あなたの回答履歴です！</h1>
 
+
 <div class="back-top">
-    <a href="/index" class="header-menu,  basic_color">トップページに戻る</a>
+    <a href="/index" class="header-menu">
+    <button type="button" class="btn btn-primary">
+        トップページに戻る
+    </button>
+    </a>
 </div>
 
 <div class = "container , text-center,  basic_color">
@@ -23,22 +28,19 @@ $user_id;
     <ul class="list-group ">
 
     <?php foreach($hist_arrays as $hist_array): ?>
-            <?php if($time == 0 || $time !== $hist_array->created) :?>
+            <?php if($time == 0 || $time !== $hist_array->created_date) :?>
 
-                <?php $created = $hist_array->created ?>
+                <?php $created_date = $hist_array->created_date ?>
                 <?php $genre = $hist_array->genre ?>
                 <?php $genre_value = $hist_array->genre_value ?>
 
                 <form class="form-group" action = "{{url('/hists/hist_detail')}}" method="post">
                     @csrf
-                    {{$created}}　{{$genre}}
+                    {{$created_date}} {{$genre}}
 
                     <input type = "hidden" name = "genre_value" value = "{{$genre_value}}">
-                    <input type = "hidden" name = "created" value  =  "{{$created}}"/>
+                    <input type = "hidden" name = "created_date" value  =  "{{$created_date}}"/>
                     <input type = "submit" name="" value = "詳細" />
-                    <p></p>
-                    <?php $time =$created?>
-                    <?php echo $time?>
                 </form>
 
             <?php endif ?>
@@ -47,4 +49,6 @@ $user_id;
     </ul>
 
 </div>
+
+
 @endsection

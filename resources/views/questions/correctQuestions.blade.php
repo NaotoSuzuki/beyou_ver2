@@ -91,7 +91,7 @@ $user_id;
          <a>問題を解きなおす</a>
          </button>
          <button type="button" class="btn btn-primary">
-         <a href="/" class="header-menu">トップページに戻る</a>
+         <a href="/index" class="header-menu">トップページに戻る</a>
         </button>
     </div>
 

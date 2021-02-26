@@ -5,10 +5,10 @@ use DB;
 
 class HistDetail{
 
-    public function histDetail($user_id, $created, $genre_value){
+    public function histDetail($user_id, $created_date, $genre_value){
 
         $hist_indicate_datas = DB::table('user_answers')
-        ->orderBy('big_question_id','asc') 
+        ->orderBy('big_question_id','asc')
         ->orderBy('question_num','asc')
         ->join('small_questions', function ($join) {
             $join->on('user_answers.genre_value','=','small_questions.genre_value');
@@ -19,24 +19,24 @@ class HistDetail{
         ->join('big_questions','user_answers.big_question_id','=','big_questions.id')
         ->where([
             ['user_answers.user_id','=', $user_id],
-            ['user_answers.created' ,'=' , $created],
+            ['user_answers.created_date' ,'=' , $created_date],
             ['user_answers.genre_value' ,'=', $genre_value],
             ['small_questions.genre_value' ,'=', $genre_value]
         ])
         ->select(
-                'user_answers.genre_value', 
-                'user_answers.big_question_id', 
-                'user_answers.question_num', 
-                'user_answers.user_answer', 
-                'user_answers.result', 
-                'user_answers.created', 
+                'user_answers.genre_value',
+                'user_answers.big_question_id',
+                'user_answers.question_num',
+                'user_answers.user_answer',
+                'user_answers.result',
+                'user_answers.created_date',
                 'small_questions.question',
-                'small_questions.answer', 
+                'small_questions.answer',
                 'big_questions.big_question'
         )
         ->get();
 
-            
+
 
             foreach ($hist_indicate_datas as $hist_indicate_data) {
                 $big_que=$hist_indicate_data->big_question_id;
@@ -57,11 +57,11 @@ class HistDetail{
                 $hist_indicates[$i]["answers"]=$answers[$i];
                 $hist_indicates[$i]["user_answers"]=$user_answers[$i];
                 $hist_indicates[$i]["user_result"]=$user_results[$i];
-              
+
             }
 
             // dd($hist_indicates);
-           
+
             return $hist_indicates;
     }
 }
