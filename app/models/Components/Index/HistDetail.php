@@ -5,8 +5,8 @@ use DB;
 
 class HistDetail{
 
-    public function histDetail($user_id, $created_date, $genre_value){
-
+    public function histDetail($user_id, $created_date, $created_at, $genre_value){
+        // dd($created_at);
         $hist_indicate_datas = DB::table('user_answers')
         ->orderBy('big_question_id','asc')
         ->orderBy('question_num','asc')
@@ -18,6 +18,7 @@ class HistDetail{
         ->join('big_questions','user_answers.big_question_id','=','big_questions.id')
         ->where([
             ['user_answers.user_id','=', $user_id],
+            ['user_answers.created_at' ,'=' , $created_at],
             ['user_answers.created_date' ,'=' , $created_date],
             ['user_answers.genre_value' ,'=', $genre_value],
             ['small_questions.genre_value' ,'=', $genre_value]
@@ -29,13 +30,14 @@ class HistDetail{
                 'user_answers.user_answer',
                 'user_answers.result',
                 'user_answers.created_date',
+                'user_answers.created_at',
                 'small_questions.question',
                 'small_questions.answer',
                 'big_questions.big_question'
         )
         ->get();
 
-
+            // dd($hist_indicate_datas->toArray());
 
             foreach ($hist_indicate_datas as $hist_indicate_data) {
                 $big_que=$hist_indicate_data->big_question_id;

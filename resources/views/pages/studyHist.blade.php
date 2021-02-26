@@ -24,21 +24,30 @@ $user_id;
 <div class = "container , text-center,  basic_color">
 
     <?php $time = 0 ?>
+    <?php $date = 0 ?>
 
     <ul class="list-group ">
 
     <?php foreach($hist_arrays as $hist_array): ?>
-            <?php if($time == 0 || $time !== $hist_array->created_date) :?>
 
+        <?php if($date == 0 || $date !== $hist_array->created_date) : ?>
+            <?php $date = $hist_array->created_date ?>
+            <p>{{$date}}の履歴</p>
+        <?php endif ?>
+
+            <?php if($time == 0 || $time !== $hist_array->created_at) :?>
+                <?php $time = $hist_array->created_at ?>
                 <?php $created_date = $hist_array->created_date ?>
                 <?php $genre = $hist_array->genre ?>
                 <?php $genre_value = $hist_array->genre_value ?>
 
+
                 <form class="form-group" action = "{{url('/hists/hist_detail')}}" method="post">
                     @csrf
-                    {{$created_date}} {{$genre}}
+                    {{$time}} {{$genre}}
 
                     <input type = "hidden" name = "genre_value" value = "{{$genre_value}}">
+                    <input type = "hidden" name = "created_at" value  =  "{{$time}}"/>
                     <input type = "hidden" name = "created_date" value  =  "{{$created_date}}"/>
                     <input type = "submit" name="" value = "詳細" />
                 </form>

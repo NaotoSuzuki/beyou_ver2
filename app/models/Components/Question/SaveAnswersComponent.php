@@ -16,20 +16,21 @@
                             $small = $user_answer_array[$big_num][$small_num];
                             $result=$results[$big_num][$small_num];
 
-                        DB::table('user_answers')->insert([
-                                [
-                                "user_id"=>$user_id,
-                                "genre_value"=>$genre_value,
-                                "option_num"=>$option_num,
-                                "big_question_id"=>$big_num,
-                                "question_num"=>$small_num,
-                                "user_answer"=>$small ,
-                                "result"=>$result
-                                ]
-                        ]);
+                            DB::table('user_answers')->insert([
+                                    [
+                                    "user_id"=>$user_id,
+                                    "genre_value"=>$genre_value,
+                                    "option_num"=>$option_num,
+                                    "big_question_id"=>$big_num,
+                                    "question_num"=>$small_num,
+                                    "user_answer"=>$small ,
+                                    "result"=>$result
+                                    ]
+                            ]);
 
                      }
                 }
+
             }
         }
 }

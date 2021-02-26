@@ -91,7 +91,6 @@ class IndexController extends Controller
     public function show_Hists(ShowHists $hist, $user_id){
         // dd($user_id);
         $hist_arrays =  $hist->showHists($user_id);
-        // dd($hist_arrays);
         $user_name = IndexController::getUserName();
 
         return view('pages.studyHist',compact('hist_arrays','user_id','user_name'));
@@ -104,7 +103,9 @@ class IndexController extends Controller
         $genre_value = $hist_info->genre_value;
         $genre = $getGenre->getGenreComponent($genre_value);
         $created_date = $hist_info->created_date;
-        $hist_indicates = $hist_detail->histDetail($user_id, $created_date, $genre_value);
-        return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created_date','genre', 'genre_value'));
+        $created_at = $hist_info->created_at;
+
+        $hist_indicates = $hist_detail->histDetail($user_id, $created_date, $created_at, $genre_value);
+        return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created_date','created_at','genre', 'genre_value'));
     }
 }

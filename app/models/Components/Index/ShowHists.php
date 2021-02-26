@@ -21,6 +21,7 @@ class ShowHists
             // 'user_answers.user_answer',
             // 'user_answers.result',
             'user_answers.created_date',
+            'user_answers.created_at',
             'genres.genre',
             // 'small_questions.answer',
             // 'big_questions.big_question'
