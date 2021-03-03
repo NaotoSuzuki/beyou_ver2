@@ -99,11 +99,10 @@ class QuestionController extends Controller
         $genre = $getGenre->getGenreComponent($genre_value);
 
         $small_records = QuestionController::getSmallRecords($genre_value, $option_num);
-        //dd($small_records);
+
         $answeredQuestions = $correct-> correctQuestionsComponent($genre_value,  $small_records, $small_answers, $option_num);
-        //"saveAnswers"実行時にoption_numをuser_anaswersに格納するために、このクラスのパラメータとしてoption_numを持つ必要がある。
+            // dd($answeredQuestions);
         return view('questions.correctQuestions',compact('user_id','answeredQuestions','genre_value','small_answers','big_records','user_name','genre'));
-        //パラメータとしてoption_numを入れる。saveAnswersに渡すため
 
     }
 

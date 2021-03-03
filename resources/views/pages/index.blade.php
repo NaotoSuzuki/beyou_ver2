@@ -33,9 +33,11 @@ $user_id;
                         $modal_title = $genre_post->title;
                         $modal_content = $genre_post->content;
                     @endphp
+                    <a href ="{{ action('IndexController@options', $genre_post->genre_value) }}">問題を解く</a>
+                    <br>
                     <!-- モーダルの定義はbootstrap.jsに記載 -->
                     <button type="button" class="btn btn-link mt-1">
-                    <a  sytle="font-color:white" data-toggle="modal" data-target="#myModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">
+                    <a sytle="font-color:white" data-toggle="modal" data-target="#myModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">
                         説明を読む
                     </a></button>
 
@@ -49,8 +51,8 @@ $user_id;
                             </div>
                         </div>
                     </div>
-                    
-                    <p><a href ="{{ action('IndexController@options', $genre_post->genre_value) }}">問題を解く</a></p>
+
+
 
 
                     </div>

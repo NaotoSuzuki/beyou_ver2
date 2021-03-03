@@ -17,9 +17,43 @@ $user_id;
 
 
     <form class="q_container" action = "{{url('/questions/answer/save')}}" name = "save" method = "post">
+
+
+    <?php $correct_counter = 0 ?>
+    <?php foreach($answeredQuestions as $reuslt_key => $answeredQuestion) :?>
+        <?php --$reuslt_key ?>
+        <?php $result_values_array[] = $answeredQuestion["checked_value"];?>
+        <?php  $result_count = count($result_values_array["$reuslt_key"]);?>
+        <?php  --$result_count ?>
+        <?php for($i = 0; $i <= $result_count; ++$i){
+             if($result_values_array["$reuslt_key"]["$i"] == "1"){
+                 ++$correct_counter;
+             }
+
+        }?>
+
+
+    <?php endforeach ?>
+
+    SCORE: <?php echo($correct_counter)?>/10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class = "container, q_container">
     @csrf
             <?php foreach($answeredQuestions as $key  => $bigQ_record) :?>
+
 
                 <div class="row">
                     <?php $option_num = $bigQ_record["option_num"] ?>
@@ -40,22 +74,16 @@ $user_id;
 
 
                                     <strong><?php
-                                    if ($bigQ_record["checked_result"][$i]=="◎") {
-                                        $color = 'red';
-                                    }elseif($bigQ_record["checked_result"][$i]=="✖") {
-                                        $color = 'blue';
-                                    }else{
-                                        $color = 'orange';
-                                    }
+                                        if ($bigQ_record["checked_result"][$i]=="◎") {
+                                            $color = 'red';
+                                            }elseif($bigQ_record["checked_result"][$i]=="✖") {
+                                                $color = 'blue';
+                                            }else{
+                                                $color = 'orange';
+                                        }
                                     ?>
                                     <span style="color: <?php echo $color; ?>"><?php echo $bigQ_record["checked_result"][$i]; ?></span>
-
                                     </strong>
-
-
-
-
-
 
                                     あなたの答え : <strong class = "marker"><?php echo $small_answers[$key][$num] ?></strong>
                                     <p>答え : <strong><?php echo $bigQ_record["answers"][$i] ?></strong></p>
@@ -85,6 +113,7 @@ $user_id;
 
 
 		</form>
+
 
     <div class="back-top">
          <button type="button" class="btn btn-primary" onclick="history.back()">
