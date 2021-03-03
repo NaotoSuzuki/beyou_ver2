@@ -32,24 +32,25 @@ $user_id;
                             <?php $num = $i+1 ?>
 
 
-                                    <p><?php echo "(".$num.")".$hist_indicate["questions"][$i] ?></p>
-                                    <p>答え : <strong><?php echo $hist_indicate["answers"][$i] ?></strong></p>
-
-                                    <?php if($hist_indicate["user_answers"][$i] !=  ""):?>
-                                        <p>あなたの答え : <strong class = "marker"><?php echo $hist_indicate["user_answers"][$i] ?></p></strong>
-                                    <?php else :?>
-                                        <strong><p>回答が未入力でした</p></strong>
-                                    <?php endif ?>
+                                    <?php echo "(".$num.")".$hist_indicate["questions"][$i] ?>
+                                    <br>
+                                    答え : <strong><?php echo $hist_indicate["answers"][$i] ?></strong>
+                                    <br>
 
                                     <?php if($hist_indicate["user_result"][$i] == "1"):?>
-                                        <strong><p>正解</p></strong>
+                                        <?php $color = 'red'; $check_value = "◎" ?>
+
                                     <?php elseif($hist_indicate["user_result"][$i] == "0") :?>
-                                        <strong><p>間違い</p></strong>
-                                    <?php else :?>
-                                        <strong><p>結果が未入力でした</p></strong>
+                                        <?php $color = 'blue'; $check_value = "☓"?>
+
+                                    <?php else:?>
+                                        <?php $color = 'orange'; $check_value = "回答が未入力でした。"?>
                                     <?php endif ?>
 
-
+                                    <span style="color: <?php echo $color; ?>"><?php echo $check_value; ?></span>
+                                    あなたの答え : <strong class = "marker"><?php echo $hist_indicate["user_answers"][$i] ?></strong>
+                                    <br>
+                                    <br>
                             <?php endfor ?>
                                 </div>
                             </div>

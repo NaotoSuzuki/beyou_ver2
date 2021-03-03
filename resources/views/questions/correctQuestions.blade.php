@@ -35,18 +35,7 @@ $user_id;
 
     <?php endforeach ?>
 
-    SCORE: <?php echo($correct_counter)?>/10
-
-
-
-
-
-
-
-
-
-
-
+    <h3>score: <span style="color: <?php echo 'red'; ?>"><?php echo($correct_counter)?></span>/10</h3>
 
 
 
@@ -119,9 +108,11 @@ $user_id;
          <button type="button" class="btn btn-primary" onclick="history.back()">
          <a>問題を解きなおす</a>
          </button>
+         <a href="/index" class="header-menu">
          <button type="button" class="btn btn-primary">
-         <a href="/index" class="header-menu">トップページに戻る</a>
-        </button>
+             トップページに戻る
+         </button>
+         </a>
     </div>
 
 @endsection
