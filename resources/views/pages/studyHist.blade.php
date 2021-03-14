@@ -40,15 +40,19 @@ $user_id;
                 <?php $created_date = $hist_array->created_date ?>
                 <?php $genre = $hist_array->genre ?>
                 <?php $genre_value = $hist_array->genre_value ?>
+                <?php $option_num = $hist_array->option_num ?>
+                <?php $option_name = $hist_array->option_name ?>
 
 
                 <form class="form-group" action = "{{url('/hists/hist_detail')}}" method="post">
                     @csrf
-                    {{$time}} {{$genre}}
+                    {{$time}} {{$option_name}}
 
                     <input type = "hidden" name = "genre_value" value = "{{$genre_value}}">
                     <input type = "hidden" name = "created_at" value  =  "{{$time}}"/>
                     <input type = "hidden" name = "created_date" value  =  "{{$created_date}}"/>
+                    <input type = "hidden" name = "option_num" value  =  "{{$option_num}}"/>
+                    <input type = "hidden" name = "option_name" value  =  "{{$option_name}}"/>
                     <input type = "submit" name="" value = "詳細" />
                 </form>
 

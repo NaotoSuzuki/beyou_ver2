@@ -10,7 +10,7 @@ $user_id;
 @section('content')
 
 
-<h1 class ="basic_color">"{{$created_date}}"に解いた"{{$genre}}"の問題の結果です！</h1>
+<h1 class ="basic_color">"{{$created_date}}"に解いた"{{$option_name}}"の結果です！</h1>
 
 
     <form class="container, q_container">

@@ -50,3 +50,15 @@ $('#myModal').on('show.bs.modal', function (event) {
     modal.find('.modal-title').html(title_data);
     modal.find('.modal-body').html(content_data);
   })
+
+//options.bladeの解説表示モーダル用
+$('#optionModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget);
+  var title_data = button.data('title');
+  var content_data = button.data('content');
+
+
+  var modal = $(this);
+  modal.find('.modal-title').html(title_data);
+  modal.find('.modal-body').html(content_data);
+})

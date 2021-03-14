@@ -12,7 +12,6 @@
                 ->get();
 
             $optionObj =$optionArray[0];
-
             $option_detail = $optionObj->option_detail;
             return array($option_detail);
     }

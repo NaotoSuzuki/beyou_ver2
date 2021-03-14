@@ -7,6 +7,8 @@
 require('./bootstrap');
 require('./modal');
 require('./main');
+require('./checkOptions');
+
 
 
 

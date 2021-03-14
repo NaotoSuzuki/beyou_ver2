@@ -5,24 +5,18 @@ use DB;
 
 class HistDetail{
 
-    public function histDetail($user_id, $created_date, $created_at, $genre_value){
-        // dd($created_at);
+    public function histDetail($user_id, $created_date, $created_at, $genre_value, $option_num){
+
         $hist_indicate_datas = DB::table('user_answers')
         ->orderBy('big_question_id','asc')
         ->orderBy('question_num','asc')
+
         ->join('small_questions', function ($join) {
             $join->on('user_answers.genre_value','=','small_questions.genre_value');
             $join->on('user_answers.big_question_id','=','small_questions.big_question_id');
             $join->on('user_answers.question_num','=','small_questions.question_num');
         })
         ->join('big_questions','user_answers.big_question_id','=','big_questions.id')
-        ->where([
-            ['user_answers.user_id','=', $user_id],
-            ['user_answers.created_at' ,'=' , $created_at],
-            ['user_answers.created_date' ,'=' , $created_date],
-            ['user_answers.genre_value' ,'=', $genre_value],
-            ['small_questions.genre_value' ,'=', $genre_value]
-        ])
         ->select(
                 'user_answers.genre_value',
                 'user_answers.big_question_id',
@@ -35,9 +29,18 @@ class HistDetail{
                 'small_questions.answer',
                 'big_questions.big_question'
         )
+        ->where([
+            ['user_answers.user_id','=', $user_id],
+            ['user_answers.genre_value' ,'=', $genre_value],
+            ['user_answers.option_num','=', $option_num],
+            ['user_answers.created_at' ,'=' , $created_at],
+            ['user_answers.created_date' ,'=' , $created_date],
+            ['small_questions.genre_value' ,'=', $genre_value],
+            ['small_questions.option_num' ,'=', $option_num]
+        ])
         ->get();
 
-            // dd($hist_indicate_datas->toArray());
+            // dd($hist_indicate_datas);
 
             foreach ($hist_indicate_datas as $hist_indicate_data) {
                 $big_que=$hist_indicate_data->big_question_id;
@@ -61,7 +64,7 @@ class HistDetail{
 
             }
 
-            // dd($hist_indicates);
+             // dd($hist_indicates);
 
             return $hist_indicates;
     }

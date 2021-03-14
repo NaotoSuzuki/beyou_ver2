@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Components\Question\GetGenreComponent;
 use App\Models\Components\Question\GetGenreDescribeComponent;
+use App\Models\Components\Index\GetOptionComponent;
+use App\Models\Components\Index\GetOptionCheckComponent;
 use App\Post;
 use App\models\Admin\Explanation;
 
@@ -62,15 +64,18 @@ class IndexController extends Controller
 
     }
 
-    public function options($genre_value, GetGenreComponent $getGenre, GetGenreDescribeComponent $getGenreDescribe, GetOptionDetailComponent $getOptionDetail, GetOptionNumComponent $getOptionNum){
+    public function options($genre_value, GetGenreComponent $getGenre, GetOptionComponent $getOptionData, GetGenreDescribeComponent $getGenreDescribe,
+    GetOptionDetailComponent $getOptionDetail, GetOptionNumComponent $getOptionNum, GetOptionCheckComponent $optionCheck){
         $genre = $getGenre->getGenreComponent($genre_value);
         $genre_describe = $getGenreDescribe->getGenreDescribeComponent($genre_value);
         $option_num = $getOptionNum->getOptionNumComponent($genre_value);
         $option_details = $getOptionDetail->getOptionDetailComponent($genre_value);
+        $option_datas= $getOptionData -> getOptionComponent($genre_value);
         $user_id = IndexController::getUserId();
         $user_name = IndexController::getUserName();
+        $optionAnswered =$optionCheck->getOptionCheckComponent($user_id,$genre_value,$option_datas);
 
-         return view('pages.options',compact('genre_value','genre','genre_describe','option_num','option_details','user_id','user_name')) ;
+         return view('pages.options',compact('genre_value','genre','genre_describe','option_datas','option_num','option_details','user_id','user_name','optionAnswered')) ;
     }
 
     public function explain($genre_value){
@@ -89,7 +94,7 @@ class IndexController extends Controller
     }
 
     public function show_Hists(ShowHists $hist, $user_id){
-        // dd($user_id);
+
         $hist_arrays =  $hist->showHists($user_id);
         $user_name = IndexController::getUserName();
 
@@ -98,14 +103,18 @@ class IndexController extends Controller
 
 
     public function histDetail(Request $hist_info, HistDetail $hist_detail, GetGenreComponent $getGenre){
+
         $user_id = IndexController::getUserId();
         $user_name = IndexController::getUserName();
         $genre_value = $hist_info->genre_value;
         $genre = $getGenre->getGenreComponent($genre_value);
+        $option_num = $hist_info->option_num;
+        $option_name = $hist_info->option_name;
+
         $created_date = $hist_info->created_date;
         $created_at = $hist_info->created_at;
 
-        $hist_indicates = $hist_detail->histDetail($user_id, $created_date, $created_at, $genre_value);
-        return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created_date','created_at','genre', 'genre_value'));
+        $hist_indicates = $hist_detail->histDetail($user_id, $created_date, $created_at, $genre_value, $option_num);
+        return view('pages.studytHistDetail',compact('hist_indicates','user_id','user_name','created_date','created_at','genre', 'genre_value','option_name'));
     }
 }

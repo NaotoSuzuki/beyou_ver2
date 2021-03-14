@@ -37,6 +37,7 @@ $user_id;
                     <br>
                     <!-- モーダルの定義はbootstrap.jsに記載 -->
                     <button type="button" class="btn btn-link mt-1">
+                        
                     <a sytle="font-color:white" data-toggle="modal" data-target="#myModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">
                         説明を読む
                     </a></button>
