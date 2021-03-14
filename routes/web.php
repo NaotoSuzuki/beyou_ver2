@@ -75,3 +75,9 @@ Route::post('/admin/index_explanation/posts', 'Admin\ExplanationController@store
 Route::get('/admin/index_explanation/{id}/edit', [ExplanationController::class, 'edit'])->name('admin.explanation.edit');
 Route::patch('/admin/index_explanation/posts/update/{id}', 'Admin\ExplanationController@update');
 Route::delete('/admin/index_explanation/posts/{id}', 'Admin\ExplanationController@destroy');
+
+// 問題投稿機能
+Route::get('/admin/manage_questions', 'Admin\ManageQuestionsController@manageQuestions')->name('admin.manage_questions');
+Route::get('/admin/manage_questions/options/{genre_value}', 'Admin\ManageQuestionsController@options');
+Route::post('/admin/manage_questions/questions','Admin\ManageQuestionsController@questions');
+Route::patch('/admin/manage_questions/questions','Admin\ManageQuestionsController@update');

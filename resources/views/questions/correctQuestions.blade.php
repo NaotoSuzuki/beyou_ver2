@@ -29,10 +29,7 @@ $user_id;
              if($result_values_array["$reuslt_key"]["$i"] == "1"){
                  ++$correct_counter;
              }
-
         }?>
-
-
     <?php endforeach ?>
 
     <h3>score: <span style="color: <?php echo 'red'; ?>"><?php echo($correct_counter)?></span>/10</h3>

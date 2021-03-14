@@ -4,11 +4,12 @@
     use DB;
 
     class SaveAnswersComponent{
-        public function saveAnswersComponent($genre_value, $user_answer_array, $results, $user_id, $big_records, $small_records){
+        public function saveAnswersComponent($genre_value,$option_num,$updated_answers){
 
 
-             foreach ($big_records as $big_value){
-                foreach($small_records as $small_value){
+             foreach ($updated_answers as $updated_answer_array){
+                foreach($updated_answer_array as $updated_answer){
+                    dd($updated_answer_array);
                     if($big_value->id == $small_value->big_question_id){
                             $big_num=$big_value->id ;
                             $small_num=$small_value->question_num;
