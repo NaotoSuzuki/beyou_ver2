@@ -81,3 +81,4 @@ Route::get('/admin/manage_questions', 'Admin\ManageQuestionsController@manageQue
 Route::get('/admin/manage_questions/options/{genre_value}', 'Admin\ManageQuestionsController@options');
 Route::post('/admin/manage_questions/questions','Admin\ManageQuestionsController@questions');
 Route::patch('/admin/manage_questions/questions','Admin\ManageQuestionsController@update');
+Route::post('/admin/manage_questions/questions/create','Admin\ManageQuestionsController@createQuestions');

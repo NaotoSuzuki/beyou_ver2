@@ -5,9 +5,11 @@
  */
 
 require('./bootstrap');
-require('./modal');
 require('./main');
+require('./addQuestionForm');
 require('./checkOptions');
+
+
 
 
 

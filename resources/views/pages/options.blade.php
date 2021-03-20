@@ -18,7 +18,7 @@ $user_id;
         <div class = "sub-copy, basic_color"><p>{{$genre_describe}}</p></div>
     </div>
 
-    <div class = "container , text-center , basic_color">
+    <div class = "container ,  basic_color">
 
         @foreach ($option_datas as $option_data)
         @php
@@ -33,42 +33,54 @@ $user_id;
 
          <form class='option_container' action = "{{url('/questions/question')}}" method="post">
             {{ csrf_field() }}
-            <div class="row">
-               <strong><?php  echo $genre.$option_num ?> </strong>：
-               <?php echo $option_detail ?>
+            <span class="row">
+
+
 
             <!-- <a href ="{{ action('QuestionController@showQuestions', $option_num) }}">問題を解く</a> -->
             <input type = "hidden" name = "option_num" value = "{{$option_num}}"/>
             <input type = "hidden" name = "genre_value" value = "{{$genre_value}}"/>
-            <input type = 'submit' value= '問題を解く'>
-            <a sytle="font-color:white" data-toggle="modal" data-target="#optionModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">
-                説明を読む
-            </a>
-            <!-- ユーザーが変更できないようにする -->
-
-            @if($optionAnswered[$key] === 0)
-            <input type="hidden" name="" value="0">
-            <input type="checkbox"  disabled='disabled'>
-            @else
-            <input type="hidden"  value="1">
-            <input type="checkbox"  disabled='disabled' checked='checked'>
-            @endif
+            </span>
 
 
+            <div class="parent">
+              <div class="child1">
+                  @if($optionAnswered[$key] === 0)
+                      <input type="hidden" name="" value="0">
+                      <input type="checkbox"  disabled='disabled'>
+                  @else
+                      <input type="hidden"  value="1">
+                      <input type="checkbox"  disabled='disabled' checked='checked'>
+                  @endif
+                  <span class="mgl-5"><strong><?php  echo $genre.$option_num ?> </strong></span>：
+                  <?php echo $option_detail ?>
+              </div>
 
-            <div class="modal fade" id="optionModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                             <div class="modal-title"></div>
-                        </div>
-                        <div class="modal-body"></div>
-                    </div>
-                </div>
+              <div class="child2">
+                  <span class="right-al">
+                      <button type="button" style="">
+                      <a sytle="font-color:white" data-toggle="modal" data-target="#optionModal" data-title="{{$modal_title}}" data-content="{{$modal_content}}">
+                          説明を読む
+                      </a>
+                      </button>
+                      <div class="modal fade" id="optionModal">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                       <div class="modal-title"></div>
+                                  </div>
+                                  <div class="modal-body"></div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <input type = 'submit' value= '問題を解く'>
+                  </span>
+              </div>
             </div>
 
 
-             </div>
+
          </form>
 
         @endforeach

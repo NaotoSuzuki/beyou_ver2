@@ -64,7 +64,7 @@
             </li>
           </ul> -->
 
-          <ul class="gnav" style="padding-left:50%">
+          <ul class="gnav">
               <li>
                   <a href="">メニュー</a>
                   <ul>

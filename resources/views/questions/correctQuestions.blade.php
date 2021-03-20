@@ -37,6 +37,7 @@ $user_id;
 
 
     <div class = "container, q_container">
+
     @csrf
             <?php foreach($answeredQuestions as $key  => $bigQ_record) :?>
 
@@ -49,7 +50,7 @@ $user_id;
                     <div class="col-sm-12, col-md-12">
                         <div class="centering-block">
                             <div class="centering-block-inner">
-
+                                <div class = "q_container_text_align_switch">
                                 <h5> <?php echo "Q".$key.".".$bigQ_record["big_question"] ?> </h5>
                                 <?php for($i  =  0; $i<= $trueCount; $i++) :?>
 
@@ -81,11 +82,13 @@ $user_id;
                                 <br>
                                 <br>
                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             <?php endforeach ?>
+            </div>
             </div>
 
             <div class="submit">
