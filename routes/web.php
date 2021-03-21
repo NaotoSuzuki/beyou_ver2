@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Admin\ExplanationController;
+use App\Http\Controllers\Admin\ManageOptionsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,9 +77,22 @@ Route::get('/admin/index_explanation/{id}/edit', [ExplanationController::class, 
 Route::patch('/admin/index_explanation/posts/update/{id}', 'Admin\ExplanationController@update');
 Route::delete('/admin/index_explanation/posts/{id}', 'Admin\ExplanationController@destroy');
 
+//オプション編集画面
+Route::get('/admin/manage_options', 'Admin\ManageOptionsController@index');
+// Route::get('/admin/index_options/show/{id}', 'Admin\ManageOptionsController@show')->name('admin.options.show');
+Route::get('/admin/index_options/show/{id}', [ManageOptionsController::class, 'show'])->name('admin.options.show');
+Route::get('/admin/index_options/create', 'Admin\ManageOptionsController@create');
+Route::post('/admin/index_options/posts', 'Admin\ManageOptionsController@store');
+// Route::get('/admin/index_options/{id}/edit', 'Admin\ManageOptionsController@edit')->name('admin.options.edit');
+Route::get('/admin/index_options/{id}/edit', [ManageOptionsController::class, 'edit'])->name('admin.options.edit');
+Route::patch('/admin/index_options/posts/update/{id}', 'Admin\ManageOptionsController@update');
+Route::delete('/admin/index_options/posts/{id}', 'Admin\ManageOptionsController@destroy');
+
+
 // 問題投稿機能
 Route::get('/admin/manage_questions', 'Admin\ManageQuestionsController@manageQuestions')->name('admin.manage_questions');
 Route::get('/admin/manage_questions/options/{genre_value}', 'Admin\ManageQuestionsController@options');
 Route::post('/admin/manage_questions/questions','Admin\ManageQuestionsController@questions');
 Route::patch('/admin/manage_questions/questions','Admin\ManageQuestionsController@update');
 Route::post('/admin/manage_questions/questions/create','Admin\ManageQuestionsController@createQuestions');
+Route::post('/admin/manage_questions/questions/storeQuestions','Admin\ManageQuestionsController@storeQuestions');

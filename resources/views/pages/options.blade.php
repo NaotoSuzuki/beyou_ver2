@@ -26,7 +26,7 @@ $user_id;
             $option_name = $option_data->option_name;
             $option_detail = $option_data->option_detail;
             $modal_title = $option_data->option_describe_title;
-            $modal_content = $option_data->option_describe;
+            $modal_content = $option_data->option_describe_content;
             $key = $option_num - 1;
         @endphp
 

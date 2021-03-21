@@ -48,6 +48,7 @@ class IndexController extends Controller
 
         $genres = new Genre();
         $genres_posts = $genres->getGenreAndPostsComponent();
+        // ↑はapp/models/Genre.phpのメソッド
         // dd($genre_posts->toArray());
         // $genres_data = $genres->getData();
         $user_id = IndexController::getUserId();
