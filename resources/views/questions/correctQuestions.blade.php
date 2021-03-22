@@ -73,7 +73,7 @@ $user_id;
                                     </strong>
 
                                     あなたの答え : <strong class = "marker"><?php echo $small_answers[$key][$num] ?></strong>
-                                    <p>答え : <strong><?php echo $bigQ_record["answers"][$i] ?></strong></p>
+                                    <p>回答例: <strong><?php echo $bigQ_record["answers"][$i] ?></strong></p>
 
                                     <input type = "hidden" name = "user_answer[<?php echo $key ?>][<?php echo $num ?>]" value = "<?php echo $small_answers[$key][$num] ?>">
                                     <input type = "hidden" name = "result[<?php echo $key ?>][<?php echo $num ?>]" value = "<?php echo $bigQ_record["checked_value"][$i] ?>" >
