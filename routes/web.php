@@ -96,3 +96,8 @@ Route::post('/admin/manage_questions/questions','Admin\ManageQuestionsController
 Route::patch('/admin/manage_questions/questions','Admin\ManageQuestionsController@update');
 Route::post('/admin/manage_questions/questions/create','Admin\ManageQuestionsController@createQuestions');
 Route::post('/admin/manage_questions/questions/storeQuestions','Admin\ManageQuestionsController@storeQuestions');
+
+// 問い合わせ
+Route::get('contact', 'App\Http\Controllers\ContactsController@index');
+Route::post('contact/confirm', 'App\Http\Controllers\ContactsController@confirm');
+Route::post('contact/complete', 'App\Http\Controllers\ContactsController@complete');
