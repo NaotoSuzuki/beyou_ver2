@@ -44,17 +44,30 @@ $user_id;
 
 
             <div class="parent">
-              <div class="child1">
-                  @if($optionAnswered[$key] === 0)
-                      <input type="hidden" name="" value="0">
-                      <input type="checkbox"  disabled='disabled'>
-                  @else
-                      <input type="hidden"  value="1">
-                      <input type="checkbox"  disabled='disabled' checked='checked'>
-                  @endif
+
+
+
+              <div id='checked' class="child1">
+                      <span class="message">
+                          <a href="#">
+                                  @if($optionAnswered[$key] === 0)
+                                      <input type="hidden" name="" value="0">
+                                      <input type="checkbox"  disabled='disabled'>
+                                  @else
+                                      <input type="hidden"  value="1">
+                                      <input type="checkbox"  disabled='disabled' checked='checked'>
+                                  @endif
+                              <span class="remark">保存した問題にはチェックが付きます！</span>
+                          </a>
+                      </span>
+
+
                   <span class="mgl-5"><strong><?php  echo $genre.$option_num ?> </strong></span>：
                   <?php echo $option_detail ?>
               </div>
+
+
+
 
               <div class="child2">
                   <span class="right-al">

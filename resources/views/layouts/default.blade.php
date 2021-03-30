@@ -75,6 +75,9 @@
                             </a>
                             <form id='logout-form' action={{ route('logout')}} method="POST" style="display: none;">@csrf</form>
                       </li>
+                      <li>
+                          <a href='/contact'>お問い合わせ</a>
+                      <li>
                   </ul>
               </li>
           </ul>
@@ -89,7 +92,7 @@
 
 
 
-    <!-- boostrap用 -->
+    <!-- js読み込み -->
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
