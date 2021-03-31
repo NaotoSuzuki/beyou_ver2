@@ -55,11 +55,12 @@ class ManageOptionsController extends Controller
 
     public function edit($id) {
          $option = Option::findOrFail($id);
-         // dd($post->toArray());
+         // dd($option);
         return view('admin.options.editOption',compact('option'));
     }
 
     public function update(Request $request) {
+        // dd($request);
         $id = $request->id;
         $genre_value = $request->genre_value;
         $option_num = $request->option_num;

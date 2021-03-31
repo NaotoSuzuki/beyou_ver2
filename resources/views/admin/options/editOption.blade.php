@@ -28,27 +28,18 @@
         @php
          $id = $option->id;
         @endphp
-        文法名：<select name="genre_value">
-           <option value="beverb">Be動詞</option>
-           <option value="verb">動詞</option>
-        </select>
+        文法コード：<input type = 'text' name= 'genre_value' value="{{$option->genre_value}}" placeholder="{{$option->genre_value}}">
 
         <br>
-          オプション番号:
-          <select name="option_num">
-           <option value="1" selected>1</option>
-           <option value="2">2</option>
-           <option value="3">3</option>
-           <option value="4">4</option>
-           <option value="5">5</option>
-          </select>
+          オプション番号：<input type = 'text' name= 'option_num' value="{{$option->option_num}}" placeholder="{{$option->option_num}}">
           <br>
 
-          <input type='text' name = "option_name" placeholder="オプション名(文法名+オプション番号)">
+          オプション名:<input type='text' name = "option_name" value="{{$option->option_name}}" placeholder="{{$option->option_name}}">
           <br><br>
 
-          <input type='text' name = "option_detail" placeholder="オプションの簡単な解説(一行分程度)"><br><br>
-
+          オプション簡易説明:<input type='text' name = "option_detail" value="{{$option->option_detail}}" placeholder="{{$option->option_detail}}">
+          <br>
+          <br>
           <p>
             <input type="text" name="option_describe_title" placeholder="オプション説明タイトル" value="{{ old('title') }}">
             @if ($errors->has('title'))

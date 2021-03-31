@@ -8,7 +8,7 @@ require('./bootstrap');
 require('./main');
 require('./addQuestionForm');
 require('./checkOptions');
-require('./demo');
+require('./animation');
 
 
 

@@ -25,6 +25,7 @@
     <form method="post" action="{{ url('/admin/index_explanation/posts/update', $post->id)}}">
         @csrf
         @method('PATCH')
+
           <select name="genre_code">
            <option value="beverb">be動詞</option>
            <option value="verb">動詞</option>
