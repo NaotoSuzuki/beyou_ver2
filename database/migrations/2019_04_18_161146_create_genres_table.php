@@ -16,10 +16,13 @@ class CreateGenresTable extends Migration
         Schema::create('genres', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('genre');
-            $table->string('genre_id');
-            $table->timestamps();
+            $table->string('genre_value');
+            $table->string('genre_describe');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
+
 
     /**
      * Reverse the migrations.

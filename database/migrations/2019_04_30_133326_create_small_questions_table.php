@@ -16,13 +16,18 @@ class CreateSmallQuestionsTable extends Migration
         Schema::create('small_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('genre_value');
+            $table->integer('option_num');
             $table->integer('big_question_id');
             $table->integer('question_num');
             $table->string('question');
             $table->string('answer');
-            $table->timestamps();
+            $table->string('answer2');
+            $table->string('answer3');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
+
 
     /**
      * Reverse the migrations.

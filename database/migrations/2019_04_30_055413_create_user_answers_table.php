@@ -17,14 +17,16 @@ class CreateUserAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('genre_value');
+            $table->integer('option_num');
             $table->integer('big_question_id');
             $table->integer('question_num');
             $table->string('user_answer');
             $table->string('result');
-            $table->timestamp('created')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -36,4 +38,3 @@ class CreateUserAnswersTable extends Migration
         Schema::dropIfExists('user_answers');
     }
 }
-

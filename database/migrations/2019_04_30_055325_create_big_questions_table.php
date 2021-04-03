@@ -16,7 +16,8 @@ class CreateBigQuestionsTable extends Migration
         Schema::create('big_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('big_question');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
