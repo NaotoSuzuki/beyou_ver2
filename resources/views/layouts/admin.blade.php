@@ -62,13 +62,7 @@
                                 @endisset
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        @isset($authgroup)
-                                        {{ Auth::guard($authgroup)->user()->name }} <span class="caret"></span>
-                                        @else
-                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                        @endisset
-                                    </a>
+                
                                     <a href={{ route('logout') }} onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
                                       ログアウト
