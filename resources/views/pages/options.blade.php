@@ -34,9 +34,6 @@ $user_id;
          <form class='option_container' action = "{{url('/questions/question')}}" method="post">
             {{ csrf_field() }}
             <span class="row">
-
-
-
             <!-- <a href ="{{ action('QuestionController@showQuestions', $option_num) }}">問題を解く</a> -->
             <input type = "hidden" name = "option_num" value = "{{$option_num}}"/>
             <input type = "hidden" name = "genre_value" value = "{{$genre_value}}"/>

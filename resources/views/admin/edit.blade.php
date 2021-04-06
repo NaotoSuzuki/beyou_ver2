@@ -26,10 +26,7 @@
         @csrf
         @method('PATCH')
 
-          <select name="genre_code">
-           <option value="beverb">be動詞</option>
-           <option value="verb">動詞</option>
-          </select>
+          <input type="text" name="genre_code" value="" placeholder="genre_code">
 
           <p>
             <input type="text" name="title" placeholder="enter title" value="{{ old('title, $post->title)') }}">
